@@ -1,0 +1,22 @@
+sol nonconf 4 [('AUG13', 2635, 'FEB138491'), ('JUL15', 2899, 'FEB158476'), ('MAY15', 2916, 'FEB158476'), ('SEP15', 2700, 'FEB158476')]
+sol month != file 1 [('JUN17', 3473, 'FEB17 8885')]
+files 135 dups 3 [('DEC18', 1, [319]), ('NOV16', 1, [2862]), ('SEP16', 1, [3113])] 3
+nonmonotone files 6 [('AUG19', 1), ('JAN19', 1), ('JUN17', 1), ('MAY18', 1), ('NOV13', 2), ('NOV16', 1)]
+files with gaps 135 34378 min starts [(1, 94), (5, 14), (53, 3), (2, 3)]
+max per file 8885
+sol numeric 4 digits; starts with 0000? 0
+'' 198813 JAN9 MAR20 prevsol(XXXNNNNNN) 10 (O/A) 9 (C:..) 103791
+'SS' 50069 JAN9 MAR20 prevsol(XXXNNNNNN) 47599 (O/A) 227 (C:..) 8791
+'SPOT' 32351 JAN9 MAR20 prevsol(XXXNNNNNN) 37 (O/A) 252 (C:..) 16856
+'OA' 18149 JAN9 MAR20 prevsol(XXXNNNNNN) 13 (O/A) 17978 (C:..) 11092
+'FI' 15873 JAN9 MAR20 prevsol(XXXNNNNNN) 1 (O/A) 156 (C:..) 12055
+'KIDS' 11433 OCT10 MAR20 prevsol(XXXNNNNNN) 2045 (O/A) 412 (C:..) 4483
+'GEM' 1772 JAN9 MAR20 prevsol(XXXNNNNNN) 0 (O/A) 0 (C:..) 224
+'OA SS' 127 JAN9 MAR15 prevsol(XXXNNNNNN) 122 (O/A) 123 (C:..) 66
+'OA FI' 67 JUL9 APR15 prevsol(XXXNNNNNN) 0 (O/A) 67 (C:..) 67
+'SS KIDS' 64 OCT10 DEC14 prevsol(XXXNNNNNN) 64 (O/A) 0 (C:..) 25
+'OA SPOT' 50 JAN9 MAR15 prevsol(XXXNNNNNN) 0 (O/A) 50 (C:..) 42
+'OA KIDS' 20 OCT10 OCT14 prevsol(XXXNNNNNN) 1 (O/A) 19 (C:..) 9
+'SS SPOT' 9 JUL9 OCT14 prevsol(XXXNNNNNN) 7 (O/A) 0 (C:..) 2
+'SS FI' 1 JUN12 JUN12 prevsol(XXXNNNNNN) 1 (O/A) 0 (C:..) 1
+'FO' 1 SEP19 SEP19 prevsol(XXXNNNNNN) 0 (O/A) 0 (C:..) 1

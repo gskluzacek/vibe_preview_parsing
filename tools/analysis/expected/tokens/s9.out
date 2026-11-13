@@ -1,0 +1,25 @@
+caution digit dist per position [{'0': 58289, '1': 99261}, {'0': 24305, '1': 133245}, {'0': 35097, '1': 27076, '2': 71555, '3': 18731, '4': 5091}]
+[(('1', '1', '2'), 43640), (('0', '1', '2'), 25069), (('1', '0', '0'), 13600), (('1', '1', '0'), 11926), (('1', '1', '1'), 10589), (('0', '1', '0'), 9571), (('1', '1', '3'), 9515), (('0', '1', '3'), 9059)]
+prevsol n 49900 lag months (current order month - prev month) [(-3, 4), (2, 4), (3, 153), (4, 663), (5, 1098), (6, 1576), (7, 1468), (8, 1510), (9, 1489), (10, 1382), (11, 1392), (12, 1435), (13, 1215), (14, 1164), (15, 1152), (16, 1070), (17, 1046), (18, 985), (19, 996), (20, 891), (21, 813), (22, 824), (23, 789), (24, 26781)] same-4digit-as-current 93
+STAR digit lengths Counter({5: 2021})
+sol-code-year != file year 0 sample []
+'' {'n': 198810, 'prevsol': 10, 'O/A': 9, 'RES': 2839}
+'SPOT' {'n': 32351, 'prevsol': 41, 'O/A': 252, 'RES': 237}
+'GEM' {'n': 1772, 'prevsol': 0, 'O/A': 0, 'RES': 5}
+'SS' {'n': 50069, 'prevsol': 49607, 'O/A': 227, 'RES': 6}
+'OA' {'n': 18150, 'prevsol': 13, 'O/A': 17979, 'RES': 1}
+'OA SPOT' {'n': 50, 'prevsol': 0, 'O/A': 50, 'RES': 0}
+'FI' {'n': 15873, 'prevsol': 2, 'O/A': 156, 'RES': 79}
+'OA SS' {'n': 127, 'prevsol': 125, 'O/A': 123, 'RES': 0}
+'SS SPOT' {'n': 9, 'prevsol': 9, 'O/A': 0, 'RES': 0}
+'OA FI' {'n': 67, 'prevsol': 0, 'O/A': 67, 'RES': 0}
+'KIDS' {'n': 11433, 'prevsol': 2048, 'O/A': 412, 'RES': 88}
+'SS KIDS' {'n': 64, 'prevsol': 64, 'O/A': 0, 'RES': 0}
+'OA KIDS' {'n': 20, 'prevsol': 1, 'O/A': 19, 'RES': 0}
+'SS FI' {'n': 1, 'prevsol': 1, 'O/A': 0, 'RES': 0}
+'FO' {'n': 1, 'prevsol': 0, 'O/A': 0, 'RES': 0}
+{'pre': {'n': 1393, 'caut': 97, 'net': 857}, 'premier': {'n': 114457, 'caut': 13095, 'net': 1070}, 'comicsblk': {'n': 105928, 'caut': 39162, 'net': 935}, 'other': {'n': 107019, 'caut': 105147, 'net': 14090}}
+dup caution months [((2009, 6), 4), ((2009, 7), 1), ((2010, 5), 5), ((2010, 7), 1), ((2011, 9), 1), ((2012, 3), 1), ((2012, 12), 1), ((2013, 4), 31), ((2015, 10), 1), ((2016, 1), 1), ((2016, 2), 5), ((2016, 5), 1), ((2018, 7), 2)]
+MR&A both 0
+MR with caution vs not 8047 44687
+weird (C: ['CLASSIC STAR WARS CHESS SET (C: 3 & 4) (PU#518) (Net) (O/A) (C: 1-1-2)', 'AVENGERS AGE OF ULTRON IRON MAN MARK 43 ARTFX STATUE (C: 1-1 (O/A) (C: 1-1-2)', 'FEMME FATALES BATMAN ANIMATED POISON IVY PVC FIGURE (C: 1-1- (O/A) (C: 1-1-0)', 'FEMME FATALES SUPERMAN ANIMATED SUPERGIRL PVC FIGURE (C: 1-1 (O/A) (C: 1-1-0)', 'AVENGERS AGE OF ULTRON IRON MAN MARK 43 ARTFX STATUE (C: 1-1 (O/A) (C: 1-1-2)', 'A3 INFINITY WAR EAA-060 IRON SPIDER PX AF (NET) (C: 1- (C: 1-1-2)']

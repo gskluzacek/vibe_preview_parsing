@@ -1,5 +1,5 @@
 import re,glob,os,collections,pickle
-P='/Volumes/U34-Bolt/Personal/development/github/previews_parsing/cof_files/'
+from config import COF_DIR as P
 files=sorted([f for f in os.listdir(P) if re.fullmatch(r'[A-Z]{3}\d\d\.txt',f)],key=lambda f:(f[3:5],['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'].index(f[:3])))
 print(len(files))
 PAGE=re.compile(r'^PAGE\s+(M-?|S-?)?\d+\s*$',re.I)

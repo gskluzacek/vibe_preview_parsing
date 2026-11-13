@@ -1,5 +1,5 @@
 import re,json,glob
-D=glob.glob('/Volumes/U34-Bolt/Personal/development/github/previews/old_code/Preview*Parsing/previews*parsing/bipolar_2014_08_16.sql')[0]
+import config; D=config.DUMP_SQL
 rows=[];on=False;blocks=[]
 with open(D,encoding='latin-1') as f:
     for n,l in enumerate(f,1):

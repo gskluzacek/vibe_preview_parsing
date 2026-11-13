@@ -1,0 +1,10 @@
+items 328797 distinct 287319
+len min/med/mean/p90/p99/max 4 42 41.5 59 71 101
+[(0, 2030), (10, 22753), (20, 41937), (30, 72066), (40, 91555), (50, 68511), (60, 24992), (70, 4653), (80, 283), (90, 12), (100, 5)]
+lower 16954
+nonascii 18 [('Ã', 16), ('\x89', 14), ('\x88', 1), ('â', 2), ('\x80', 2), ('\x99', 2), ('\x8f', 1)]
+punct [('-', 337205), ('(', 327762), (')', 327754), (':', 157836), ('#', 102787), ('/', 55541), ('&', 15279), ('.', 2767), ('+', 1013), ('%', 447), ('$', 173), ('*', 104), ('`', 78), ('[', 48), (']', 48), ('!', 46), ('"', 46), ("'", 33), ('?', 24), ('\x89', 14), ('@', 6), (',', 4), ('=', 3), ('\\', 3), ('\x80', 2), ('\x99', 2), ('\x88', 1), ('|', 1), ('\x8f', 1)]
+digits 1219551
+lead/trail space 70 double space 4
+lowercase examples ['FCBD 2009 ORANGE WRIST BAND (Net) (C: 1-0-0)', 'FCBD 2009 BLACK ADJUSTABLE LOGO HAT (Net)', 'FCBD 2009 BLACK FCBD09 LOGO T-SHIRT SM (Net)', 'FCBD 2009 BLACK FCBD09 LOGO T-SHIRT MED (Net)', 'FCBD 2009 BLACK FCBD09 LOGO T-SHIRT LG (Net)']
+['POKÃ\x89MON POP N BATTLE SERIES 1 ASST (Net) (C: 1-1-4)', 'POKÃ\x89MON TRANSFORMING PLUSH SERIES 1 ASST (Net) (C: 1-1-4)', 'POKÃ\x89MON TCG 2008 HOLIDAY COLLECTORS WV1 TIN DIS (C: 1-1-2)', 'POKÃ\x89MON TCG D&P STORMFRONT BSTR DIS (C: 1-1-2)', 'POKÃ\x89MON TCG D&P STORMFRONT THM DECK DIS (C: 1-1-2)']

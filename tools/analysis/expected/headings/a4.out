@@ -1,0 +1,60 @@
+noise headings 59
+--- top by items, not full-span (first!=JAN09 or last!=MAR20)
+('DARK HORSE', 'JAN09.txt', 'APR18.txt', 109, 14831, 112)
+('D. E./DYNAMITE ENTERTAINMENT', 'JAN09.txt', 'MAR18.txt', 111, 5950, 111)
+('FUNKO', 'APR14.txt', 'MAR20.txt', 72, 5920, 72)
+('DC COMICS', 'JAN09.txt', 'APR18.txt', 109, 4532, 112)
+('DARK HORSE COMICS', 'SEP17.txt', 'MAR20.txt', 26, 4305, 31)
+('VIZ MEDIA LLC', 'JAN09.txt', 'FEB19.txt', 120, 4124, 122)
+('DC ENTERTAINMENT', 'SEP17.txt', 'MAR20.txt', 26, 3746, 31)
+('DYNAMITE ENTERTAINMENT', 'APR18.txt', 'MAR20.txt', 24, 3659, 24)
+('BOUNDLESS COMICS', 'AUG10.txt', 'MAR20.txt', 97, 3610, 116)
+('DC UNIVERSE', 'JAN09.txt', 'SEP16.txt', 37, 3561, 93)
+('ZENESCOPE ENTERTAINMENT INC', 'JAN09.txt', 'MAY18.txt', 113, 3414, 113)
+('MAD ENGINE', 'JAN09.txt', 'NOV17.txt', 99, 3233, 107)
+('COLLECTED EDITIONS', 'MAR11.txt', 'MAR20.txt', 91, 3232, 109)
+('PREVIEWS EXCLUSIVE WEAR', 'JUN11.txt', 'JUN18.txt', 85, 3136, 85)
+('VERTIGO', 'JAN09.txt', 'MAR18.txt', 101, 3094, 111)
+('ARCHIE COMIC PUBLICATIONS', 'JAN09.txt', 'FEB19.txt', 120, 2905, 122)
+('COMICS', 'JAN09.txt', 'APR19.txt', 114, 2050, 124)
+('MIGHTY FINE', 'FEB14.txt', 'SEP17.txt', 44, 1813, 44)
+('ACTION LAB - DANGER ZONE', 'JUN15.txt', 'MAR20.txt', 57, 1689, 58)
+('DOCTOR WHO', 'JAN09.txt', 'FEB20.txt', 112, 1641, 134)
+('VALIANT ENTERTAINMENT LLC', 'MAR12.txt', 'MAY18.txt', 74, 1495, 75)
+('KODANSHA COMICS', 'AUG09.txt', 'MAR20.txt', 119, 1475, 128)
+('EAGLEMOSS', 'AUG13.txt', 'MAR20.txt', 80, 1418, 80)
+('AMERICAN MYTHOLOGY PRODUCTIONS', 'APR16.txt', 'MAR20.txt', 48, 1378, 48)
+('DC UNIVERSE: BATMAN', 'JAN09.txt', 'JUL13.txt', 53, 1306, 55)
+('KOTOBUKIYA', 'JAN09.txt', 'NOV19.txt', 127, 1289, 131)
+('CMX', 'JAN09.txt', 'JUN10.txt', 18, 1200, 18)
+('GEEK CHIC BOUTIQUE', 'SEP13.txt', 'JAN16.txt', 26, 1200, 29)
+('ASPEN MLT INC', 'JAN09.txt', 'MAY18.txt', 113, 1159, 113)
+('DC UNIVERSE: THE NEW 52', 'JUL12.txt', 'MAR15.txt', 18, 1146, 33)
+('ONI PRESS INC.', 'JAN09.txt', 'MAY18.txt', 113, 1110, 113)
+('ACTION LAB ENTERTAINMENT', 'MAY11.txt', 'MAR20.txt', 106, 1084, 107)
+('DC COLLECTIBLES', 'JUL12.txt', 'MAR20.txt', 75, 1052, 93)
+('NENDOROIDS', 'APR13.txt', 'MAR20.txt', 83, 1042, 84)
+('ART BOOKS', 'JAN09.txt', 'MAR18.txt', 111, 1022, 111)
+('ANIMATION', 'JAN09.txt', 'FEB20.txt', 101, 966, 134)
+('DC DIRECT', 'JAN09.txt', 'JUN12.txt', 40, 955, 42)
+('STAR TREK', 'JAN09.txt', 'FEB20.txt', 120, 904, 134)
+('SEVEN SEAS ENTERTAINMENT LLC', 'JAN09.txt', 'MAY18.txt', 104, 892, 113)
+('FANTASY FLIGHT PUBLISHING INC', 'JAN09.txt', 'MAY16.txt', 88, 878, 89)
+--- L1 first/last/nfiles
+PREMIER PUBLISHERS JAN09.txt MAR20.txt 135
+COMICS JAN09.txt APR19.txt 114
+BOOKS JAN09.txt MAR18.txt 61
+MAGAZINES JAN09.txt MAR18.txt 63
+BOOKS & MAGAZINES AUG09.txt DEC13.txt 50
+CALENDARS APR09.txt APR19.txt 17
+INTERNATIONAL JAN09.txt MAR18.txt 111
+WIZARD ENTERTAINMENT JAN09.txt FEB11.txt 26
+PREMIERE COLLECTIBLES JAN09.txt APR13.txt 42
+OTHER IMPORT TOYS & MODELS JAN09.txt AUG10.txt 16
+STATUES & MODELS JAN09.txt AUG15.txt 80
+DVDS & DIGITAL MEDIA JAN09.txt JUL15.txt 79
+TOYS JAN09.txt MAY18.txt 113
+DIAMOND SELECT TOYS & COLLECTIBLES JAN09.txt MAR20.txt 118
+DESIGNER TOYS JAN09.txt MAR20.txt 127
+OTHER APPAREL JAN09.txt MAR20.txt 125
+[('JAN09.txt', 271), ('FEB09.txt', 269), ('MAR09.txt', 224), ('APR09.txt', 209), ('MAY09.txt', 228), ('JUN09.txt', 212), ('JUL09.txt', 227), ('AUG09.txt', 215), ('SEP09.txt', 205), ('OCT09.txt', 205), ('NOV09.txt', 194), ('DEC09.txt', 195), ('JAN10.txt', 187), ('FEB10.txt', 190), ('MAR10.txt', 196), ('APR10.txt', 206), ('MAY10.txt', 201), ('JUN10.txt', 219), ('JUL10.txt', 231), ('AUG10.txt', 231), ('SEP10.txt', 206), ('OCT10.txt', 223), ('NOV10.txt', 195), ('DEC10.txt', 203), ('JAN11.txt', 213), ('FEB11.txt', 217), ('MAR11.txt', 202), ('APR11.txt', 194), ('MAY11.txt', 212), ('JUN11.txt', 214), ('JUL11.txt', 224), ('AUG11.txt', 230), ('SEP11.txt', 207), ('OCT11.txt', 221), ('NOV11.txt', 202), ('DEC11.txt', 201), ('JAN12.txt', 216), ('FEB12.txt', 209), ('MAR12.txt', 211), ('APR12.txt', 196), ('MAY12.txt', 227), ('JUN12.txt', 233), ('JUL12.txt', 245), ('AUG12.txt', 244), ('SEP12.txt', 230), ('OCT12.txt', 227), ('NOV12.txt', 213), ('DEC12.txt', 207), ('JAN13.txt', 211), ('FEB13.txt', 202), ('MAR13.txt', 212), ('APR13.txt', 214), ('MAY13.txt', 215), ('JUN13.txt', 229), ('JUL13.txt', 223), ('AUG13.txt', 232), ('SEP13.txt', 212), ('OCT13.txt', 216), ('NOV13.txt', 206), ('DEC13.txt', 213), ('JAN14.txt', 204), ('FEB14.txt', 227), ('MAR14.txt', 209), ('APR14.txt', 205), ('MAY14.txt', 233), ('JUN14.txt', 222), ('JUL14.txt', 235), ('AUG14.txt', 243), ('SEP14.txt', 233), ('OCT14.txt', 224), ('NOV14.txt', 225), ('DEC14.txt', 213), ('JAN15.txt', 210), ('FEB15.txt', 229), ('MAR15.txt', 238), ('APR15.txt', 246), ('MAY15.txt', 244), ('JUN15.txt', 244), ('JUL15.txt', 244), ('AUG15.txt', 245), ('SEP15.txt', 252), ('OCT15.txt', 240), ('NOV15.txt', 239), ('DEC15.txt', 215), ('JAN16.txt', 238), ('FEB16.txt', 239), ('MAR16.txt', 222), ('APR16.txt', 236), ('MAY16.txt', 251), ('JUN16.txt', 246), ('JUL16.txt', 270), ('AUG16.txt', 289), ('SEP16.txt', 250), ('OCT16.txt', 259), ('NOV16.txt', 231), ('DEC16.txt', 252), ('JAN17.txt', 241), ('FEB17.txt', 248), ('MAR17.txt', 245), ('APR17.txt', 249), ('MAY17.txt', 264), ('JUN17.txt', 256), ('JUL17.txt', 239), ('AUG17.txt', 281), ('SEP17.txt', 245), ('OCT17.txt', 204), ('NOV17.txt', 219), ('DEC17.txt', 223), ('JAN18.txt', 191), ('FEB18.txt', 221), ('MAR18.txt', 221), ('APR18.txt', 230), ('MAY18.txt', 234), ('JUN18.txt', 260), ('JUL18.txt', 255), ('AUG18.txt', 289), ('SEP18.txt', 243), ('OCT18.txt', 223), ('NOV18.txt', 241), ('DEC18.txt', 253), ('JAN19.txt', 227), ('FEB19.txt', 259), ('MAR19.txt', 226), ('APR19.txt', 244), ('MAY19.txt', 239), ('JUN19.txt', 239), ('JUL19.txt', 303), ('AUG19.txt', 300), ('SEP19.txt', 252), ('OCT19.txt', 242), ('NOV19.txt', 231), ('DEC19.txt', 228), ('JAN20.txt', 256), ('FEB20.txt', 255), ('MAR20.txt', 255)]

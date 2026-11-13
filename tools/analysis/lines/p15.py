@@ -1,4 +1,4 @@
-exec(open('/private/tmp/claude-501/-Volumes-U34-Bolt-Personal-development-github-vibe-preview-parsing/961fccd7-e904-460f-abf8-159486acec47/scratchpad/lines/common.py').read())
+from common import *
 import difflib
 a=open(D+'JAN09_original_txt','rb').read();b=open(D+'JAN09.txt','rb').read()
 print('JAN09: orig is prefix of txt?',b.startswith(a[:-3]), 'orig tail',a[-12:],'txt at that point',b[len(a)-3:len(a)+12], 'extra bytes', len(b)-len(a))

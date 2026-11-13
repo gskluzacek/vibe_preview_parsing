@@ -1,0 +1,9 @@
+Counter({'MMMYYNNNN': 47599, 'STAR': 2008, 'none': 458, 'other-paren': 4}) {'MMMYYNNNN': ('APR09', 13, 'PREDATOR OMNIBUS TP VOL 01 (APR070018)'), 'STAR': ('APR09', 84, 'LONE WOLF & CUB TP VOL 01 THE ASSASSINS ROAD (STAR11783) (C: 1-0-0)'), 'none': ('APR11', 1158, 'STAN DRAKE HEART JULIET JONES TP VOL 01'), 'other-paren': ('DEC09', 667, 'SWORD (MARVEL) #4')}
+STAR any flag Counter({'SS': 2008, 'SPOT': 4, 'OA SS': 3, 'KIDS': 3, 'SS SPOT': 2, 'FI': 1}) files 129
+SS none sample [('APR11', 'STAN DRAKE HEART JULIET JONES TP VOL 01'), ('APR15', 'JOHNNY BOO HC VOL 02 TWINKLE POWER (O/A)'), ('APR15', 'JOHNNY BOO HC VOL 03 HAPPY APPLES (NEW PTG) (O/A)'), ('APR15', 'DRAGON PUNCHER HC BOOK 02 DRAGON PUNCHER ISLAND (O/A)'), ('APR15', 'SLEEP TIGHT ANNA BANANA YR GN (O/A) (C: 1-0-0)')]
+blank-date flags [('OA', 4983), ('', 3585), ('SS', 2431), ('SPOT', 216), ('FI', 181), ('OA SPOT', 14)]
+blank-date price [('SRP: $N', 10725), ('SRP: PI', 571), ('MSRP: $N', 116), ('$N', 4)]
+blank date with (C: 6933 of 11416
+JAN09 flags [('SS', 2831), ('', 1760), ('SPOT', 180), ('FI', 119), ('OA', 114), ('GEM', 10)]
+flag combos ['', 'FI', 'FO', 'GEM', 'KIDS', 'OA', 'OA FI', 'OA KIDS', 'OA SPOT', 'OA SS', 'SPOT', 'SS', 'SS FI', 'SS KIDS', 'SS SPOT']
+['PREDATOR #1 (OF 4)', 'WEREWOLVES ON THE MOON VERSUS VAMPIRES #1 (OF 3)', 'BATMAN AND ROBIN #1']

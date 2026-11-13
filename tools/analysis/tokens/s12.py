@@ -12,7 +12,7 @@ print('ONGOING w/o parens',cnt(r'(?<!\()ONGOING(?!\))'))
 # net vs price field
 import glob
 # reload price field
-D='/Volumes/U34-Bolt/Personal/development/github/previews_parsing/cof_files/'
+from config import COF_DIR as D
 pf=collections.Counter()
 for fn in glob.glob(D+'*.txt'):
     for ln in open(fn,encoding='latin-1'):

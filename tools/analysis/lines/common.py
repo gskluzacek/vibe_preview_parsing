@@ -1,6 +1,5 @@
-import os,re,glob
-D='/Volumes/U34-Bolt/Personal/development/github/previews_parsing/cof_files/'
-O='/Volumes/U34-Bolt/Personal/development/github/previews/old_code/Preview Parsing/previews parsing/'
+import os, re, glob
+from config import COF_DIR as D, OLD_COF_DIR as O
 M=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC']
 def files():
     r=[]

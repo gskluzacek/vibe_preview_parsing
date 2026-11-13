@@ -1,4 +1,4 @@
-import sys; sys.path.insert(0,"/private/tmp/claude-501/-Volumes-U34-Bolt-Personal-development-github-vibe-preview-parsing/961fccd7-e904-460f-abf8-159486acec47/scratchpad/tokens")
+import sys
 import pickle,collections,random,sys
 from cls import CR
 r=pickle.load(open('rows.pkl','rb'))

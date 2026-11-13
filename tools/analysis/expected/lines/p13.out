@@ -1,0 +1,7 @@
+A=>=2tabs,B=>=3 nonempty fields,C=nonempty col1,Cs=col1 matches AAA99 9999
+Counter({(True, True, True, True): 328796, (False, False, False, False): 106716, (True, False, False, False): 1439, (True, True, True, False): 4, (True, False, True, True): 1})
+1444
+Counter({(True, False, False, False): 1439, (True, True, True, False): 4, (True, False, True, True): 1})
+(True, False, False, False) [('JAN13.txt', 3, (True, False, False, False), 'PREVIEWS PUBLICATIONS\t\t\t\t\t'), ('JAN13.txt', 4, (True, False, False, False), 'FREE COMIC BOOK DAY\t\t\t\t\t'), ('JAN13.txt', 5, (True, False, False, False), 'PAGE 30\t\t\t\t\t')]
+(True, False, True, True) [('JUN13.txt', 2000, (True, False, True, True), '\tJUN13 1650\tDO NOT ORDER FROM THIS LINE')]
+(True, True, True, False) [('AUG13.txt', 2635, (True, True, True, False), '\tFEB138491\tWOOSERS HTML REN & DARTH WOOSER NENDOROID (C: 1-1-2)\t09/25/13\tSRP: $74.99\t = $\t'), ('MAY15.txt', 2916, (True, True, True, False), '\tFEB158476\tALDNOAH ZERO ASSEYLUM ALLUSIA ANI-STATUE (C: 1-1-2)\t09/30/15\tSRP: $89.99\t = $\t'), ('JUL15.txt', 2899, (True, True, True, False), '\tFEB158476\tFAMILIA MYTH HESTIA ANI-STATUE (C: 1-1-2)\t12/30/15\tSRP: $94.99\t = $\t')]

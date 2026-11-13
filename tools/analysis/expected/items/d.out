@@ -1,0 +1,12 @@
+1441 Counter({'JUL13': 738, 'JAN13': 701, 'JUN12': 1, 'SEP19': 1})
+JAN13 3 ['PREVIEWS PUBLICATIONS', '', '', '', '', '']
+JAN13 4 ['FREE COMIC BOOK DAY', '', '', '', '', '']
+JAN13 5 ['PAGE 30', '', '', '', '', '']
+JAN13 6 ['MERCHANDISE', '', '', '', '', '']
+JAN13 8 ['PAGE 31', '', '', '', '', '']
+JAN13 24 ['PAGE 16', '', '', '', '', '']
+JUL13 2928 ['IN THEATRES THIS MONTH', '', '', '', '', '']
+JUN12 2430 ['SS FI', 'JUN12 1983', 'KUBRICKS CLEAR FIGURE CASE (APR108187) (C: 0-1-4)', '07/11/12', 'SRP: PI', ' = $']
+SEP19 2850 ['FO', 'SEP19 2392', 'BATMAN DARK KNIGHT SYMBOL T/S XXL (C: 1-1-2)', '11/27/19', 'SRP: $22.95', ' = $']
+Counter({(2, False): 1439, (0, True): 2})
+Counter({'BAD': 1439, 'JUN': 1, 'SEP': 1})

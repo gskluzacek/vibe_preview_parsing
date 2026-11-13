@@ -1,0 +1,13 @@
+328801 1439
+endings [(' = $\t\r', 324778), (' = $\r', 4021), ('\r', 1), (' = $\t \r', 1)]
+no CR 0
+bad 2 [('JUN13', 2000, '\tJUN13 1650\tDO NOT ORDER FROM THIS LINE\r'), ('MAR18', 864, 'OA\tMAR18 0731\tREALM #1 2ND PTG (O/A) (MR)\t04/18/18\tSRP: $3.99\t = $\t \r')]
+Counter({('std', True): 318223, ('extra_blank', True): 5131, ('std', False): 4021, ('nodate', True): 1424})
+('std', False) {'JAN13': 1819, 'JAN19': 2, 'JUL11': 2, 'JUL13': 2198}
+('nodate', True) {'APR09': 34, 'MAR09': 1390}
+('extra_blank', True) {'FEB09': 5123, 'SEP15': 8}
+Counter({'MAR09': 1390, 'APR09': 34})
+nodate f3 forms [('SRP: $N', 1409), ('MSRP: $N', 10), ('SRP: PI', 4), ('$N', 1)]
+extra_blank files Counter({'FEB09': 5123, 'SEP15': 8})
+tails Counter({' = $': 328799})
+std without tail tab files ['JAN13', 'JAN19', 'JUL11', 'JUL13']

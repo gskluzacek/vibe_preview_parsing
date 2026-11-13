@@ -1,0 +1,18 @@
+Counter({'heading-like': 33825, 'upper-with-digits': 1045, 'ident': 137, 'NOTE': 8, 'long': 1})
+heading-like 133 files [('JAN09.txt', 2, 'PREVIEWS PUBLICATIONS'), ('JAN09.txt', 3, 'FREE COMIC BOOK DAY'), ('JAN09.txt', 28, 'PREMIER PUBLISHERS')]
+upper-with-digits 135 files [('JAN09.txt', 1373, '2000 AD'), ('JAN09.txt', 4392, '801 MEDIA INC'), ('JAN09.txt', 4411, ':01 FIRST SECOND')]
+NOTE 7 files [('MAR09.txt', 2518, '(NOTE: This contains a reprinting of Halo Uprising #1 and #2. Last minute addition, not listed in Marvel Previews.)'), ('JAN11.txt', 6, "(NOTE: Please check with your retailer for the availability of the Free Comic Book Day titles offered in this month's catalog!)"), ('NOV11.txt', 780, "(NOTE: This was incorrectly listed on the checklist as Astonishing X-Men: Inside Pandora's Box.)")]
+ident 127 files [('APR09.txt', 1, 'PREVIEWS MAR V19 #4'), ('MAY09.txt', 1, 'PREVIEWS MAR V19 #5'), ('JUN09.txt', 1, 'PREVIEWS MAR V19 #6')]
+long 1 files [('JAN14.txt', 7, '[GR: FREE COMIC BOOK DAY HORIZONTAL LOGO -- ALSO, A YELLOW BACKGROUND BEHIND FCBD ITEMS]')]
+--- NOTE 8 distinct
+[('(NOTE: This contains a reprinting of Halo Uprising #1 and #2. Last minute addition, not listed in Marvel Previ', 1), ('(NOTE: Please check with your retailer for the availability of the Free Comic Book Day titles offered in this ', 1), ("(NOTE: This was incorrectly listed on the checklist as Astonishing X-Men: Inside Pandora's Box.)", 1), ('(NOTE: Ultimate Comics Spider-Man #15 was mistakenly left out of the Marvel Previews solicits.)', 1), ('(NOTE: This was incorrectly listed as Spider-Man Anniversary Series TP on the checklist. The correct title, as', 1), ('(NOTE: All DC Comics will be available digital day and date.)', 1), ('(NOTE: Look for the exciting relaunch of Boundless in 2014!)', 1), ("(NOTE: Check with your retailer for the availability of Free Comic Book Day titles offered in this month's PRE", 1)]
+--- paren-other 0 distinct
+[]
+--- has-lowercase 0 distinct
+[]
+--- upper-with-digits 116 distinct
+[('RED 5 COMICS', 123), ('REBELLION / 2000AD', 119), (':01 FIRST SECOND', 118), ('801 MEDIA INC', 88), ('215 INK', 58), ('DEVILS DUE /1FIRST COMICS, LLC', 35), ('12-GAUGE COMICS', 33), ('Z2 COMICS', 31), ('TH3RD WORLD STUDIOS', 30), ('451 MEDIA GROUP', 29), ('GALLERY 13', 23), ('007 MAGAZINE & ARCHIVE LTD.', 21)]
+--- long 1 distinct
+[('[GR: FREE COMIC BOOK DAY HORIZONTAL LOGO -- ALSO, A YELLOW BACKGROUND BEHIND FCBD ITEMS]', 1)]
+1919 distinct headings, total 33825
+[('MOVIE/TV', 659), ('STAR WARS', 527), ('VIDEO GAMES', 417), ('MARVEL HEROES', 397), ('HORROR', 344), ('DC HEROES', 334), ('COMICS', 297), ('ANIME', 293), ('DOCTOR WHO', 290), ('STAR TREK', 287), ('DISNEY', 234), ('ANIMATION', 205), ('TOPPS COMPANY', 194), ('POP CULTURE', 187), ('DC COMICS', 178), ('DESIGNER TOYS', 167), ('ART BOOKS', 165), ('MARVEL COMICS', 153), ('GAMES', 152), ('CRYPTOZOIC ENTERTAINMENT', 149), ('APPAREL', 142), ('IDW PUBLISHING', 141), ('POP CULTURE & MUSIC', 140), ('PREVIEWS PUBLICATIONS', 138), ('YEN PRESS', 137)]

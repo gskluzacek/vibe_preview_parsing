@@ -1,5 +1,5 @@
 import re,glob,os,pickle,collections
-D='/Volumes/U34-Bolt/Personal/development/github/previews_parsing/cof_files/'
+from config import COF_DIR as D
 MON='JAN FEB MAR APR MAY JUN JUL AUG SEP OCT NOV DEC'.split()
 def ym(fn):
     b=os.path.basename(fn)[:-4]; return (1900+int(b[3:]) if int(b[3:])>50 else 2000+int(b[3:]), MON.index(b[:3])+1)

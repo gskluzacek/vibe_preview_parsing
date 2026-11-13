@@ -1,0 +1,7 @@
+Counter({('lead_ws', False): 35526, ('trail_ws', False): 35016, ('trail_ws', True): 510})
+{'tot': 35393, 'followed_page': 9, 'prev_page': 13664, 'prev_blank': 144, 'prev_hdg': 1806, 'upper': 35393, 'numeric': 140}
+Counter({'numeric': 140, 'ident-like': 4, 'no-letters': 4, 'bracket': 1})
+ident-like examples [('PREVIEWS ORDER FORM', 2), ('OCT V19 #10', 1), ('NOV V19 #11', 1)]
+all non-item/page/note lines pred 317 gold 316 tp 316 prec 0.9968 rec 1.0
++caps+has-letter+not bracket/numeric pred 316 gold 316 tp 316 prec 1.0 rec 1.0
+[('143', 'JAN09.txt'), ('148', 'FEB09.txt'), ('3', 'MAR09.txt'), ('59', 'APR09.txt'), ('2', 'MAY09.txt'), ('3', 'JUN09.txt'), ('2', 'JUL09.txt'), ('17', 'AUG09.txt')]

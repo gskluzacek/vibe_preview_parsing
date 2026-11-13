@@ -1,5 +1,5 @@
 import re,glob,os,collections as C
-D='/Volumes/U34-Bolt/Personal/development/github/previews_parsing/cof_files/'
+from config import COF_DIR as D
 MON='JAN FEB MAR APR MAY JUN JUL AUG SEP OCT NOV DEC'.split()
 rows=[]
 for p in sorted(glob.glob(D+'*.txt')):

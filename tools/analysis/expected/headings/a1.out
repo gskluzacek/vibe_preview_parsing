@@ -1,0 +1,11 @@
+distinct 2056 occ 35393
+{2009: 597, 2010: 537, 2011: 580, 2012: 557, 2013: 534, 2014: 557, 2015: 567, 2016: 587, 2017: 567, 2018: 637, 2019: 646, 2020: 392}
+one file 617 2-5 615 6-50 653 >50 171 all135 24
+per file hdg lines mean 262.1703703703704
+['A.L. PUBLISHING', 'TERMINUS MEDIA LLC', 'POISON PRESS', 'CAMERON + COMPANY', "'KICKSTAND CYCLERY", 'YUMMY WORLD', '25', 'POWERHOUSE BOOKS', 'INKWORKS', 'MANGO', 'NEXUS GAMES', 'TOMY INTERNATIONAL', 'UBISOFT', 'EDITIONS TREVILLE', 'COLLECTED EDTIONS', 'RAVENSBURGER USA INC', 'FATE EXTELLA', 'OXFORD UNIVERSITY PRESS', 'DC UNIVESE: GREEN LANTERN', 'ORIGINAL MOVIE POSTER', 'G P PUTNAMS SONS BOOKS FOR YOU', 'YALE UNIVERSITY PRESS', 'HALLOWEEN MINI COMIC BUNDLES', 'BLACK BALLOON PUBLISHING', 'JOURNALS & STATIONERY']
+lower-case headings 0 []
+long >60 ['[GR: FREE COMIC BOOK DAY HORIZONTAL LOGO -- ALSO, A YELLOW BACKGROUND BEHIND FCBD ITEMS]']
+[('MAR09.txt', '(NOTE: This contains a reprinting of Halo Uprising #1 and #2. Last minute addition, not listed in Marvel Previews.)'), ('JAN11.txt', "(NOTE: Please check with your retailer for the availability of the Free Comic Book Day titles offered in this month's catalog!)"), ('NOV11.txt', "(NOTE: This was incorrectly listed on the checklist as Astonishing X-Men: Inside Pandora's Box.)"), ('JUL12.txt', '(NOTE: Ultimate Comics Spider-Man #15 was mistakenly left out of the Marvel Previews solicits.)'), ('AUG12.txt', "(NOTE: This was incorrectly listed as Spider-Man Anniversary Series TP on the checklist. The correct title, as solicited, is Spider-Man: World's Greatest Hero TP.)")]
+ident first-lines Counter({'IDENT': 124, 'PAGE': 8, 'HDG': 2, 'BLANK': 1})
+first nonblank non-page types Counter({'IDENT': 125, 'PAGE': 8, 'HDG': 2})
+items with <3 fields 1

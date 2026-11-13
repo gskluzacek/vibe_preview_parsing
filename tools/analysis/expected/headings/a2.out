@@ -1,0 +1,18 @@
+316 Counter({'JAN09.txt': 316}) Counter({'2': 243, '4': 27, '1': 21, '3': 21, '': 4})
+dup_pvl_id nonempty 4 pg range 4 487
+indent consistent with lvl Counter({('2', 4): 242, ('4', 12): 27, ('1', 0): 21, ('3', 8): 21, ('', 0): 4, ('2', 0): 1})
+[('1400', 'CMX', ''), ('4825', 'COMIC-THEMED MAGAZINES', ''), ('4835', 'TV & MOVIE MAGAZINES', ''), ('5682', 'WIZARDS OF THE COAST', '')]
+JAN09 hdg lines 317 extract rows 316 seq equal False
+replace ['CANDY, CONFECTIONS AND DRINKS'] ['"CANDY, CONFECTIONS AND DRINKS"']
+replace ['POK…MON'] ['POKÉMON']
+replace ['POK…MON USA'] ['POKÉMON USA']
+delete ['143'] []
+agree 277 disagree 33 name not in dump 2 ambig names 15
+[('DC COMICS BACKLIST', 3, [2]), ('DC UNIVERSE: BATMAN', 4, [3]), ('DC UNIVERSE: SUPERMAN', 4, [3]), ('DC UNIVERSE', 4, [3]), ('DC UNIVERSE: ARCHIVES', 4, [3]), ('MAD MAGAZINE', 4, [3]), ('DC: BEYOND THE UNIVERSE', 4, [3]), ('PARADOX PRESS', 4, [3]), ('THE WILL EISNER LIBRARY', 4, [3]), ('2000 AD', 4, [3]), ('CMX', 4, [3]), ('WILDSTORM', 4, [3]), ("AMERICA'S BEST COMICS", 4, [3]), ('CLIFFHANGER', 4, [3]), ('HOMAGE COMICS', 4, [3]), ('VERTIGO', 4, [3]), ('DC DIRECT', 4, [3]), ('MARVEL COMICS BACKLIST', 3, [2]), ('MARVEL MASTERWORKS', 4, [3]), ('MARVEL ESSENTIALS', 4, [3])]
+[('POKÉMON', 2), ('POKÉMON USA', 2)]
+distinct extract names 270
+JAN09 distinct 271 in dump 268
+corpus distinct 2056 in dump 709 occ coverage 0.7380838018817281
+dump names never in corpus 2
+<=2014 distinct 1403 in dump 709
+['POK…MON', 'POK…MON USA', '143', 'POKÉMON', 'POKÉMON USA', '148', '3', '59', 'POKÉMON USA, INC.', '2', '17', '56', 'PREVIEWS ORDER FORM', 'OCT V19 #10', '1', 'NOV V19 #11', '36', '51', '55', 'DRAGONFISH COMICS', 'G.G. STUDIO', 'POP SANDBOX', 'RANDOM HOUSE', 'RAZOR WOLF ENTERTAINMENT LLC', 'REYNOLDS & HEARNS LTD', 'SPINNER RACK COMICS', 'ZIP COMICS', 'CUBICLE 7 ENTERTAINMENT LTD', 'ELFIN WERKS', 'SIRIUS']

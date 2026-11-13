@@ -1,5 +1,6 @@
+import config
 import pickle,collections,re,csv
-P='/Volumes/U34-Bolt/Personal/development/github/previews_parsing/cof_files/'
+from config import COF_DIR as P
 files,out=pickle.load(open('rec.pkl','rb'))
 # raw whitespace features of HDG lines
 feat=collections.Counter()
@@ -35,7 +36,7 @@ for f in files:
 print(bad)
 print('ident-like examples',collections.Counter(s for f in files for k,s in out[f] if k=='HDG' and re.search(r'V\d+ #\d+|ORDER FORM',s)).most_common(5))
 # JAN09 eval
-ex=list(csv.reader(open('/Volumes/U34-Bolt/Personal/development/github/previews_parsing/headings_hrch_extract_2.txt',encoding='utf-8'),delimiter='\t',quoting=csv.QUOTE_NONE))[1:]
+ex=list(csv.reader(open(config.HEADING_EXTRACT,encoding='utf-8'),delimiter='\t',quoting=csv.QUOTE_NONE))[1:]
 gold=collections.Counter(x[8].strip().strip('"').replace('É','…') for x in ex)
 def rule(s):
     return s==s.upper() and bool(re.search(r'[A-Z]',s)) and not s.startswith('[') and not re.fullmatch(r'[\d\s]+',s) 

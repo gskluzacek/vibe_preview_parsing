@@ -1,4 +1,4 @@
-exec(open('/private/tmp/claude-501/-Volumes-U34-Bolt-Personal-development-github-vibe-preview-parsing/961fccd7-e904-460f-abf8-159486acec47/scratchpad/lines/common.py').read())
+from common import *
 for y,m,f in files():
     L=open(D+f,'rb').read().decode('utf-8').split('\r\n')
     for i,l in enumerate(L,1):

@@ -1,9 +1,10 @@
+import config
 import pickle,collections,json,csv,re
 files,out=pickle.load(open('rec.pkl','rb'))
 r=json.load(open('hdg_lvls.json'))
 dl=collections.defaultdict(set)
 for x in r: dl[x[4]].add(x[1])
-ex=list(csv.reader(open('/Volumes/U34-Bolt/Personal/development/github/previews_parsing/headings_hrch_extract_2.txt',encoding='utf-8'),delimiter='\t',quoting=csv.QUOTE_NONE))
+ex=list(csv.reader(open(config.HEADING_EXTRACT,encoding='utf-8'),delimiter='\t',quoting=csv.QUOTE_NONE))
 hdr=ex[0];ex=[dict(zip(hdr,x)) for x in ex[1:]]
 print(len(ex),collections.Counter(e['file_name'] for e in ex),collections.Counter(e['hdg_lvl'] for e in ex))
 print('dup_pvl_id nonempty',sum(1 for e in ex if e['dup_pvl_id']), 'pg range',min(int(e['pg_nbr']) for e in ex),max(int(e['pg_nbr']) for e in ex))

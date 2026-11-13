@@ -1,0 +1,5 @@
+weird MAY12.txt 2240 'BETTIE PAGE'
+weird NOV14.txt 4 'GE 24'
+Counter({'PAGE M-N': 2327})
+{'PAGE M-N': (('APR18.txt', 2582, 'PAGE M-15'), 24)}
+PAGE M-N ['APR18.txt', 'APR19.txt', 'AUG18.txt', 'AUG19.txt', 'DEC18.txt', 'DEC19.txt', 'FEB19.txt', 'FEB20.txt', 'JAN19.txt', 'JAN20.txt', 'JUL18.txt', 'JUL19.txt', 'JUN18.txt', 'JUN19.txt', 'MAR19.txt', 'MAR20.txt', 'MAY18.txt', 'MAY19.txt', 'NOV18.txt', 'NOV19.txt', 'OCT18.txt', 'OCT19.txt', 'SEP18.txt', 'SEP19.txt']

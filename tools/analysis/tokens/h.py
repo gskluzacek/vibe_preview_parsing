@@ -1,5 +1,5 @@
 import re
-D='/Volumes/U34-Bolt/Personal/development/github/previews_parsing/cof_files/'
+from config import COF_DIR as D
 for fn in ['JAN13','JUN15','MAR20']:
     t=open(D+fn+'.txt',encoding='latin-1').read().replace('\r','').split('\n')
     out=[]

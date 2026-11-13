@@ -1,0 +1,23 @@
+bare$ by file [('FEB17', 8), ('APR14', 4), ('MAR09', 3), ('FEB09', 2), ('JAN09', 2), ('OCT10', 2), ('APR13', 1), ('APR18', 1)]
+zero price 0 max 20000.0
+SRP:PI [('AUG13', 2766, 'SS\tAUG13 2329\tDOMO QEE SERIES 4 MYSTERY (JAN120122) (C: 1-0-0)\t09/11/13\tSRP:PI\t = $\t\r')]
+FREE [('FEB12', 387, '\tFEB12 0294\tGIRL WITH THE DRAGON TATTOO SPECIAL #1 (MR)\t04/18/12\tSRP: FREE\t = $\t\r')]
+MSRP PI [('SEP17', 14, 'FI\tSEP17 0011\tPREVIEWS HOLIDAY GIFT GUIDE 2017 (Net)\t11/22/17\tMSRP: PI\t = $\t\r')]
+empty text [] 0
+text ws-trailing 55 leading 15 double space 4
+APR09 2160 ' STAR TREK UNO (Net) (C: 0-1-2)'
+trailing ws files [('DEC14', 20), ('APR11', 19), ('JAN11', 16)]
+nonascii 18 [('Ã', 16), ('\x89', 14), ('â', 2), ('\x80', 2), ('\x99', 2), ('\x8f', 1), ('\x88', 1)]
+len max 101
+flag ws 0 price ws 0
+SS with (MMMYYNNNN) 47599 50069
+SS w/o [('APR09', 'LONE WOLF & CUB TP VOL 01 THE ASSASSINS ROAD (STAR11783) (C:'), ('APR09', 'LONE WOLF & CUB TP VOL 04 THE BELL WARDEN (STAR12326) (C: 1-'), ('APR09', 'LONE WOLF & CUB TP VOL 06 LANTERNS FOR THE DEAD (STAR12817) '), ('APR09', 'LONE WOLF & CUB TP VOL 07 CLOUD DRAGON WIND TIGER (STAR13112'), ('APR09', 'LONE WOLF & CUB TP VOL 08 CHAINS OF DEATH (STAR13290) (MR) (')]
+SS pattern last paren Counter({True: 47598, False: 2471})
+non-SS flag with prevcode 2107 Counter({'KIDS': 2045, 'SPOT': 37, 'OA': 13, '': 10, 'OA KIDS': 1, 'FI': 1})
+prevcode forms [('JUL999999', 4551), ('SEP999999', 4463), ('FEB999999', 4453), ('AUG999999', 4399), ('APR999999', 4324), ('JUN999999', 4156)]
+OA flag with (O/A) 18237 18413 no OA flag but (O/A) 1056
+FI/KIDS/SPOT/GEM text tokens:
+FI 15941 (Net) 1719 (C: 12123 (MR) 1111 (Net) overall
+KIDS 11517 (Net) 47 (C: 4517 (MR) 11 (Net) overall
+SPOT 32410 (Net) 2247 (C: 16900 (MR) 3774 (Net) overall
+GEM 1772 (Net) 2 (C: 224 (MR) 342 (Net) overall

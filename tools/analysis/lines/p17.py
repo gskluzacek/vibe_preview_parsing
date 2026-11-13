@@ -1,4 +1,4 @@
-exec(open('/private/tmp/claude-501/-Volumes-U34-Bolt-Personal-development-github-vibe-preview-parsing/961fccd7-e904-460f-abf8-159486acec47/scratchpad/lines/common.py').read())
+from common import *
 import difflib,hashlib
 print(open(D+'JAN09_original_txt','rb').read().split(b'\r\n')[5488])
 fs={f[:5]:f for _,_,f in files()}

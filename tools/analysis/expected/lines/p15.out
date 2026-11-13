@@ -1,0 +1,9 @@
+JAN09: orig is prefix of txt? False orig tail b'\r\n\r\n\r\n\r\n\r\n\r\n' txt at that point b'\n\r\n\r\n\r\n' extra bytes 4
+lines orig 5783 txt 5783
+DEC15 starts BOM True rest identical True 205127 205124
+JUN17 head b'\xff\xfeP\x00'
+BOM char 'P'
+identical after decode False 280775 280776
+4143 4143
+5
+['--- ', '+++ ', '@@ -3977 +3977 @@', '-POKÉMON', '+POKÃ‰MON']

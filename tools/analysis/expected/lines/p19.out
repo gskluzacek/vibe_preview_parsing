@@ -1,0 +1,3 @@
+Counter({'equal after: cp1252->utf8, strip trailing ws, drop ident+blank': 52, 'still differ': 1}) Counter({'trailing-ws old items w/o final tab': 1821, 'same line count': 46})
+[('JAN09', ['POKÉMON'], ['POK…MON']), ('JAN09', ['POKÉMON USA'], ['POK…MON USA'])]
+originals/Archive 2 identical to main old files: 0 of 52
