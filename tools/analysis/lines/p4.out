@@ -1,0 +1,135 @@
+JAN09.txt firstPAGE@ 1 blankbefore 0 [] PAGE 30
+FEB09.txt firstPAGE@ 1 blankbefore 0 [] PAGE 21
+MAR09.txt firstPAGE@ 1 blankbefore 0 [] PAGE 18
+APR09.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS MAR V19 #4'] PAGE 16
+MAY09.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS MAR V19 #5'] PAGE 16
+JUN09.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS MAR V19 #6'] PAGE 16
+JUL09.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS MAR V19 #7'] PAGE 16
+AUG09.txt firstPAGE@ 1 blankbefore 0 [] PAGE 16
+SEP09.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS MAR V19 #9'] PAGE 17
+OCT09.txt firstPAGE@ 4 blankbefore 1 ['PREVIEWS ORDER FORM', 'OCT V19 #10'] PAGE 17
+NOV09.txt firstPAGE@ 5 blankbefore 2 ['PREVIEWS ORDER FORM', 'NOV V19 #11'] PAGE 14
+DEC09.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS DEC V19 #12'] PAGE 17
+JAN10.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS DEC V20 #1'] PAGE 25
+FEB10.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS FEB V20 #2'] PAGE 16
+MAR10.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS MAR V20 #3'] PAGE 16
+APR10.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS APR V20 #4'] PAGE 16
+MAY10.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS MAY V20 #5'] PAGE 19
+JUN10.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS JUNE V20 #6'] PAGE 19
+JUL10.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS JULY V20 #7'] PAGE 17
+AUG10.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS JULY V20 #8'] PAGE 20
+SEP10.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS SEPTEMBER V20 #9'] PAGE 14
+OCT10.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS OCTOBER V20 #10'] PAGE 16
+NOV10.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS NOVEMBER V20 #11'] PAGE 16
+DEC10.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS DECEMBER V20 #12'] PAGE 18
+JAN11.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS JANUARY VOL. 21 #1'] PAGE 25
+FEB11.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS FEBRUARY VOL. 21 #2'] PAGE 16
+MAR11.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS MARCH VOL. 21 #3'] PAGE 16
+APR11.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS APRIL VOL. 21 #4'] PAGE 16
+MAY11.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS MAY VOL. 21 #5'] PAGE 16
+JUN11.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS JUNE VOL. 21 #6'] PAGE 14
+JUL11.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS JULY VOL. 21 #7'] PAGE 17
+AUG11.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS AUGUST VOL. 21 #8'] PAGE 18
+SEP11.txt firstPAGE@ 5 blankbefore 3 ['PREVIEWS SEPTEMBER VOL. 21 #9'] PAGE 18
+OCT11.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS OCTOBER VOL. 21 #10'] PAGE 18
+NOV11.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS NOVEMBER VOL. 21 #11'] PAGE 18
+DEC11.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS DECEMBER VOL. 21 #12'] PAGE 9
+JAN12.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS DECEMBER VOL. 22 #1'] PAGE 27
+FEB12.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS FEBRUARY VOL. 22 #2'] PAGE 19
+MAR12.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS MARCH VOL. 22 #3'] PAGE 18
+APR12.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS APRIL VOL. 22 #4'] PAGE 18
+MAY12.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS MAY VOL. 22 #5'] PAGE 22
+JUN12.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS JUNE VOL. 22 #6'] PAGE 21
+JUL12.txt firstPAGE@ 5 blankbefore 3 ['PREVIEWS JULY VOL. 22 #7'] PAGE 26
+AUG12.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS AUGUST VOL. 22 #8'] PAGE 23
+SEP12.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS SEPTEMBER VOL. 22 #9'] PAGE 24
+OCT12.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS OCTOBER VOL. 22 #10'] PAGE 26
+NOV12.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS NOVEMBER VOL. 22 #11'] PAGE 28
+DEC12.txt firstPAGE@ 28 blankbefore 1 ['PREVIEWS DECEMBER VOL. 22 #12', 'PREVIEWS PUBLICATIONS', 'FREE COMIC BOOK DAY', 'OA\tDEC12 0017\tFCBD POLYPROPYLENE ECO SHOPPING BAG (O/A)\t02/06/13\tMSRP: $1.99\t = $'] PAGE 26
+JAN13.txt firstPAGE@ 5 blankbefore 1 ['PREVIEWS DECEMBER VOL. 23 #1', 'PREVIEWS PUBLICATIONS', 'FREE COMIC BOOK DAY'] PAGE 30					
+FEB13.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS DECEMBER VOL. 23 #2'] PAGE 16
+MAR13.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS MARCH VOL. 23 #3'] PAGE 18
+APR13.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS APRIL VOL. 23 #4'] PAGE 19
+MAY13.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS MAY VOL. 23 #5'] PAGE 18
+JUN13.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS JUNE VOL. 23 #6'] PAGE 24
+JUL13.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS JULY VOL. 23 #7'] PAGE 24					
+AUG13.txt firstPAGE@ 5 blankbefore 2 ['PREVIEWS AUGUST VOL. 23 #8', 'PREVIEWS PUBLICATIONS'] PAGE 26
+SEP13.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS SEPTEMBER VOL. 23 #9'] PAGE 24
+OCT13.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS OCTOBER VOL. 23 #10'] PAGE 26
+NOV13.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS NOVEMBER VOL. 23 #11'] PAGE 24
+DEC13.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS DECEMBER VOL. 23 #12'] PAGE 24
+JAN14.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS DECEMBER VOL. 24 #1'] PAGE 44
+FEB14.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS FEBRUARY VOL. 24 #2'] PAGE 23
+MAR14.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS MARCH VOL. 24 #3'] PAGE 24
+APR14.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS APRIL VOL. 24 #4'] PAGE 24
+MAY14.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS MAY VOL. 24 #5'] PAGE 26
+JUN14.txt firstPAGE@ 5 blankbefore 3 ['PREVIEWS JUNE VOL. 24 #6'] PAGE 26
+JUL14.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS JULY VOL. 24 #6'] PAGE 26
+AUG14.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS AUGUST VOL. 24 #8'] PAGE 24
+SEP14.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS SEPTEMBER VOL. 24 #9'] PAGE 23
+OCT14.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS OCT VOL. 24 #10'] PAGE 24
+NOV14.txt firstPAGE@ 9 blankbefore 2 ['PREVIEWS NOV VOL. 24 #11', 'GE 24', 'PREVIEWS PUBLICATIONS', 'FI\tNOV14 0001\tPREVIEWS #316 JANUARY 2015 (Net)\t12/31/14\tMSRP: $3.99\t = $'] PAGE 25
+DEC14.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS DEC VOL. 24 #12'] PAGE 24
+JAN15.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS JAN VOL. 25 #1'] PAGE 39
+FEB15.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS FEB VOL. 25 #2'] PAGE 24
+MAR15.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS MAR VOL. 25 #3'] PAGE 24
+APR15.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS APR VOL. 25 #4'] PAGE 24
+MAY15.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS MAY VOL. 25 #5'] PAGE 24
+JUN15.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS JUNE VOL. 25 #6'] PAGE 24
+JUL15.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS JULY VOL. 25 #7'] PAGE 29
+AUG15.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS AUGUST VOL. 25 #8'] PAGE 24
+SEP15.txt firstPAGE@ 5 blankbefore 3 ['PREVIEWS SEPTEMBER VOL. 25 #9'] PAGE 22
+OCT15.txt firstPAGE@ 5 blankbefore 3 ['PREVIEWS OCTOBER VOL. 25 #10'] PAGE 21
+NOV15.txt firstPAGE@ 5 blankbefore 3 ['PREVIEWS NOVEMBER VOL. 25 #11'] PAGE 21
+DEC15.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS DECEMBER VOL. 25 #12'] PAGE 22
+JAN16.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS JANUARY VOL. 26 #1'] PAGE 46
+FEB16.txt firstPAGE@ 5 blankbefore 3 ['PREVIEWS FEBRUARY VOL. 26 #2'] PAGE 30
+MAR16.txt firstPAGE@ 5 blankbefore 3 ['PREVIEWS MARCH VOL. 26 #3'] PAGE 31
+APR16.txt firstPAGE@ 5 blankbefore 3 ['PREVIEWS APRIL VOL. 26 #4'] PAGE 30
+MAY16.txt firstPAGE@ 5 blankbefore 3 ['PREVIEWS MAY VOL. 26 #5'] PAGE 29
+JUN16.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS JUNE VOL. 26 #6'] PAGE 30
+JUL16.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS JULY VOL. 26 #7'] PAGE 42
+AUG16.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS AUGUST VOL. 26 #8'] PAGE 30
+SEP16.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS SEPTEMBER VOL. 26 #9'] PAGE 31
+OCT16.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS OCTOBER VOL. 26 #10'] PAGE 29
+NOV16.txt firstPAGE@ 5 blankbefore 3 ['PREVIEWS NOVEMBER VOL. 26 #11'] PAGE 33
+DEC16.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS DECEMBER VOL. 26 #12'] PAGE 28
+JAN17.txt firstPAGE@ 5 blankbefore 3 ['PREVIEWS JANUARY VOL. 27 #1'] PAGE 47
+FEB17.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS FEBRUARY VOL. 27 #2'] PAGE 31
+MAR17.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS MARCH VOL. 27 #3'] PAGE 31
+APR17.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS APRIL VOL. 27 #4'] PAGE 29
+MAY17.txt firstPAGE@ 5 blankbefore 3 ['PREVIEWS MAY VOL. 27 #5'] PAGE 29
+JUN17.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS JUNE VOL. 27 #6'] PAGE 30
+JUL17.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS JULY VOL. 27 #7'] PAGE 11
+AUG17.txt firstPAGE@ 1 blankbefore 0 [] PAGE 29
+SEP17.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS SEPTEMBER VOL. 27 #9'] PAGE 29
+OCT17.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS OCTOBER VOL. 27 #10'] PAGE 29
+NOV17.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS NOVEMBER VOL. 27 #11'] PAGE 29
+DEC17.txt firstPAGE@ 5 blankbefore 3 ['PREVIEWS DECEMBER VOL. 27 #12'] PAGE 30
+JAN18.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS JANUARY VOL. 28 #1'] PAGE 47
+FEB18.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS FEBRUARY VOL. 28 #2'] PAGE 29
+MAR18.txt firstPAGE@ 5 blankbefore 3 ['PREVIEWS MARCH VOL. 28 #3'] PAGE 32
+APR18.txt firstPAGE@ 6 blankbefore 4 ['PREVIEWS APRIL VOL. 28 #4'] PAGE 26
+MAY18.txt firstPAGE@ 5 blankbefore 3 ['PREVIEWS MAY VOL. 28 #5'] PAGE 26
+JUN18.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS JUNE VOL. 28 #6'] PAGE 26
+JUL18.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS JULY VOL. 28 #7'] PAGE 34
+AUG18.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS AUGUST VOL. 28 #8'] PAGE 26
+SEP18.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS SEPTEMBER VOL. 28 #9'] PAGE 26
+OCT18.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS OCTOBER VOL. 28 #10'] PAGE 26
+NOV18.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS NOVEMBER VOL. 28 #11'] PAGE 26
+DEC18.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS DECEMBER VOL. 28 #12'] PAGE 26
+JAN19.txt firstPAGE@ 4 blankbefore 2 ['PREVIEWS JANUARY VOL. 29 #1'] PAGE 45
+FEB19.txt firstPAGE@ 3 blankbefore 1 ['PREVIEWS FEBRUARY VOL. 29 #2'] PAGE 28
+MAR19.txt firstPAGE@ 1 blankbefore 0 [] PAGE 30
+APR19.txt firstPAGE@ 1 blankbefore 0 [] PAGE 28
+MAY19.txt firstPAGE@ 1 blankbefore 0 [] PAGE 30
+JUN19.txt firstPAGE@ 4 blankbefore 1 ['PREVIEWS JUNE 2019', 'ISSUE #369 (VOL. 29 #6)'] PAGE 28
+JUL19.txt firstPAGE@ 4 blankbefore 1 ['PREVIEWS JULY 2019', 'ISSUE #370 (VOL. 29 #7)'] PAGE 10
+AUG19.txt firstPAGE@ 4 blankbefore 1 ['PREVIEWS AUGUST 2019', 'ISSUE #371 (VOL. 29 #8)'] PAGE 30
+SEP19.txt firstPAGE@ 4 blankbefore 1 ['PREVIEWS SEPTEMBER 2019', 'ISSUE #372 (VOL. 29 #9)'] PAGE 28
+OCT19.txt firstPAGE@ 4 blankbefore 1 ['PREVIEWS OCTOBER 2019', 'ISSUE #373 (VOL. 29 #10)'] PAGE 28
+NOV19.txt firstPAGE@ 4 blankbefore 1 ['PREVIEWS NOVEMBER 2019', 'ISSUE #374 (VOL. 29 #11)'] PAGE 30
+DEC19.txt firstPAGE@ 4 blankbefore 1 ['PREVIEWS DECEMBER 2019', 'ISSUE #375 (VOL. 29 #12)'] PAGE 28
+JAN20.txt firstPAGE@ 4 blankbefore 1 ['PREVIEWS JANUARY 2020', 'ISSUE #376 (VOL. 30 #1)'] PAGE 41
+FEB20.txt firstPAGE@ 4 blankbefore 1 ['PREVIEWS FEBRUARY 2020', 'ISSUE #377 (VOL. 30 #2)'] PAGE 24
+MAR20.txt firstPAGE@ 4 blankbefore 1 ['PREVIEWS MARCH 2020', 'ISSUE #378 (VOL. 30 #3)'] PAGE 24

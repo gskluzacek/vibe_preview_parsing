@@ -1,0 +1,135 @@
+JAN09.txt ?? 'PAGE 30' | None None None None | line 1
+FEB09.txt ?? 'PAGE 21' | None None None None | line 1
+MAR09.txt ?? 'PAGE 18' | None None None None | line 1
+APR09.txt B:Vnn abbr | 3 19 4 None | line 1
+MAY09.txt B:Vnn abbr | 3 19 5 None | line 1
+JUN09.txt B:Vnn abbr | 3 19 6 None | line 1
+JUL09.txt B:Vnn abbr | 3 19 7 None | line 1
+AUG09.txt ?? 'PAGE 16' | None None None None | line 1
+SEP09.txt B:Vnn abbr | 3 19 9 None | line 1
+OCT09.txt C:ORDER FORM terse | 10 19 10 None | line 1
+NOV09.txt C:ORDER FORM terse | 11 19 11 None | line 1
+DEC09.txt B:Vnn abbr | 12 19 12 None | line 1
+JAN10.txt B:Vnn abbr | 12 20 1 None | line 1
+FEB10.txt B:Vnn abbr | 2 20 2 None | line 1
+MAR10.txt B:Vnn abbr | 3 20 3 None | line 2
+APR10.txt B:Vnn abbr | 4 20 4 None | line 1
+MAY10.txt B:Vnn abbr | 5 20 5 None | line 1
+JUN10.txt B:Vnn full | 6 20 6 None | line 1
+JUL10.txt B:Vnn full | 7 20 7 None | line 1
+AUG10.txt B:Vnn full | 7 20 8 None | line 1
+SEP10.txt B:Vnn full | 9 20 9 None | line 1
+OCT10.txt B:Vnn full | 10 20 10 None | line 1
+NOV10.txt B:Vnn full | 11 20 11 None | line 1
+DEC10.txt B:Vnn full | 12 20 12 None | line 1
+JAN11.txt A:basic VOL. full | 1 21 1 None | line 1
+FEB11.txt A:basic VOL. full | 2 21 2 None | line 1
+MAR11.txt A:basic VOL. full | 3 21 3 None | line 1
+APR11.txt A:basic VOL. full | 4 21 4 None | line 1
+MAY11.txt A:basic VOL. abbr | 5 21 5 None | line 1
+JUN11.txt A:basic VOL. full | 6 21 6 None | line 1
+JUL11.txt A:basic VOL. full | 7 21 7 None | line 1
+AUG11.txt A:basic VOL. full | 8 21 8 None | line 1
+SEP11.txt A:basic VOL. full | 9 21 9 None | line 1
+OCT11.txt A:basic VOL. full | 10 21 10 None | line 1
+NOV11.txt A:basic VOL. full | 11 21 11 None | line 1
+DEC11.txt A:basic VOL. full | 12 21 12 None | line 1
+JAN12.txt A:basic VOL. full | 12 22 1 None | line 1
+FEB12.txt A:basic VOL. full | 2 22 2 None | line 1
+MAR12.txt A:basic VOL. full | 3 22 3 None | line 1
+APR12.txt A:basic VOL. full | 4 22 4 None | line 1
+MAY12.txt A:basic VOL. abbr | 5 22 5 None | line 1
+JUN12.txt A:basic VOL. full | 6 22 6 None | line 1
+JUL12.txt A:basic VOL. full | 7 22 7 None | line 1
+AUG12.txt A:basic VOL. full | 8 22 8 None | line 1
+SEP12.txt A:basic VOL. full | 9 22 9 None | line 1
+OCT12.txt A:basic VOL. full | 10 22 10 None | line 1
+NOV12.txt A:basic VOL. full | 11 22 11 None | line 1
+DEC12.txt A:basic VOL. full | 12 22 12 None | line 1
+JAN13.txt A:basic VOL. full | 12 23 1 None | line 1
+FEB13.txt A:basic VOL. full | 12 23 2 None | line 1
+MAR13.txt A:basic VOL. full | 3 23 3 None | line 1
+APR13.txt A:basic VOL. full | 4 23 4 None | line 1
+MAY13.txt A:basic VOL. abbr | 5 23 5 None | line 1
+JUN13.txt A:basic VOL. full | 6 23 6 None | line 1
+JUL13.txt A:basic VOL. full | 7 23 7 None | line 1
+AUG13.txt A:basic VOL. full | 8 23 8 None | line 1
+SEP13.txt A:basic VOL. full | 9 23 9 None | line 1
+OCT13.txt A:basic VOL. full | 10 23 10 None | line 1
+NOV13.txt A:basic VOL. full | 11 23 11 None | line 1
+DEC13.txt A:basic VOL. full | 12 23 12 None | line 1
+JAN14.txt A:basic VOL. full | 12 24 1 None | line 1
+FEB14.txt A:basic VOL. full | 2 24 2 None | line 1
+MAR14.txt A:basic VOL. full | 3 24 3 None | line 1
+APR14.txt A:basic VOL. full | 4 24 4 None | line 1
+MAY14.txt A:basic VOL. abbr | 5 24 5 None | line 1
+JUN14.txt A:basic VOL. full | 6 24 6 None | line 1
+JUL14.txt A:basic VOL. full | 7 24 6 None | line 1
+AUG14.txt A:basic VOL. full | 8 24 8 None | line 1
+SEP14.txt A:basic VOL. full | 9 24 9 None | line 1
+OCT14.txt A:basic VOL. abbr | 10 24 10 None | line 1
+NOV14.txt A:basic VOL. abbr | 11 24 11 None | line 1
+DEC14.txt A:basic VOL. abbr | 12 24 12 None | line 1
+JAN15.txt A:basic VOL. abbr | 1 25 1 None | line 1
+FEB15.txt A:basic VOL. abbr | 2 25 2 None | line 1
+MAR15.txt A:basic VOL. abbr | 3 25 3 None | line 1
+APR15.txt A:basic VOL. abbr | 4 25 4 None | line 1
+MAY15.txt A:basic VOL. abbr | 5 25 5 None | line 1
+JUN15.txt A:basic VOL. full | 6 25 6 None | line 1
+JUL15.txt A:basic VOL. full | 7 25 7 None | line 1
+AUG15.txt A:basic VOL. full | 8 25 8 None | line 1
+SEP15.txt A:basic VOL. full | 9 25 9 None | line 1
+OCT15.txt A:basic VOL. full | 10 25 10 None | line 1
+NOV15.txt A:basic VOL. full | 11 25 11 None | line 1
+DEC15.txt A:basic VOL. full | 12 25 12 None | line 1
+JAN16.txt A:basic VOL. full | 1 26 1 None | line 1
+FEB16.txt A:basic VOL. full | 2 26 2 None | line 1
+MAR16.txt A:basic VOL. full | 3 26 3 None | line 1
+APR16.txt A:basic VOL. full | 4 26 4 None | line 1
+MAY16.txt A:basic VOL. abbr | 5 26 5 None | line 1
+JUN16.txt A:basic VOL. full | 6 26 6 None | line 1
+JUL16.txt A:basic VOL. full | 7 26 7 None | line 1
+AUG16.txt A:basic VOL. full | 8 26 8 None | line 1
+SEP16.txt A:basic VOL. full | 9 26 9 None | line 1
+OCT16.txt A:basic VOL. full | 10 26 10 None | line 1
+NOV16.txt A:basic VOL. full | 11 26 11 None | line 1
+DEC16.txt A:basic VOL. full | 12 26 12 None | line 1
+JAN17.txt A:basic VOL. full | 1 27 1 None | line 1
+FEB17.txt A:basic VOL. full | 2 27 2 None | line 1
+MAR17.txt A:basic VOL. full | 3 27 3 None | line 1
+APR17.txt A:basic VOL. full | 4 27 4 None | line 1
+MAY17.txt A:basic VOL. abbr | 5 27 5 None | line 1
+JUN17.txt A:basic VOL. full | 6 27 6 None | line 1
+JUL17.txt A:basic VOL. full | 7 27 7 None | line 1
+AUG17.txt ?? 'PAGE 29' | None None None None | line 1
+SEP17.txt A:basic VOL. full | 9 27 9 None | line 1
+OCT17.txt A:basic VOL. full | 10 27 10 None | line 1
+NOV17.txt A:basic VOL. full | 11 27 11 None | line 1
+DEC17.txt A:basic VOL. full | 12 27 12 None | line 1
+JAN18.txt A:basic VOL. full | 1 28 1 None | line 1
+FEB18.txt A:basic VOL. full | 2 28 2 None | line 1
+MAR18.txt A:basic VOL. full | 3 28 3 None | line 1
+APR18.txt A:basic VOL. full | 4 28 4 None | line 1
+MAY18.txt A:basic VOL. abbr | 5 28 5 None | line 1
+JUN18.txt A:basic VOL. full | 6 28 6 None | line 1
+JUL18.txt A:basic VOL. full | 7 28 7 None | line 1
+AUG18.txt A:basic VOL. full | 8 28 8 None | line 1
+SEP18.txt A:basic VOL. full | 9 28 9 None | line 1
+OCT18.txt A:basic VOL. full | 10 28 10 None | line 1
+NOV18.txt A:basic VOL. full | 11 28 11 None | line 1
+DEC18.txt A:basic VOL. full | 12 28 12 None | line 1
+JAN19.txt A:basic VOL. full | 1 29 1 None | line 1
+FEB19.txt A:basic VOL. full | 2 29 2 None | line 1
+MAR19.txt ?? 'PAGE 30' | None None None None | line 1
+APR19.txt ?? 'PAGE 28' | None None None None | line 1
+MAY19.txt ?? 'PAGE 30' | None None None None | line 1
+JUN19.txt D:two-line | 6 29 6 2019 | line 1
+JUL19.txt D:two-line | 7 29 7 2019 | line 1
+AUG19.txt D:two-line | 8 29 8 2019 | line 1
+SEP19.txt D:two-line | 9 29 9 2019 | line 1
+OCT19.txt D:two-line | 10 29 10 2019 | line 1
+NOV19.txt D:two-line | 11 29 11 2019 | line 1
+DEC19.txt D:two-line | 12 29 12 2019 | line 1
+JAN20.txt D:two-line | 1 30 1 2020 | line 1
+FEB20.txt D:two-line | 2 30 2 2020 | line 1
+MAR20.txt D:two-line | 3 30 3 2020 | line 1

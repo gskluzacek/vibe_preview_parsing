@@ -407,6 +407,6 @@ One small test file per anomaly in §7 (A1–A23), plus: one file per ident vari
 
 ## 12. Provenance
 
-Measurement scripts and intermediate outputs live in the session scratchpad (`.../scratchpad/{lines,items,headings,tokens}/`). That directory may be cleared; **if these numbers are to be relied on, the scripts should be moved into this repo** (e.g. `tools/analysis/`) and re-run as tests. Not done yet.
+Measurement scripts are in `tools/analysis/{lines,items,headings,tokens}/` (copied unchanged from the session scratchpad; see `tools/analysis/README.md`). They have hard-coded machine paths, the large intermediate pickles are not committed, and they have **not been re-run** since being copied, so the numbers here are "produced once by these scripts", not independently reproduced.
 
 Limits: the measurement passes read the corpus once each; counts differ by ±6 between passes in a few places (e.g. 328,795 / 328,796 / 328,797 / 328,801 items) because they used slightly different predicates — the spec quotes the predicate-specific figure where it matters. The heading-level analysis rests on one hand-levelled file (JAN09) and a 2013–14 table. No part of this spec has been validated against a parser implementation.
