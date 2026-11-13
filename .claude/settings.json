@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "additionalDirectories": [
+      "../previews_parsing",
+      "../previews_parsing_pandas",
+      "../previews"
+    ]
+  }
+}
