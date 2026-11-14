@@ -6,11 +6,11 @@ Inputs: `analysis_previews.md`, `analysis_previews_parsing.md`, `analysis_previe
 
 ## 0. Conventions and confidence
 
-| Tag | Meaning |
-|---|---|
-| **[V]** | Verified by running code over the corpus (counts given). |
-| **[D]** | Documented in a source repo or notes, not independently verified here. |
-| **[I]** | Inferred from data patterns; plausible, not proven. |
+| Tag     | Meaning                                                                                         |
+|---------|-------------------------------------------------------------------------------------------------|
+| **[V]** | Verified by running code over the corpus (counts given).                                        |
+| **[D]** | Documented in a source repo or notes, not independently verified here.                          |
+| **[I]** | Inferred from data patterns; plausible, not proven.                                             |
 | **[U]** | Meaning unconfirmed. Do not rely on it without an authoritative source (Diamond documentation). |
 
 "COF" = Previews World Customer Order Form, text version. Corpus = `previews_parsing/cof_files/MMMYY.txt`, 135 files, JAN09 → MAR20, no MAY20 (Diamond issued a combined May/June 2020 form [D]).
@@ -19,11 +19,11 @@ Inputs: `analysis_previews.md`, `analysis_previews_parsing.md`, `analysis_previe
 
 ### 1.1 Sources and coverage
 
-| Source | Coverage | Note |
-|---|---|---|
-| `previews_parsing/cof_files/*.txt` | JAN09 → MAR20 (135 files, 29 MB) | The only complete set; files were converted/hand-edited |
-| `previews/.../*_COF.txt` (2016 repo) | JAN09 → AUG14 (53 files) | Overlaps; **52 of 53 months are identical** to the 2020 set after normalizing (see 1.3) **[V]** |
-| `previews_parsing_pandas` download scripts | JAN10 → AUG23 | No data committed; the only route to APR20 → AUG23 **[D]** |
+| Source                                     | Coverage                         | Note                                                                                                                                                    |
+|--------------------------------------------|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `previews_parsing/cof_files/*.txt`         | JAN09 → MAR20 (135 files, 29 MB) | The only complete set; files were converted/hand-edited                                                                                                 |
+| `previews/.../*_COF.txt` (2016 repo)       | JAN09 → AUG14 (53 files)         | Overlaps; **52 of 53 months are identical** to the 2020 set after normalizing (see 1.3) **[V]**                                                         |
+| `previews_parsing_pandas` download scripts | JAN10 → AUG23                    | No data committed; was the only route to APR20 → AUG23 **[D]**, but the source site is reported decommissioned (see `previews_world_decommissioned.md`) |
 
 Item lines in the 135 files: **≈328,800** **[V]** (328,795–328,801 depending on the predicate, see 3.2). By year **[V]**: 2009 29.5k · 2010 19.9k · 2011 22.8k · 2012 22.7k · 2013 26.1k · 2014 29.8k · 2015 30.7k · 2016 34.0k · 2017 35.6k · 2018 34.0k · 2019 35.5k · 2020 (Jan–Mar) 8.3k. *(The earlier "~100k items" figure in `analysis_previews.md` referred to the 2016 repo's smaller dataset and should not be quoted.)*
 
@@ -52,13 +52,13 @@ A COF is a sequence of lines. In order: optional identification text, then repea
 
 The first non-blank line(s) before the first PAGE line. Variants found **[V]**:
 
-| Variant | Form | Files |
-|---|---|---|
-| A | `PREVIEWS <MONTH> VOL. nn #n` (month spelled out, or 3-letter in a few files) | 2011–2018, plus 4 files in 2019 |
-| B | `PREVIEWS <MON> Vnn #n` | Apr/May/Jun/Jul/Sep/Dec 2009 and all of 2010 |
-| C | `PREVIEWS ORDER FORM` followed by `<MON> Vnn #n` (terse) | OCT09, NOV09 |
-| D | two lines: `PREVIEWS <MONTH> YYYY` then `ISSUE #nnn (VOL. nn #n)` | JUN19 → MAR20 (10 files) |
-| none | first line is `PAGE n` | JAN09, FEB09, MAR09, AUG09, AUG17, MAR19, APR19, MAY19 (8 files) |
+| Variant | Form                                                                          | Files                                                            |
+|---------|-------------------------------------------------------------------------------|------------------------------------------------------------------|
+| A       | `PREVIEWS <MONTH> VOL. nn #n` (month spelled out, or 3-letter in a few files) | 2011–2018, plus 4 files in 2019                                  |
+| B       | `PREVIEWS <MON> Vnn #n`                                                       | Apr/May/Jun/Jul/Sep/Dec 2009 and all of 2010                     |
+| C       | `PREVIEWS ORDER FORM` followed by `<MON> Vnn #n` (terse)                      | OCT09, NOV09                                                     |
+| D       | two lines: `PREVIEWS <MONTH> YYYY` then `ISSUE #nnn (VOL. nn #n)`             | JUN19 → MAR20 (10 files)                                         |
+| none    | first line is `PAGE n`                                                        | JAN09, FEB09, MAR09, AUG09, AUG17, MAR19, APR19, MAY19 (8 files) |
 
 Fallback when no ident exists (from the 2023 code **[D]**): derive from the item row `PREVIEWS #nnn <MONTH YEAR> CUSTOMER ORDER FORM` near the top.
 
@@ -122,24 +122,24 @@ Line-class totals **[V]**: ITEM 328,801 · PAGE 70,378 · HEADING 35,393 (≈262
 
 Tab-separated, after stripping `\r`:
 
-| Idx | Field | Rule |
-|---|---|---|
-| 0 | flag(s) | empty or space-separated tokens (4.2) |
-| 1 | sol code | `^[A-Z]{3}\d\d \d{4}$` |
-| 2 | sol text | uppercase text (§6); max 101 chars; never contains a tab |
-| 3 | release date | empty, `mm/dd/yy`, or `m/d/yyyy` forms (4.4) |
-| 4 | price | 4.5 |
-| 5 | tail | literal ` = $` (all 328,799 parseable lines) |
-| 6 | (empty) | trailing empty field before `\r` |
+| Idx | Field        | Rule                                                     |
+|-----|--------------|----------------------------------------------------------|
+| 0   | flag(s)      | empty or space-separated tokens (4.2)                    |
+| 1   | sol code     | `^[A-Z]{3}\d\d \d{4}$`                                   |
+| 2   | sol text     | uppercase text (§6); max 101 chars; never contains a tab |
+| 3   | release date | empty, `mm/dd/yy`, or `m/d/yyyy` forms (4.4)             |
+| 4   | price        | 4.5                                                      |
+| 5   | tail         | literal ` = $` (all 328,799 parseable lines)             |
+| 6   | (empty)      | trailing empty field before `\r`                         |
 
 ### 4.2 Layout variants **[V]**
 
-| Layout | Fields (incl. trailing) | Lines | Where | Normalization |
-|---|---|---|---|---|
-| A | 7 | 318,223 | all files except below | none |
-| B | 6 (no tab before `\r`) | 4,021 | all of JAN13 (1,819) and JUL13 (2,198); 2 lines each in JUL11 and JAN19 | none needed after dropping the empty last field |
-| C | 8, empty field at index 2 | 5,131 | FEB09 (all 5,123 items); 8 lines in SEP15 | drop index 2 |
-| D | 6, **date missing** (price in the date position) | 1,424 | MAR09 (1,390 of 4,921 items), APR09 (34) | insert empty date at index 3 |
+| Layout | Fields (incl. trailing)                          | Lines   | Where                                                                   | Normalization                                   |
+|--------|--------------------------------------------------|---------|-------------------------------------------------------------------------|-------------------------------------------------|
+| A      | 7                                                | 318,223 | all files except below                                                  | none                                            |
+| B      | 6 (no tab before `\r`)                           | 4,021   | all of JAN13 (1,819) and JUL13 (2,198); 2 lines each in JUL11 and JAN19 | none needed after dropping the empty last field |
+| C      | 8, empty field at index 2                        | 5,131   | FEB09 (all 5,123 items); 8 lines in SEP15                               | drop index 2                                    |
+| D      | 6, **date missing** (price in the date position) | 1,424   | MAR09 (1,390 of 4,921 items), APR09 (34)                                | insert empty date at index 3                    |
 
 Plus single-line exceptions: MAR18:864 tail is `\t = $\t \r` (tab-space) and JUN13:2000 (3 fields).
 
@@ -151,23 +151,23 @@ Normalization (from the item-field pass): (1) drop the last field if empty; (2) 
 
 15 distinct values (counts are lines; first/last = months seen):
 
-| Flag | Lines | First → last |
-|---|---|---|
-| (empty) | 198,813 | JAN09 → MAR20 |
-| `SS` | 50,069 | JAN09 → MAR20 |
-| `SPOT` | 32,351 | JAN09 → MAR20 |
-| `OA` | 18,149 | JAN09 → MAR20 |
-| `FI` | 15,873 | JAN09 → MAR20 |
-| `KIDS` | 11,433 | OCT10 → MAR20 |
-| `GEM` | 1,772 | JAN09 → MAR20 |
-| `OA SS` | 127 | JAN09 → MAR15 |
-| `OA FI` | 67 | JUL09 → APR15 |
-| `SS KIDS` | 64 | OCT10 → DEC14 |
-| `OA SPOT` | 50 | JAN09 → MAR15 |
-| `OA KIDS` | 20 | OCT10 → OCT14 |
-| `SS SPOT` | 9 | JUL09 → OCT14 |
-| `SS FI` | 1 | JUN12 only (line 2430) — likely a combination typo |
-| `FO` | 1 | SEP19 only (line 2850) — possible typo of `FI` |
+| Flag      | Lines   | First → last                                       |
+|-----------|---------|----------------------------------------------------|
+| (empty)   | 198,813 | JAN09 → MAR20                                      |
+| `SS`      | 50,069  | JAN09 → MAR20                                      |
+| `SPOT`    | 32,351  | JAN09 → MAR20                                      |
+| `OA`      | 18,149  | JAN09 → MAR20                                      |
+| `FI`      | 15,873  | JAN09 → MAR20                                      |
+| `KIDS`    | 11,433  | OCT10 → MAR20                                      |
+| `GEM`     | 1,772   | JAN09 → MAR20                                      |
+| `OA SS`   | 127     | JAN09 → MAR15                                      |
+| `OA FI`   | 67      | JUL09 → APR15                                      |
+| `SS KIDS` | 64      | OCT10 → DEC14                                      |
+| `OA SPOT` | 50      | JAN09 → MAR15                                      |
+| `OA KIDS` | 20      | OCT10 → OCT14                                      |
+| `SS SPOT` | 9       | JUL09 → OCT14                                      |
+| `SS FI`   | 1       | JUN12 only (line 2430) — likely a combination typo |
+| `FO`      | 1       | SEP19 only (line 2850) — possible typo of `FI`     |
 
 Grammar: `(OA|SS)? (SS|FI|SPOT|KIDS)?` or `SPOT|FI|KIDS|GEM`; combinations always put `OA`/`SS` first.
 
@@ -187,25 +187,25 @@ Data-derived relations **[V]**:
 
 ### 4.5 Release date **[V]**
 
-| Form | Lines | Files |
-|---|---|---|
-| `mm/dd/yy` | 313,399 | all except JAN13, JUL13 |
-| empty | 11,416 | all 135 files |
-| `m/d/yyyy`, `m/dd/yyyy`, `mm/d/yyyy`, `mm/dd/yyyy` | 3,046 / 617 / 218 / 103 | JAN13 and JUL13 only |
+| Form                                               | Lines                   | Files                   |
+|----------------------------------------------------|-------------------------|-------------------------|
+| `mm/dd/yy`                                         | 313,399                 | all except JAN13, JUL13 |
+| empty                                              | 11,416                  | all 135 files           |
+| `m/d/yyyy`, `m/dd/yyyy`, `mm/d/yyyy`, `mm/dd/yyyy` | 3,046 / 617 / 218 / 103 | JAN13 and JUL13 only    |
 
 Every non-empty value is a valid calendar date; no `TBD` or text. Two-digit years are 20xx. Blank dates: layout A with empty field 8,619; layout D 1,424; layout C 1,373; heaviest in MAR09 (1,390), FEB09 (1,373), JAN09 (1,337), NOV19 (213), MAY17 (181); 6,933 of them also carry a caution code. Store `NULL`, never a fabricated date (the 2014 PHP bug turned blank into a bogus date).
 
 ### 4.6 Price **[V]**
 
-| Form | Lines |
-|---|---|
-| `SRP: $d+.dd` | 316,784 |
-| `SRP: PI` | 8,565 |
-| `MSRP: $d+.dd` | 3,414 |
+| Form                      | Lines                             |
+|---------------------------|-----------------------------------|
+| `SRP: $d+.dd`             | 316,784                           |
+| `SRP: PI`                 | 8,565                             |
+| `MSRP: $d+.dd`            | 3,414                             |
 | bare `$d+.dd` (no prefix) | 33 (FEB17 8, APR14 4, MAR09 3, …) |
-| `SRP:PI` (no space) | 1 (AUG13:2766) |
-| `SRP: FREE` | 1 (FEB12:387) |
-| `MSRP: PI` | 1 (SEP17:14) |
+| `SRP:PI` (no space)       | 1 (AUG13:2766)                    |
+| `SRP: FREE`               | 1 (FEB12:387)                     |
+| `MSRP: PI`                | 1 (SEP17:14)                      |
 
 Always exactly two decimals; no commas, ranges, or blanks; no `$0.00`; maximum 20000.00. Regex covering all but the one no-space line: `^(?:(?:M?SRP): (?:\$\d+\.\d\d|PI|FREE)|\$\d+\.\d\d)$` (use `SRP: ?` to cover 100%). `PI` ⇒ price not yet set ("please inquire") **[D]**. `(Net)` does not predict price form **[V]** (Net items have PI in 4,853 of 14,900 vs 3,141 non-Net).
 
@@ -259,40 +259,40 @@ All **[V]** unless tagged. 328,797 items; 287,319 distinct texts (87%); length m
 
 **Parenthesised metadata:**
 
-| Token | Items | Notes |
-|---|---|---|
-| `(C: d-d-d)` caution | 157,501 (47.9%) | digit ranges {0,1}/{0,1}/{0..4}; **last parenthesis in 99.96%** and ends the string in 157,436; premier 11.4% vs "other" 98% |
-| `(MR)` | 44,687 (13.6%) | rising 10.9% → 16.7% over 2009→2020 |
-| `(A)` | 3,368 | never co-occurs with `(MR)` |
-| `(O/A)` | 19,294 | |
-| `(RES)` | 3,255 | |
-| `(Net)` | 16,952 | mostly "other" scope (14,090) |
-| `(NOTE PRICE)` | 653 | |
-| `(OF n)` | 24,048 (7.3%) | 6 with stray space `( OF 3)`, 2009–Nov 2010 |
-| previous sol `(MMMYYnnnn)` | 49,900 (15.2%) | 29% in 2009, ~11% 2010–13, 17% by 2019 |
-| `(STARnnnnn)` | 2,021 | always 5 digits; 4.7% in 2009 → ~0 by 2020 |
-| printing `(NEW PTG)` / `(CURR PTG)` / `(nND PTG)` | ~1,800 | `CURR PTG` first seen SEP10 |
-| `(ONGOING)` | 499 | 454 directly before `#`; last seen JUL19 |
-| `(ONE SHOT)` / `(ONE-SHOT)` | 227 / 56 | |
-| `(OSW)` | 10 | SEP09–JAN10 only; 9 on one-shots; **[U]** |
-| `(PD)` | 4 | MAR13–APR13 only, all X-O MANOWAR (VU) #13/#14; **[U]** |
-| four-digit year `(2016)` | 479 | series volume year, systematic from 2016 (e.g. `GI JOE (2016) #5`) — **absent from the 2016 grammar** |
+| Token                                             | Items           | Notes                                                                                                                        |
+|---------------------------------------------------|-----------------|------------------------------------------------------------------------------------------------------------------------------|
+| `(C: d-d-d)` caution                              | 157,501 (47.9%) | digit ranges {0,1}/{0,1}/{0..4}; **last parenthesis in 99.96%** and ends the string in 157,436; premier 11.4% vs "other" 98% |
+| `(MR)`                                            | 44,687 (13.6%)  | rising 10.9% → 16.7% over 2009→2020                                                                                          |
+| `(A)`                                             | 3,368           | never co-occurs with `(MR)`                                                                                                  |
+| `(O/A)`                                           | 19,294          |                                                                                                                              |
+| `(RES)`                                           | 3,255           |                                                                                                                              |
+| `(Net)`                                           | 16,952          | mostly "other" scope (14,090)                                                                                                |
+| `(NOTE PRICE)`                                    | 653             |                                                                                                                              |
+| `(OF n)`                                          | 24,048 (7.3%)   | 6 with stray space `( OF 3)`, 2009–Nov 2010                                                                                  |
+| previous sol `(MMMYYnnnn)`                        | 49,900 (15.2%)  | 29% in 2009, ~11% 2010–13, 17% by 2019                                                                                       |
+| `(STARnnnnn)`                                     | 2,021           | always 5 digits; 4.7% in 2009 → ~0 by 2020                                                                                   |
+| printing `(NEW PTG)` / `(CURR PTG)` / `(nND PTG)` | ~1,800          | `CURR PTG` first seen SEP10                                                                                                  |
+| `(ONGOING)`                                       | 499             | 454 directly before `#`; last seen JUL19                                                                                     |
+| `(ONE SHOT)` / `(ONE-SHOT)`                       | 227 / 56        |                                                                                                                              |
+| `(OSW)`                                           | 10              | SEP09–JAN10 only; 9 on one-shots; **[U]**                                                                                    |
+| `(PD)`                                            | 4               | MAR13–APR13 only, all X-O MANOWAR (VU) #13/#14; **[U]**                                                                      |
+| four-digit year `(2016)`                          | 479             | series volume year, systematic from 2016 (e.g. `GI JOE (2016) #5`) — **absent from the 2016 grammar**                        |
 
 **Bare tokens:**
 
-| Token | Items | Notes |
-|---|---|---|
-| `#n` | 102,566 (31%) | 19.7% (2009) → 37% (2020) |
-| `VOL nn` | 66,850 | `VOL` precedes `#` in 96% (`VOL 2 #1`) |
-| `TP` / `HC` / `GN` / `SC` | 49,257 / 28,145 / 21,095 / 5,871 | `TPB` only 8; `OMNIBUS` 3,082; `GN/TP/HC` precede `VOL` 99.8% |
-| `CVR` | 30,400 | 2.2% (2009) → 14.9% (2020) |
-| `VAR` | 12,290 | 0.9% → 10.6% |
-| `CVR/COVER <letter>` | 20,839 | 0.6% → 13.3%; letters beyond C common after 2016 |
-| `SGN` / `LTD ED` / `PX ED` / `SP ED` / `US ED` | 1,959 / 854 / 304 / 153 / 88 | |
-| `T/S` / `FIG` / `AF` / `STATUE` / `PX` | 25,937 / 15,018 / 8,400 / 3,810 / 5,290 | merchandise markers |
-| `SET` / `PACK` / `BUNDLE` / `BOX SET` | 5,150 / 2,330 / 373 / 998 | packaged items |
-| printing words | `NEW PTG` 3,322 bare, `CURR PTG` 616, `2ND PTG` 188, 3rd+ 263, `2ND PRINTING` 2 | |
-| specials | `ANNUAL` 921, `NUDE` 1,205, `DOUBLE DIGEST` 367, `DIRECTORS CUT` 98, `POSTER` 1,581, `DVD` 4,170 | |
+| Token                                          | Items                                                                                            | Notes                                                         |
+|------------------------------------------------|--------------------------------------------------------------------------------------------------|---------------------------------------------------------------|
+| `#n`                                           | 102,566 (31%)                                                                                    | 19.7% (2009) → 37% (2020)                                     |
+| `VOL nn`                                       | 66,850                                                                                           | `VOL` precedes `#` in 96% (`VOL 2 #1`)                        |
+| `TP` / `HC` / `GN` / `SC`                      | 49,257 / 28,145 / 21,095 / 5,871                                                                 | `TPB` only 8; `OMNIBUS` 3,082; `GN/TP/HC` precede `VOL` 99.8% |
+| `CVR`                                          | 30,400                                                                                           | 2.2% (2009) → 14.9% (2020)                                    |
+| `VAR`                                          | 12,290                                                                                           | 0.9% → 10.6%                                                  |
+| `CVR/COVER <letter>`                           | 20,839                                                                                           | 0.6% → 13.3%; letters beyond C common after 2016              |
+| `SGN` / `LTD ED` / `PX ED` / `SP ED` / `US ED` | 1,959 / 854 / 304 / 153 / 88                                                                     |                                                               |
+| `T/S` / `FIG` / `AF` / `STATUE` / `PX`         | 25,937 / 15,018 / 8,400 / 3,810 / 5,290                                                          | merchandise markers                                           |
+| `SET` / `PACK` / `BUNDLE` / `BOX SET`          | 5,150 / 2,330 / 373 / 998                                                                        | packaged items                                                |
+| printing words                                 | `NEW PTG` 3,322 bare, `CURR PTG` 616, `2ND PTG` 188, 3rd+ 263, `2ND PRINTING` 2                  |                                                               |
+| specials                                       | `ANNUAL` 921, `NUDE` 1,205, `DOUBLE DIGEST` 367, `DIRECTORS CUT` 98, `POSTER` 1,581, `DVD` 4,170 |                                                               |
 
 **`#` forms:** plain integers 102,401 (804 `#0`, 999 ≥ 1000); decimals 187 (`#654.1`, `#0.2014`, `#1.MU`, `#20.NOW`); ranges `#a-b` 96; `#a & #b` 15; digits+letters 10 (`#8AU`); letters only 27 (hashtags such as `#TEAMVERONICA`, not issue numbers); **201 items contain more than one `#`** (`ANGELIC #2 CVR B WALKING DEAD #50 TRIBUTE VAR`). `ONE SHOT`: 1,154 bare, 162 `ONE-SHOT`, 227 `(ONE SHOT)`; `ONE SHOT #n` 49; `#n ONE SHOT` 6.
 
@@ -341,31 +341,31 @@ Description parsing should be scoped explicitly. The 2016 tokenizer only handled
 
 ## 7. Anomaly register (all verified)
 
-| ID | Where | Anomaly | Handling |
-|---|---|---|---|
-| A1 | FEB09 | All 5,123 items have an extra empty field at index 2 (layout C) | drop index 2 |
-| A2 | SEP15 | 8 lines with the same extra field | drop index 2 |
-| A3 | MAR09 (1,390), APR09 (34) | date missing (layout D) | insert empty date |
-| A4 | JAN13, JUL13 | tab-padded headings/PAGE lines; items without trailing tab; `m/d/yyyy` dates; no trailing blanks | strip trailing tabs; layout B |
-| A5 | JUL11 (2), JAN19 (2) | items missing the trailing tab | layout B |
-| A6 | JUN13:2000 | hand-added line `DO NOT ORDER FROM THIS LINE` | flag/exclude |
-| A7 | AUG13:2635; MAY15:2916; JUL15:2899; SEP15:2700 | sol code without space; foreign month prefix | tolerant regex + flag |
-| A8 | JUN17:3473 | sol code `FEB17 8885` (month ≠ file) | flag |
-| A9 | DEC18, NOV16, SEP16 | duplicate sol number within file | key on line number too |
-| A10 | MAR18:864 | tail `\t = $\t ` | tolerant tail |
-| A11 | AUG13:2766 | price `SRP:PI` | tolerant price regex |
-| A12 | FEB12:387; SEP17:14 | `SRP: FREE`; `MSRP: PI` | include in price grammar |
-| A13 | JUN12:2430; SEP19:2850 | flags `SS FI`, `FO` | keep raw; flag |
-| A14 | 12 files (see 2.1) | ident month stale | filename authoritative |
-| A15 | JUL14 | ident `#6` vs expected `#7` | filename authoritative |
-| A16 | 8 files | no ident line | filename only |
-| A17 | NOV14:4 | `GE 24` (truncated PAGE) | repair or flag |
-| A18 | DEC12 | first PAGE at line 28 | do not assume position |
-| A19 | FEB20 | `PAGE 2999`, `PAGE 3000` | page numbers are not trusted |
-| A20 | JAN14:7 | bracketed editor annotation | non-data line |
-| A21 | 8 lines / 7 files | `(NOTE: …)` | NOTE type |
-| A22 | JAN09:5489, 5613; JUN17:3977 | damaged POKÉMON bytes | repair from `*_original_txt` |
-| A23 | whole corpus | 5 files contain a bare heading `300`; last line of every file is a bare number | footer rule (2.3) |
+| ID  | Where                                          | Anomaly                                                                                          | Handling                      |
+|-----|------------------------------------------------|--------------------------------------------------------------------------------------------------|-------------------------------|
+| A1  | FEB09                                          | All 5,123 items have an extra empty field at index 2 (layout C)                                  | drop index 2                  |
+| A2  | SEP15                                          | 8 lines with the same extra field                                                                | drop index 2                  |
+| A3  | MAR09 (1,390), APR09 (34)                      | date missing (layout D)                                                                          | insert empty date             |
+| A4  | JAN13, JUL13                                   | tab-padded headings/PAGE lines; items without trailing tab; `m/d/yyyy` dates; no trailing blanks | strip trailing tabs; layout B |
+| A5  | JUL11 (2), JAN19 (2)                           | items missing the trailing tab                                                                   | layout B                      |
+| A6  | JUN13:2000                                     | hand-added line `DO NOT ORDER FROM THIS LINE`                                                    | flag/exclude                  |
+| A7  | AUG13:2635; MAY15:2916; JUL15:2899; SEP15:2700 | sol code without space; foreign month prefix                                                     | tolerant regex + flag         |
+| A8  | JUN17:3473                                     | sol code `FEB17 8885` (month ≠ file)                                                             | flag                          |
+| A9  | DEC18, NOV16, SEP16                            | duplicate sol number within file                                                                 | key on line number too        |
+| A10 | MAR18:864                                      | tail `\t = $\t `                                                                                 | tolerant tail                 |
+| A11 | AUG13:2766                                     | price `SRP:PI`                                                                                   | tolerant price regex          |
+| A12 | FEB12:387; SEP17:14                            | `SRP: FREE`; `MSRP: PI`                                                                          | include in price grammar      |
+| A13 | JUN12:2430; SEP19:2850                         | flags `SS FI`, `FO`                                                                              | keep raw; flag                |
+| A14 | 12 files (see 2.1)                             | ident month stale                                                                                | filename authoritative        |
+| A15 | JUL14                                          | ident `#6` vs expected `#7`                                                                      | filename authoritative        |
+| A16 | 8 files                                        | no ident line                                                                                    | filename only                 |
+| A17 | NOV14:4                                        | `GE 24` (truncated PAGE)                                                                         | repair or flag                |
+| A18 | DEC12                                          | first PAGE at line 28                                                                            | do not assume position        |
+| A19 | FEB20                                          | `PAGE 2999`, `PAGE 3000`                                                                         | page numbers are not trusted  |
+| A20 | JAN14:7                                        | bracketed editor annotation                                                                      | non-data line                 |
+| A21 | 8 lines / 7 files                              | `(NOTE: …)`                                                                                      | NOTE type                     |
+| A22 | JAN09:5489, 5613; JUN17:3977                   | damaged POKÉMON bytes                                                                            | repair from `*_original_txt`  |
+| A23 | whole corpus                                   | 5 files contain a bare heading `300`; last line of every file is a bare number                   | footer rule (2.3)             |
 
 ## 8. Recommended data-quality approach
 
@@ -380,9 +380,9 @@ Description parsing should be scoped explicitly. The 2016 tokenizer only handled
 - Meaning of `PAGE M-n` pages (merchandise vs Marvel-specific) **[U]**.
 - Meaning of `(Net)`, `(OSW)`, `(PD)`, `(N52)`, `(AOFD)`, `(AH)`, `(DOTF)`, `(VF)`, `(P2)`, `C/O`, `BMB`, `DF`, `EXC`, `INCV` **[U]**.
 - Whether the April 2018 restructure corresponds to a Diamond catalog change (cause inferred only).
-- Which hand edits listed in the 2023 notes are present in `previews_parsing/cof_files` (compare against freshly downloaded copies — the author already planned this).
+- Which hand edits listed in the 2023 notes are present in `previews_parsing/cof_files` (the author planned to diff against freshly downloaded copies, which may no longer be possible if the site is gone; the `*_original_txt` backups and the 2016 repo's files are the remaining references).
 - Heading levels for everything after JAN09 (no gold data); alias list for renames/typos.
-- Whether the download URL pattern still works and whether APR20 → AUG23 files differ in layout from the 135 analyzed (not analyzed here).
+- Whether APR20 → AUG23 files can still be obtained and whether they differ in layout from the 135 analyzed (not analyzed here). `previews_world_decommissioned.md` reports that Diamond has closed and previewsworld.com no longer serves the files, so the download scripts probably no longer work (untested); the corpus may have to stay at JAN09–MAR20.
 - Repeated-heading rule validated on only 3 of ≥ 6 cases.
 - Whether the "premier vs comics" split correlates with where the old `tt.php` found its 24–26k comic items.
 
@@ -392,18 +392,18 @@ One small test file per anomaly in §7 (A1–A23), plus: one file per ident vari
 
 ## 11. Corrections to earlier documents
 
-| Earlier statement | Where | Correction |
-|---|---|---|
-| ~100k items / 105,450 item lines | `analysis_previews.md` | that count covered only JAN09–AUG14 (and a different line count); the 135-file corpus has ≈328.8k |
-| 2013 files "missing a field"/6 columns means missing date | `analysis_previews.md` | only the trailing empty field is missing (layout B); dates present in `m/d/yyyy` |
-| FEB09 only quirk; SEP15 not mentioned | various | SEP15 has 8 lines with the same extra field |
-| FCBD "may be the first heading" | 2023 README | FCBD is a sub-heading; first heading is always PREVIEWS PUBLICATIONS |
-| "some headings start with the word page" | 2023 `cof_notes.md` | no heading begins with PAGE (only item titles and `BETTIE PAGE`) |
-| `(MMMYYcccc)` = previous resolicitation *date* | 2016 notes | it is a code (month+year+4 digits), not a date |
-| `(OF n)` recognized only as first token | `tt.php` | measured: nearly always follows `#n` and precedes artist text |
-| Encodings ISO-8859-1 / cp1250 | 2020/2023 listings | all 135 files are strict UTF-8 |
-| Page sentinel mismatch (0 vs −1) | 2023 code vs notes | irrelevant for this corpus; prefer NULL |
-| `TPB` as a standard book type | 2016 notes | only 8 occurrences; `TP` dominates |
+| Earlier statement                                         | Where                  | Correction                                                                                        |
+|-----------------------------------------------------------|------------------------|---------------------------------------------------------------------------------------------------|
+| ~100k items / 105,450 item lines                          | `analysis_previews.md` | that count covered only JAN09–AUG14 (and a different line count); the 135-file corpus has ≈328.8k |
+| 2013 files "missing a field"/6 columns means missing date | `analysis_previews.md` | only the trailing empty field is missing (layout B); dates present in `m/d/yyyy`                  |
+| FEB09 only quirk; SEP15 not mentioned                     | various                | SEP15 has 8 lines with the same extra field                                                       |
+| FCBD "may be the first heading"                           | 2023 README            | FCBD is a sub-heading; first heading is always PREVIEWS PUBLICATIONS                              |
+| "some headings start with the word page"                  | 2023 `cof_notes.md`    | no heading begins with PAGE (only item titles and `BETTIE PAGE`)                                  |
+| `(MMMYYcccc)` = previous resolicitation *date*            | 2016 notes             | it is a code (month+year+4 digits), not a date                                                    |
+| `(OF n)` recognized only as first token                   | `tt.php`               | measured: nearly always follows `#n` and precedes artist text                                     |
+| Encodings ISO-8859-1 / cp1250                             | 2020/2023 listings     | all 135 files are strict UTF-8                                                                    |
+| Page sentinel mismatch (0 vs −1)                          | 2023 code vs notes     | irrelevant for this corpus; prefer NULL                                                           |
+| `TPB` as a standard book type                             | 2016 notes             | only 8 occurrences; `TP` dominates                                                                |
 
 ## 12. Provenance
 
