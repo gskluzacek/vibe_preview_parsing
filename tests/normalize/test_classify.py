@@ -50,3 +50,8 @@ def test_footer_only_for_last_non_blank_line() -> None:
 def test_annotation_and_unknown() -> None:
     assert types("PAGE 1", "[GR: FREE COMIC BOOK DAY]", "??") == ["PAGE", "ANNOTATION", "UNKNOWN"]
     assert LineType.UNKNOWN.value == "UNKNOWN"
+
+
+def test_ident_variant_b_with_spelled_month() -> None:
+    assert types("PREVIEWS JUNE V20 #6", "", "PAGE 19")[0] == "IDENT"
+    assert types("PREVIEWS ORDER FORM", "OCTOBER V19 #10", "PAGE 1")[:2] == ["IDENT", "IDENT"]

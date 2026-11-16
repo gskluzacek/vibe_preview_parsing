@@ -1,5 +1,7 @@
 # COF Format Specification (working draft)
 
+> **Superseded in part (2026-11-16).** This spec describes the author's edited UTF-8 corpus. The files as published are analyzed in `original_files_analysis.md` (which corrects several statements here, see its section 5), and the target form is defined in `normalized_cof_spec.md`.
+
 Status: draft 1, 2026-11-13. A synthesis of the three earlier repositories plus **fresh measurements over the 135-file corpus** (JAN09 → MAR20).
 
 Inputs: `analysis_previews.md`, `analysis_previews_parsing.md`, `analysis_previews_parsing_pandas.md` (this folder) and four read-only measurement passes (line structure, item fields, headings, description tokens) run by subagents against the data. Numbers marked **[V]** were produced by code run during this work. The numbers are only as good as those scripts; they have not been independently re-run by a second pass.

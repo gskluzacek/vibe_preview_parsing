@@ -4,8 +4,8 @@ F02,mixed_line_endings,auto-lossless,info,,0,0,
 F03,bare_carriage_return,open,warning,,0,0,
 F04,undefined_cp1252_byte,open,error,,0,0,
 F05,truncated_gzip,open,error,,0,0,
-F06,ident_missing,open,info,A16,100,100,JAN09 FEB09 MAR09 AUG09 JUN10 JUL10 AUG10 SEP10 OCT10 NOV10 DEC10 AUG17 ... (+68)
-F07,ident_month_mismatch,auto-derived,warning,A14,11,11,APR09 MAY09 JUN09 JUL09 SEP09 JAN10 JAN12 JAN13 FEB13 JAN14 JUN14
+F06,ident_missing,open,info,A16,91,91,JAN09 FEB09 MAR09 AUG09 AUG17 MAR19 APR19 MAY19 JUN19 JUL19 AUG19 JUN20 ... (+61)
+F07,ident_month_mismatch,auto-derived,warning,A14,12,12,APR09 MAY09 JUN09 JUL09 SEP09 JAN10 AUG10 JAN12 JAN13 FEB13 JAN14 JUN14
 F08,ident_volume_issue_mismatch,auto-derived,warning,A15,2,2,FEB13 JUL14
 F09,footer_missing,open,warning,A23,1,1,NOV23
 F10,empty_file,open,error,,0,0,
@@ -26,7 +26,7 @@ I06,sol_code_malformed,open,warning,,2,2,SEP23 DEC23
 I07,sol_month_differs_from_file,info,info,A8,25,5358,AUG13 MAY15 JUL15 SEP15 JUN17 NOV21 JAN22 AUG22 MAY23 JUN23 JUL23 SEP23 ... (+8)
 I08,sol_duplicate,open,info,A9,5,9,SEP16 NOV16 DEC18 FEB24
 I09,price_no_space,auto-lossless,info,A11,1,1,AUG13
-I10,price_unrecognized,open,warning,,13,21,JAN22 MAY23 JUN23 JUL23 SEP23 NOV23 DEC23 JAN24 FEB24 MAR24
+I10,price_unrecognized,open,warning,,1,8,JAN22
 I11,date_four_digit_year,auto-derived,info,A4,3,5788,JAN13 JUL13
 I12,date_invalid,open,warning,,0,0,
 I13,flag_unknown,open,warning,A13,5,14,JUN12 SEP19 AUG24 SEP25
@@ -35,4 +35,5 @@ I15,text_replacement_char,open,error,A22,0,0,
 I16,item_field_count,open,warning,,0,0,
 I17,text_unbalanced_parens,info,info,,45,65,JUN10 APR11 SEP11 NOV11 MAR14 JUL14 JAN15 FEB15 JUL15 JAN16 FEB16 MAY16 ... (+26)
 I18,text_double_space,info,info,,5,7,SEP11 DEC17 SEP19 JAN20 JUL22
-I19,price_edge_whitespace,auto-lossless,info,,15,4637,MAY23 JUN23 JUL23 SEP23 OCT23 NOV23 DEC23 JAN24 FEB24 MAR24 APR24
+I19,price_edge_whitespace,auto-lossless,info,,15,4642,MAY23 JUN23 JUL23 SEP23 OCT23 NOV23 DEC23 JAN24 FEB24 MAR24 APR24
+I20,csv_quoted_field,auto-lossless,info,,6,9,JUL13 JUN23 JAN24 MAR24

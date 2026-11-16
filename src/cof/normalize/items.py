@@ -24,8 +24,9 @@ KNOWN_FLAGS = frozenset(
 )
 SOL_STRICT_RE = re.compile(r"^[A-Z]{3}\d\d \d{4}$")
 SOL_NOSPACE_RE = re.compile(r"^[A-Z]{3}\d{6}$")
-PRICE_RE = re.compile(r"^(?:M?SRP: (?:\$\d+\.\d\d|PI|FREE)|\$\d+\.\d\d)$")
-PRICE_NOSPACE_RE = re.compile(r"^M?SRP:(?:\$\d+\.\d\d|PI|FREE)$")
+_MONEY = r"\$(?:\d{1,3}(?:,\d{3})+|\d+)\.\d\d"  # $12.99 or $1,094.99
+PRICE_RE = re.compile(rf"^(?:M?SRP: (?:{_MONEY}|PI|FREE)|{_MONEY})$")
+PRICE_NOSPACE_RE = re.compile(rf"^M?SRP:(?:{_MONEY}|PI|FREE)$")
 DATE_RE = re.compile(r"^(\d\d)/(\d\d)/(\d\d)$")
 DATE_LONG_RE = re.compile(r"^(\d{1,2})/(\d{1,2})/(\d{4})$")
 
@@ -94,3 +95,20 @@ def parse_date(value: str) -> datetime | None:
             except ValueError:
                 return None
     return None
+
+
+def is_quoted(field: str) -> bool:
+    """Tell whether a field is wrapped in CSV-style double quotes."""
+    return len(field) >= 2 and field.startswith('"') and field.endswith('"')
+
+
+def unquote(field: str) -> str:
+    """Remove CSV-style quoting: the outer quotes, and ``""`` inside becomes ``"``.
+
+    Args:
+        field: A field, quoted or not.
+
+    Returns:
+        The field's real text.
+    """
+    return field[1:-1].replace('""', '"') if is_quoted(field) else field

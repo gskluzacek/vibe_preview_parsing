@@ -43,6 +43,7 @@ def test_clean_file_has_no_issues() -> None:
         ("BL\tJAN13 0001\tBATMAN #1\t01/16/13\tSRP: $2.99\t = $\t", "I13"),
         ("SS\tJAN13 0001\t BATMAN #1 \t01/16/13\tSRP: $2.99\t = $\t", "I14"),
         ("SS\tJAN13 0001\tBATMAN #1\t01/16/13\tSRP: $2.99 \t = $\t", "I19"),
+        ('SS\tJAN13 0001\tBATMAN #1\t01/16/13\t"SRP: $1,100.00 "\t = $\t', "I20"),
         ("SS\tJAN13 0001\tBATMAN (#1\t01/16/13\tSRP: $2.99\t = $\t", "I17"),
         ("SS\tJAN13 0001\tBATMAN  #1\t01/16/13\tSRP: $2.99\t = $\t", "I18"),
         ("SS\tJAN13 0001\tBATMAN\t01/16/13", "I16"),
@@ -112,3 +113,10 @@ def test_foreign_layout_suppresses_line_rules() -> None:
     header = "PreviewsVolumeNo\tPreviewsNo\tOrderFormItemNo\tOrderFormItemDesc\tCountryCode"
     got = run(header + "\n33\t10\tOCT230001\tPREVIEWS #423\t002", month="NOV23")
     assert set(got) <= {"F01", "F06", "F09"} and "F01" in got
+
+
+def test_thousands_separator_price_is_a_known_form() -> None:
+    line = "SS\tJAN13 0001\tBATMAN #1\t01/16/13\tSRP: $1,094.99\t = $\t"
+    assert run(file_with(line)) == {}
+    quoted = run(file_with('SS\tJAN13 0001\tBATMAN #1\t01/16/13\t"SRP: $1,100.00 "\t = $\t'))
+    assert set(quoted) == {"I19", "I20"}  # quoted, with a trailing space inside; the price itself is fine

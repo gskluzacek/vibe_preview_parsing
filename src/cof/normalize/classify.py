@@ -8,9 +8,9 @@ SOL_RE = re.compile(r"^[A-Z]{3}\d\d \d{4}$")
 # Identification ("ident") line variants A-D (spec section 2.1).
 IDENT_RES: tuple[re.Pattern[str], ...] = (
     re.compile(r"^PREVIEWS [A-Z]+ VOL\. \d+ #\d+$"),  # A: month spelled out (or 3 letters)
-    re.compile(r"^PREVIEWS [A-Z]{3} V\d+ #\d+$"),  # B
+    re.compile(r"^PREVIEWS [A-Z]+ V\d+ #\d+$"),  # B: month spelled out or 3 letters
     re.compile(r"^PREVIEWS ORDER FORM$"),  # C, line 1
-    re.compile(r"^[A-Z]{3} V\d+ #\d+$"),  # C, line 2
+    re.compile(r"^[A-Z]+ V\d+ #\d+$"),  # C, line 2
     re.compile(r"^PREVIEWS [A-Z]+ \d{4}$"),  # D, line 1
     re.compile(r"^ISSUE #\d+ \(VOL\. \d+ #\d+\)$"),  # D, line 2
 )

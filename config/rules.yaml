@@ -107,3 +107,6 @@ rules:
   - {id: I19, name: price_edge_whitespace, class: auto-lossless, severity: info,
      description: "The price field has leading or trailing whitespace (for example 'SRP: PI ').",
      fix: "Whitespace is trimmed."}
+  - {id: I20, name: csv_quoted_field, class: auto-lossless, severity: info,
+     description: "A field is wrapped in CSV-style double quotes, with inner quotes doubled (used when the field holds a comma or a quote mark).",
+     fix: "The quotes are removed and doubled quotes become single quotes."}

@@ -17,8 +17,10 @@ from cof.normalize.items import (
     SOL_STRICT_RE,
     TAIL,
     canonical_fields,
+    is_quoted,
     layout_of,
     parse_date,
+    unquote,
 )
 from cof.normalize.rules import detector
 
@@ -29,7 +31,7 @@ _MONTH_NAMES = (
 _HEADER_ROW_RE = re.compile(r"[A-Za-z]+(?:\t[A-Za-z]+){3,}")
 _DAMAGED_PAGE_RE = re.compile(r"^(?:P|PA|PAG|AGE|GE|E) ?(?:M-)?\d+$")
 _IDENT_A_RE = re.compile(r"^PREVIEWS ([A-Z]+) VOL\. (\d+) #(\d+)$")
-_IDENT_B_RE = re.compile(r"^(?:PREVIEWS )?([A-Z]{3}) V(\d+) #(\d+)$")
+_IDENT_B_RE = re.compile(r"^(?:PREVIEWS )?([A-Z]+) V(\d+) #(\d+)$")
 _IDENT_D1_RE = re.compile(r"^PREVIEWS ([A-Z]+) (\d{4})$")
 _IDENT_D2_RE = re.compile(r"^ISSUE #(\d+) \(VOL\. (\d+) #(\d+)\)$")
 
@@ -299,7 +301,7 @@ def sol_duplicate(ctx: FileContext) -> Iterator[Issue]:
 def price_no_space(ctx: FileContext) -> Iterator[Issue]:
     """Report prices with no space after the colon."""
     for number, canon in _canonical_items(ctx):
-        if PRICE_NOSPACE_RE.match(canon[4].strip()):
+        if PRICE_NOSPACE_RE.match(unquote(canon[4]).strip()):
             yield Issue("I09", number, canon[4])
 
 
@@ -307,7 +309,7 @@ def price_no_space(ctx: FileContext) -> Iterator[Issue]:
 def price_unrecognized(ctx: FileContext) -> Iterator[Issue]:
     """Report prices outside every known form (surrounding whitespace is ignored; see I19)."""
     for number, canon in _canonical_items(ctx):
-        price = canon[4].strip()
+        price = unquote(canon[4]).strip()
         if not PRICE_RE.match(price) and not PRICE_NOSPACE_RE.match(price):
             yield Issue("I10", number, repr(canon[4]))
 
@@ -383,5 +385,15 @@ def text_double_space(ctx: FileContext) -> Iterator[Issue]:
 def price_edge_whitespace(ctx: FileContext) -> Iterator[Issue]:
     """Report prices with leading or trailing whitespace (for example ``'SRP: PI '``)."""
     for number, canon in _canonical_items(ctx):
-        if canon[4] != canon[4].strip():
+        price = unquote(canon[4])
+        if price != price.strip():
             yield Issue("I19", number, repr(canon[4]))
+
+
+@detector("I20")
+def csv_quoted_field(ctx: FileContext) -> Iterator[Issue]:
+    """Report fields wrapped in CSV-style quotes (used when a field holds a comma or a quote mark)."""
+    for number, canon in _canonical_items(ctx):
+        for index, value in enumerate(canon):
+            if is_quoted(value):
+                yield Issue("I20", number, f"field {index}: {value[:60]}")
