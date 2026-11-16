@@ -178,3 +178,23 @@ Things to keep in mind:
 - The PDFs give a second source: parse a sample, and compare item counts and fields with the text files.
 
 **Next steps (not started):** (a) a read-only CDX lister covering all three URL eras and recording every capture per month in a manifest; (b) fetch a pilot set, including the two files already found (`TXT/JUL23`, `PDF/JAN18`), and compare with the spec's layouts; (c) decide the storage layout for downloaded files and the manifest.
+
+## 11. Pilot download results (2026-11-13)
+
+`tools/acquire/fetch.py --pilot` downloaded 10 files (7.7 MB, `data/originals/`): JAN09 text and PDF, both versions of JAN13 and AUG10 text, MAR20 and JUL23 text, and both versions of the JAN18 PDF. Each is stored as fetched, with a log (`downloads.csv`).
+
+| Finding | Evidence |
+|---|---|
+| The archive's digest matches the downloaded bytes for all 10 files | digest check in `fetch.py` |
+| **Publisher corrections exist.** JAN13 and AUG10 each have a later version that fixes a wrong ident line | JAN13: "PREVIEWS DECEMBER VOL. 23 #1" became "JANUARY" (captured June 2013). AUG10: "PREVIEWS JULY V20 #8" became "AUGUST" (captured Oct 2021). No other line differs |
+| The earlier (uncorrected) versions are byte-identical to the author's corpus files | JAN13 and AUG10 |
+| **Originals are Windows-1252, not UTF-8** | JAN09, MAR20, JUL23 (see spec section 1). The corpus is a converted copy |
+| The four damaged POKÉMON lines in the corpus are the only differences from the archive's JAN09 | line-by-line comparison |
+| **A valid digest does not mean a complete file.** One JAN18 PDF capture is exactly 1,048,576 bytes with no `%%EOF`, so it is truncated; the other (4.5 MB) is complete | `fetch.py` now checks PDF endings |
+| JUL23 text exists and looks like a COF (3,416 lines, same item layout) | not yet checked against the spec |
+
+**What this changes:**
+- The corpus's own ident lines for JAN13 and AUG10 are wrong as first published. If the later corrected files are preferred, the corpus can be improved, not only repaired.
+- Capture selection needs a rule, not "earliest" or "latest": prefer the version that is complete and has the fewest known defects, and keep the others.
+- The decode step is part of normalization, with cp1252 as the input encoding.
+- Only a handful of months were checked. Treat all of this as a hypothesis for the full set until the full download is compared.

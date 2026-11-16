@@ -33,3 +33,10 @@ PLAUSIBLE = {'txt': ('text/plain', 5000), 'pdf': ('application/pdf', 100000)}
 # Months the report expects to find.
 EXPECT_FROM = 'JAN09'
 EXPECT_TO = 'DEC25'
+
+# Downloaded files (kept exactly as fetched) and the download log.
+ORIGINALS_DIR = os.environ.get('ACQUIRE_ORIGINALS') or os.path.join(_ROOT, 'data', 'originals')
+
+# Pilot set: covers all three URL eras, months with several distinct versions, and the two files found by hand.
+PILOT = [('JAN09', 'txt'), ('JAN09', 'pdf'), ('JAN13', 'txt'), ('AUG10', 'txt'),
+         ('MAR20', 'txt'), ('JUL23', 'txt'), ('JAN18', 'pdf')]
