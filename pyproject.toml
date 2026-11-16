@@ -36,7 +36,7 @@ addopts = "-m 'not network'"
 
 [tool.mypy]
 strict = true
-files = ["src", "tests"]
+files = ["src", "adhoc", "tests"]
 mypy_path = "src:adhoc"
 explicit_package_bases = true
 
