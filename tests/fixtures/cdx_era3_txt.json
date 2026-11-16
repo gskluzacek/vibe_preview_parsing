@@ -1,0 +1,10 @@
+{"pattern": "previewsworld.com/Catalog/CustomerOrderForm/TXT/*", "fetched_utc": "2026-01-01T00:00:00Z",
+ "header": ["timestamp", "original", "statuscode", "mimetype", "length", "digest"],
+ "rows": [
+  ["20130116201840", "https://previewsworld.com/Catalog/CustomerOrderForm/TXT/JAN13", "200", "text/plain", "36589", "AAAA"],
+  ["20130601123411", "https://previewsworld.com/Catalog/CustomerOrderForm/TXT/JAN13", "200", "text/plain", "36584", "BBBB"],
+  ["20130701000000", "https://previewsworld.com/Catalog/CustomerOrderForm/TXT/JAN13", "200", "text/plain", "36584", "BBBB"],
+  ["20181215132934", "https://previewsworld.com/Catalog/CustomerOrderForm/TXT/FEB13", "200", "image/png", "14651", "CCCC"],
+  ["20181215132935", "https://previewsworld.com/Catalog/CustomerOrderForm/TXT/MAR13", "404", "text/html", "900", "DDDD"],
+  ["20181215132936", "https://previewsworld.com/Catalog/CustomerOrderForm/TXT/", "200", "text/html", "900", "EEEE"]
+ ]}

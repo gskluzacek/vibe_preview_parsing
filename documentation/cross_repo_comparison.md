@@ -181,7 +181,7 @@ Things to keep in mind:
 
 ## 11. Pilot download results (2026-11-13)
 
-`tools/acquire/fetch.py --pilot` downloaded 10 files (7.7 MB, `data/originals/`): JAN09 text and PDF, both versions of JAN13 and AUG10 text, MAR20 and JUL23 text, and both versions of the JAN18 PDF. Each is stored as fetched, with a log (`downloads.csv`).
+`cof-acquire fetch --pilot` (`src/cof/acquire/fetch.py`) downloaded 10 files (7.7 MB, `data/originals/`): JAN09 text and PDF, both versions of JAN13 and AUG10 text, MAR20 and JUL23 text, and both versions of the JAN18 PDF. Each is stored as fetched, with a log (`downloads.csv`).
 
 | Finding | Evidence |
 |---|---|
@@ -201,7 +201,7 @@ Things to keep in mind:
 
 ## 12. Full download results (2026-11-15)
 
-`fetch.py --all` downloaded every distinct plausible version in the manifest: 555 files, 0 failures, every archive digest matched.
+`cof-acquire fetch --all` downloaded every distinct plausible version in the manifest: 555 files, 0 failures, every archive digest matched.
 
 | | Files | Notes |
 |---|---|---|

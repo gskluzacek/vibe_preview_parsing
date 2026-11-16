@@ -54,3 +54,5 @@ If a script is changed on purpose, re-run it and copy the new `.out` into `expec
 - Seven `lines/*.out` files committed earlier were removed: two (`p5`, `p6`) had been captured from older versions of their scripts and did not match them.
 - The scripts read the corpus as bytes or Latin-1 in some places and UTF-8 in others; the spec's encoding conclusion rests on `lines/p12`–`p13` (strict UTF-8 decode of every file).
 - Descriptive names, a single entry point per topic, and conversion of stable findings into parser tests (`cof_format_spec.md` §10) are still to do.
+
+> **Legacy.** These scripts produced the numbers in `documentation/cof_format_spec.md` and are kept as they are (standard library only, no type hints). New code lives in `src/cof/` and `adhoc/` and follows the standards in `CLAUDE.md`.

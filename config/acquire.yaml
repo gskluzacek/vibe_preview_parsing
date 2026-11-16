@@ -1,0 +1,33 @@
+# Configuration for the acquire stage (see src/cof/acquire/params.py for the schema).
+
+# CDX prefix queries, one per URL era / host: name -> URL pattern.
+patterns:
+  era12_previewsworld: previewsworld.com/support/previews_docs/orderforms/*
+  era12_diamondcomics: diamondcomics.com/support/previews_docs/orderforms/*
+  era3_txt: previewsworld.com/Catalog/CustomerOrderForm/TXT/*
+  era3_pdf: previewsworld.com/Catalog/CustomerOrderForm/PDF/*
+
+cdx_limit: 100000
+cdx_fields: [timestamp, original, statuscode, mimetype, length, digest]
+
+# The page that linked recent forms.
+listing_url: previewsworld.com/Catalog/CustomerOrderForms
+
+# A capture is "plausible" when status 200, the expected MIME type, and at least this many (stored) bytes.
+plausible:
+  txt: {mime: text/plain, min_length: 5000}
+  pdf: {mime: application/pdf, min_length: 100000}
+
+# Months the coverage report expects to find.
+expect_from: JAN09
+expect_to: DEC25
+
+# Pilot download set: covers all three URL eras, months with several versions, and the two hand-found files.
+pilot:
+  - [JAN09, txt]
+  - [JAN09, pdf]
+  - [JAN13, txt]
+  - [AUG10, txt]
+  - [MAR20, txt]
+  - [JUL23, txt]
+  - [JAN18, pdf]
