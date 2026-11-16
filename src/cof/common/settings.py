@@ -27,6 +27,8 @@ class Settings(BaseSettings):
     acquire_dir: Path = PROJECT_ROOT / "data" / "acquire"
     originals_dir: Path = PROJECT_ROOT / "data" / "originals"
     normalized_dir: Path = PROJECT_ROOT / "data" / "normalized"
+    corpus_dir: Path = PROJECT_ROOT.parent / "previews_parsing" / "cof_files"  # the author's edited corpus
+    analysis_dir: Path = PROJECT_ROOT / "data" / "original_analysis"  # output of adhoc/analyze_originals.py
 
     wayback_delay: float = 2.0  # seconds to pause before every request to the archive
     wayback_retries: int = 5  # attempts per request before giving up

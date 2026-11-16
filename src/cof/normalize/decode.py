@@ -19,7 +19,7 @@ class Decoded:
     """A decoded file and the facts found while decoding it."""
 
     lines: list[str]  # text lines without line terminators
-    encoding: str  # "ascii", "utf-8" or "cp1252"
+    encoding: str  # "ascii", "utf-8", "utf-8-bom", "utf-16" or "cp1252"
     eol: str  # "crlf", "lf", "mixed" or "none" (no line break at all)
     non_ascii_bytes: int  # number of bytes >= 0x80 in the source
     final_newline: bool  # whether the source ended with a line break
@@ -64,6 +64,10 @@ def _decode_text(data: bytes) -> tuple[str, str, list[int]]:
     Returns:
         ``(text, encoding_name, offsets_of_undefined_bytes)``.
     """
+    if data[:2] in (b"\xff\xfe", b"\xfe\xff"):  # UTF-16 byte-order mark (the codec removes it)
+        return data.decode("utf-16"), "utf-16", []
+    if data[:3] == b"\xef\xbb\xbf":
+        return data.decode("utf-8-sig"), "utf-8-bom", []
     if not any(b >= 0x80 for b in data):
         return data.decode("ascii"), "ascii", []
     try:

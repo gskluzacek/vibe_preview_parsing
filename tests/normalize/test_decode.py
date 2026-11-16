@@ -53,3 +53,13 @@ def test_truncated_gzip_is_recovered_as_far_as_possible() -> None:
     blob = gzip.compress(b"line\r\n" * 5000)
     d = decode_bytes(blob[: len(blob) // 2])
     assert d.compression == "gzip-truncated" and 0 < len(d.lines) < 5000
+
+
+def test_utf16_with_bom() -> None:
+    d = decode_bytes("PAGE 1\r\nPOKÉMON\r\n".encode("utf-16"))
+    assert (d.encoding, d.eol, d.lines) == ("utf-16", "crlf", ["PAGE 1", "POKÉMON"])
+
+
+def test_utf8_bom_is_dropped_and_reported() -> None:
+    d = decode_bytes(b"\xef\xbb\xbfPAGE 1\n")
+    assert (d.encoding, d.lines) == ("utf-8-bom", ["PAGE 1"])

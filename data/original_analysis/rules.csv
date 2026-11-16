@@ -1,0 +1,38 @@
+rule_id,name,class,severity,anomaly,files,issues,months
+F01,foreign_layout,open,error,,1,1,NOV23
+F02,mixed_line_endings,auto-lossless,info,,0,0,
+F03,bare_carriage_return,open,warning,,0,0,
+F04,undefined_cp1252_byte,open,error,,0,0,
+F05,truncated_gzip,open,error,,0,0,
+F06,ident_missing,open,info,A16,100,100,JAN09 FEB09 MAR09 AUG09 JUN10 JUL10 AUG10 SEP10 OCT10 NOV10 DEC10 AUG17 ... (+68)
+F07,ident_month_mismatch,auto-derived,warning,A14,11,11,APR09 MAY09 JUN09 JUL09 SEP09 JAN10 JAN12 JAN13 FEB13 JAN14 JUN14
+F08,ident_volume_issue_mismatch,auto-derived,warning,A15,2,2,FEB13 JUL14
+F09,footer_missing,open,warning,A23,1,1,NOV23
+F10,empty_file,open,error,,0,0,
+L01,trailing_whitespace_non_item,auto-lossless,info,A4,5,2143,JAN13 JUL13 SEP23 DEC23
+L02,page_line_damaged,open,warning,A17,1,1,NOV14
+L03,page_number_implausible,open,info,A19,1,2,FEB20
+L04,note_line,info,info,A21,9,10,MAR09 JAN11 NOV11 JUL12 AUG12 APR13 JAN14
+L05,annotation_line,info,info,A20,1,1,JAN14
+L06,do_not_order_placeholder,info,info,A6,4,21,JAN09 JUN13 AUG25
+L07,unclassified_line,open,warning,,2,8,JAN20 DEC21
+L08,numeric_only_line,info,info,A23,5,5,MAY14 SEP16 DEC16 MAY17 SEP17
+I01,layout_b_no_trailing_field,auto-lossless,info,A4,13,6695,JUL11 JAN13 JUL13 JAN19 SEP23 OCT23 NOV23 DEC23 JAN24 MAY24
+I02,layout_c_extra_field,auto-derived,info,A1,2,5131,FEB09 SEP15
+I03,layout_d_missing_date,auto-derived,info,A3,2,1424,MAR09 APR09
+I04,tail_variant,auto-lossless,info,A10,1,1,MAR18
+I05,sol_code_no_space,auto-derived,warning,A7,4,4,AUG13 MAY15 JUL15 SEP15
+I06,sol_code_malformed,open,warning,,2,2,SEP23 DEC23
+I07,sol_month_differs_from_file,info,info,A8,25,5358,AUG13 MAY15 JUL15 SEP15 JUN17 NOV21 JAN22 AUG22 MAY23 JUN23 JUL23 SEP23 ... (+8)
+I08,sol_duplicate,open,info,A9,5,9,SEP16 NOV16 DEC18 FEB24
+I09,price_no_space,auto-lossless,info,A11,1,1,AUG13
+I10,price_unrecognized,open,warning,,13,21,JAN22 MAY23 JUN23 JUL23 SEP23 NOV23 DEC23 JAN24 FEB24 MAR24
+I11,date_four_digit_year,auto-derived,info,A4,3,5788,JAN13 JUL13
+I12,date_invalid,open,warning,,0,0,
+I13,flag_unknown,open,warning,A13,5,14,JUN12 SEP19 AUG24 SEP25
+I14,text_edge_whitespace,auto-lossless,info,,27,100,APR09 JAN11 APR11 JUN12 JUL12 JAN13 MAR13 JUN13 JUL13 SEP13 DEC14 MAY15 ... (+7)
+I15,text_replacement_char,open,error,A22,0,0,
+I16,item_field_count,open,warning,,0,0,
+I17,text_unbalanced_parens,info,info,,45,65,JUN10 APR11 SEP11 NOV11 MAR14 JUL14 JAN15 FEB15 JUL15 JAN16 FEB16 MAY16 ... (+26)
+I18,text_double_space,info,info,,5,7,SEP11 DEC17 SEP19 JAN20 JUL22
+I19,price_edge_whitespace,auto-lossless,info,,15,4637,MAY23 JUN23 JUL23 SEP23 OCT23 NOV23 DEC23 JAN24 FEB24 MAR24 APR24

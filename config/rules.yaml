@@ -1,0 +1,109 @@
+# Rule registry for the normalizer: what can be wrong in a COF text file and how it is handled.
+# Each rule has a Python detector (src/cof/normalize/detectors.py) with the same id; a test keeps the two in step.
+#
+# class:  auto-lossless  fixed automatically, no information lost
+#         auto-derived   fixed automatically using a value computed from a trusted source (e.g. the file name)
+#         patch          needs a specific reviewed edit, recorded on a patch list
+#         open           detected, not fixed
+#         info           noted only; not a defect
+# severity: error | warning | info
+# anomaly: id in documentation/cof_format_spec.md section 7, where one exists
+rules:
+  # ---- file level ------------------------------------------------------------------------------
+  - {id: F01, name: foreign_layout, class: open, severity: error,
+     description: "The file is not a COF text file (for example a tab-delimited export with a header row).",
+     fix: "None. The file cannot be normalized; it must not be selected for its month."}
+  - {id: F02, name: mixed_line_endings, class: auto-lossless, severity: info,
+     description: "Some lines end with CRLF and others with LF.",
+     fix: "All line endings become LF (part of the standard transform)."}
+  - {id: F03, name: bare_carriage_return, class: open, severity: warning,
+     description: "A carriage return appears inside a line, not as part of a line ending.",
+     fix: "None yet."}
+  - {id: F04, name: undefined_cp1252_byte, class: open, severity: error,
+     description: "The file contains a byte that Windows-1252 leaves undefined.",
+     fix: "The byte is replaced by U+FFFD so the loss is visible; a patch is needed to restore the character."}
+  - {id: F05, name: truncated_gzip, class: open, severity: error,
+     description: "The archive stored the file as a gzip stream that ends early; only part of the file was recovered.",
+     fix: "None. Prefer another version of the month."}
+  - {id: F06, name: ident_missing, class: open, severity: info, anomaly: A16,
+     description: "The file has no identification line before the first PAGE line.",
+     fix: "None. The period comes from the file name."}
+  - {id: F07, name: ident_month_mismatch, class: auto-derived, severity: warning, anomaly: A14,
+     description: "The month named in the identification line differs from the file name.",
+     fix: "The month in the identification line is replaced by the one from the file name."}
+  - {id: F08, name: ident_volume_issue_mismatch, class: auto-derived, severity: warning, anomaly: A15,
+     description: "The volume or issue number in the identification line differs from the value derived from the file name.",
+     fix: "The numbers are replaced by the ones derived from the file name."}
+  - {id: F09, name: footer_missing, class: open, severity: warning, anomaly: A23,
+     description: "The last non-blank line is not a bare number.",
+     fix: "None."}
+  - {id: F10, name: empty_file, class: open, severity: error,
+     description: "The file has no lines.", fix: "None."}
+  # ---- line level -------------------------------------------------------------------------------
+  - {id: L01, name: trailing_whitespace_non_item, class: auto-lossless, severity: info, anomaly: A4,
+     description: "A heading or PAGE line is padded with trailing tabs or spaces.",
+     fix: "Trailing tabs and spaces are removed."}
+  - {id: L02, name: page_line_damaged, class: open, severity: warning, anomaly: A17,
+     description: "A line looks like a PAGE line with its first characters cut off (for example 'GE 24').",
+     fix: "None yet; likely a patch."}
+  - {id: L03, name: page_number_implausible, class: open, severity: info, anomaly: A19,
+     description: "A PAGE number is 1000 or more.", fix: "None; page numbers are not trusted as keys."}
+  - {id: L04, name: note_line, class: info, severity: info, anomaly: A21,
+     description: "A '(NOTE: ...)' line.", fix: "Kept as a NOTE line."}
+  - {id: L05, name: annotation_line, class: info, severity: info, anomaly: A20,
+     description: "A bracketed editor annotation line.", fix: "Kept; classified as a non-data line."}
+  - {id: L06, name: do_not_order_placeholder, class: info, severity: info, anomaly: A6,
+     description: "An item whose text is 'DO NOT ORDER FROM THIS LINE' (a publisher placeholder, sometimes with only 3 fields).",
+     fix: "Kept as published; downstream code filters on the text."}
+  - {id: L07, name: unclassified_line, class: open, severity: warning,
+     description: "A line that is not blank, PAGE, NOTE, IDENT, ITEM, FOOTER, annotation or heading.",
+     fix: "None."}
+  - {id: L08, name: numeric_only_line, class: info, severity: info, anomaly: A23,
+     description: "A line holding only a number that is not the footer.", fix: "Kept; counted."}
+  # ---- item level -------------------------------------------------------------------------------
+  - {id: I01, name: layout_b_no_trailing_field, class: auto-lossless, severity: info, anomaly: A4,
+     description: "An item line has no tab after ' = $' (6 fields instead of 7).",
+     fix: "An empty trailing field is added."}
+  - {id: I02, name: layout_c_extra_field, class: auto-derived, severity: info, anomaly: A1,
+     description: "An item line has an extra empty field after the sol code (8 fields).",
+     fix: "The empty field is dropped."}
+  - {id: I03, name: layout_d_missing_date, class: auto-derived, severity: info, anomaly: A3,
+     description: "An item line has no release-date field (6 fields, price in the date position).",
+     fix: "An empty release date is inserted."}
+  - {id: I04, name: tail_variant, class: auto-lossless, severity: info, anomaly: A10,
+     description: "The end of an item line is not exactly ' = $' followed by an empty field.",
+     fix: "The tail is rewritten to the standard form."}
+  - {id: I05, name: sol_code_no_space, class: auto-derived, severity: warning, anomaly: A7,
+     description: "The sol code has no space between month/year and number (for example FEB138491).",
+     fix: "A space is inserted."}
+  - {id: I06, name: sol_code_malformed, class: open, severity: warning,
+     description: "The sol code does not match the sol-code pattern even after adding a space.", fix: "None."}
+  - {id: I07, name: sol_month_differs_from_file, class: info, severity: info, anomaly: A8,
+     description: "The month in the sol code differs from the file name. Normal from 2021 on (carried-over items keep their original code); a typo candidate in earlier files.",
+     fix: "Kept as published."}
+  - {id: I08, name: sol_duplicate, class: open, severity: info, anomaly: A9,
+     description: "The same sol code appears more than once in the file.", fix: "None; key on line number too."}
+  - {id: I09, name: price_no_space, class: auto-lossless, severity: info, anomaly: A11,
+     description: "A price has no space after 'SRP:' or 'MSRP:'.", fix: "A space is inserted."}
+  - {id: I10, name: price_unrecognized, class: open, severity: warning,
+     description: "The price does not match any known form.", fix: "None."}
+  - {id: I11, name: date_four_digit_year, class: auto-derived, severity: info, anomaly: A4,
+     description: "The release date uses a four-digit year or non-padded fields (m/d/yyyy).",
+     fix: "Rewritten as mm/dd/yy."}
+  - {id: I12, name: date_invalid, class: open, severity: warning,
+     description: "The release date is neither empty nor a valid calendar date in a known form.", fix: "None."}
+  - {id: I13, name: flag_unknown, class: open, severity: warning, anomaly: A13,
+     description: "The flag field holds a value outside the known set.", fix: "None; raw value kept."}
+  - {id: I14, name: text_edge_whitespace, class: auto-lossless, severity: info,
+     description: "The item text has leading or trailing whitespace.", fix: "Whitespace is trimmed."}
+  - {id: I15, name: text_replacement_char, class: open, severity: error, anomaly: A22,
+     description: "The item or heading text contains U+FFFD (a lost character).", fix: "A patch is needed."}
+  - {id: I16, name: item_field_count, class: open, severity: warning,
+     description: "An item line does not fit any known layout.", fix: "None."}
+  - {id: I17, name: text_unbalanced_parens, class: info, severity: info,
+     description: "The item text has unequal numbers of '(' and ')'.", fix: "Kept as published."}
+  - {id: I18, name: text_double_space, class: info, severity: info,
+     description: "The item text contains two consecutive spaces.", fix: "Kept as published."}
+  - {id: I19, name: price_edge_whitespace, class: auto-lossless, severity: info,
+     description: "The price field has leading or trailing whitespace (for example 'SRP: PI ').",
+     fix: "Whitespace is trimmed."}
