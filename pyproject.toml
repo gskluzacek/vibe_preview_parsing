@@ -23,6 +23,7 @@ dev = [
 
 [project.scripts]
 cof-acquire = "cof.acquire.cli:app"
+cof-normalize = "cof.normalize.cli:app"
 
 [build-system]
 requires = ["uv_build>=0.8,<0.13"]

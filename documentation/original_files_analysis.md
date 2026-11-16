@@ -53,7 +53,7 @@ Class: `auto-lossless` / `auto-derived` can be fixed by the normalizer; `open` n
 | Rule | Name | Class | Files | Issues | Months (examples) |
 |---|---|---|---:|---:|---|
 | F01 | foreign layout | open | 1 | 1 | NOV23 (first capture) |
-| F06 | ident missing | open | 91 | 91 | the 8 files in the spec, JUN19–AUG19 (first captures), and every month from JUN20 on except JUL20 |
+| F06 | ident missing | info | 91 | 91 | the 8 files in the spec, JUN19–AUG19 (first captures), and every month from JUN20 on except JUL20 |
 | F07 | ident month mismatch | auto-derived | 12 | 12 | APR09 MAY09 JUN09 JUL09 SEP09 JAN10 AUG10 JAN12 JAN13 FEB13 JAN14 JUN14 |
 | F08 | ident volume/issue mismatch | auto-derived | 2 | 2 | FEB13 (`VOL. 22`), JUL14 (`#6`) |
 | F09 | footer missing | open | 1 | 1 | NOV23 (first capture) |

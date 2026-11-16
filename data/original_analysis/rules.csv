@@ -4,7 +4,7 @@ F02,mixed_line_endings,auto-lossless,info,,0,0,
 F03,bare_carriage_return,open,warning,,0,0,
 F04,undefined_cp1252_byte,open,error,,0,0,
 F05,truncated_gzip,open,error,,0,0,
-F06,ident_missing,open,info,A16,91,91,JAN09 FEB09 MAR09 AUG09 AUG17 MAR19 APR19 MAY19 JUN19 JUL19 AUG19 JUN20 ... (+61)
+F06,ident_missing,info,info,A16,91,91,JAN09 FEB09 MAR09 AUG09 AUG17 MAR19 APR19 MAY19 JUN19 JUL19 AUG19 JUN20 ... (+61)
 F07,ident_month_mismatch,auto-derived,warning,A14,12,12,APR09 MAY09 JUN09 JUL09 SEP09 JAN10 AUG10 JAN12 JAN13 FEB13 JAN14 JUN14
 F08,ident_volume_issue_mismatch,auto-derived,warning,A15,2,2,FEB13 JUL14
 F09,footer_missing,open,warning,A23,1,1,NOV23

@@ -211,3 +211,12 @@ Things to keep in mind:
 - Only OCT22 and OCT23 have no complete PDF.
 - Text files, the manifest and `downloads.csv` are in git. The PDFs are gitignored and can be re-fetched from the manifest.
 - Not yet done: choose the best text version per month, decode and compare each with the corpus and the spec, and measure the files after MAR20, whose layout is unmeasured.
+
+## 13. Status after the first normalization run (2026-11-16)
+
+- **Acquire** is a tested pipeline stage (`cof-acquire`): index, manifest, listing, fetch and verify.
+- **Analysis of all 232 originals** is in `original_files_analysis.md`. Surprises: gzip-compressed copies, UTF-16 and UTF-8-BOM files, a foreign export layout, and a corpus that is a faithful copy except for three damaged lines.
+- **Selection** (`data/originals/selection.csv`): one chosen text version for each of 199 months, with a reason for every unused file. Later was not always better.
+- **Target spec** is `normalized_cof_spec.md`; rules are in `config/rules.yaml` (38 rules).
+- **Normalizer** (`cof-normalize run`) produced 199 clean UTF-8, LF files in `data/normalized/YYYY_MM.txt`. 20,430 defects were repaired automatically; 40 issues in 15 months remain open (unknown flags `BL`/`S`/`FO`/`SS FI`, bare `PI` prices, `STAR1` sol codes, `??` lines, duplicate sol codes, a damaged PAGE line, PAGE numbers over 999).
+- Still not covered: the five months with no text capture (MAY20, APR23, AUG23, NOV25, DEC25), the choice of the final policies listed in `normalized_cof_spec.md` section 8, heading levels, flag meanings, and description parsing.

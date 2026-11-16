@@ -25,9 +25,9 @@ rules:
   - {id: F05, name: truncated_gzip, class: open, severity: error,
      description: "The archive stored the file as a gzip stream that ends early; only part of the file was recovered.",
      fix: "None. Prefer another version of the month."}
-  - {id: F06, name: ident_missing, class: open, severity: info, anomaly: A16,
+  - {id: F06, name: ident_missing, class: info, severity: info, anomaly: A16,
      description: "The file has no identification line before the first PAGE line.",
-     fix: "None. The period comes from the file name."}
+     fix: "Kept as published; no line is invented. The period comes from the file name."}
   - {id: F07, name: ident_month_mismatch, class: auto-derived, severity: warning, anomaly: A14,
      description: "The month named in the identification line differs from the file name.",
      fix: "The month in the identification line is replaced by the one from the file name."}

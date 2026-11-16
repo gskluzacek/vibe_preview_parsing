@@ -65,7 +65,7 @@ Left as published and reported, never silently changed:
 
 - **Foreign layout (F01):** a file that is not a COF text file (a header row of column names). It cannot be normalized and must not be chosen for its month.
 - **Unknown values:** flags (I13), prices (I10), sol codes (I06), unclassified lines such as `??` (L07), a damaged PAGE line like `GE 24` (L02), PAGE numbers ≥ 1000 (L03), duplicate sol codes (I08), the replacement character (I15).
-- **Informational:** NOTE lines (L04), bracketed annotations (L05), numeric-only lines (L08), `DO NOT ORDER` placeholders (L06), sol month differing from the file name (I07), unbalanced parentheses (I17), double spaces (I18).
+- **Informational:** a missing ident line (F06), NOTE lines (L04), bracketed annotations (L05), numeric-only lines (L08), `DO NOT ORDER` placeholders (L06), sol month differing from the file name (I07), unbalanced parentheses (I17), double spaces (I18).
 
 A **patch list** (`config/patches.yaml`, to be created when needed) can record a specific reviewed edit (file, line, old text, new text, reason) for an open issue, such as restoring a damaged character. Patched issues are reported as `patched`, not `fixed`.
 
@@ -80,7 +80,7 @@ Classes: **auto-lossless** (fixed, nothing lost), **auto-derived** (fixed with a
 | F03 | bare `\r` inside a line | open | none |
 | F04 | byte undefined in Windows-1252 | open | replaced by U+FFFD; needs a patch |
 | F05 | truncated gzip stream | open | partial content; prefer another version |
-| F06 | ident missing | open | none; period comes from the file name |
+| F06 | ident missing | info | kept as published; period comes from the file name |
 | F07 | ident month wrong | auto-derived | month from the file name |
 | F08 | ident volume or issue wrong | auto-derived | numbers from the file name |
 | F09 | footer missing | open | none |

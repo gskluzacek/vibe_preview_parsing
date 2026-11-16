@@ -4,9 +4,14 @@ import re
 from collections import Counter
 from collections.abc import Iterator
 
-from cof.common.months import MONTHS
 from cof.normalize.classify import LineType
 from cof.normalize.context import FileContext, Issue
+from cof.normalize.ident import (
+    expected_for,
+    month_mismatch,
+    number_mismatch,
+    parse_ident,
+)
 from cof.normalize.items import (
     DATE_LONG_RE,
     DATE_RE,
@@ -24,23 +29,8 @@ from cof.normalize.items import (
 )
 from cof.normalize.rules import detector
 
-_MONTH_NAMES = (
-    "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE",
-    "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER",
-)  # fmt: skip
 _HEADER_ROW_RE = re.compile(r"[A-Za-z]+(?:\t[A-Za-z]+){3,}")
 _DAMAGED_PAGE_RE = re.compile(r"^(?:P|PA|PAG|AGE|GE|E) ?(?:M-)?\d+$")
-_IDENT_A_RE = re.compile(r"^PREVIEWS ([A-Z]+) VOL\. (\d+) #(\d+)$")
-_IDENT_B_RE = re.compile(r"^(?:PREVIEWS )?([A-Z]+) V(\d+) #(\d+)$")
-_IDENT_D1_RE = re.compile(r"^PREVIEWS ([A-Z]+) (\d{4})$")
-_IDENT_D2_RE = re.compile(r"^ISSUE #(\d+) \(VOL\. (\d+) #(\d+)\)$")
-
-
-def _month_number(word: str) -> int | None:
-    """Return the 0-based month for a month name or 3-letter code, or None."""
-    if word in _MONTH_NAMES:
-        return _MONTH_NAMES.index(word)
-    return MONTHS.index(word) if word in MONTHS else None
 
 
 def _items(ctx: FileContext) -> Iterator[tuple[int, list[str]]]:
@@ -106,19 +96,12 @@ def ident_missing(ctx: FileContext) -> Iterator[Issue]:
 @detector("F07")
 def ident_month_mismatch(ctx: FileContext) -> Iterator[Issue]:
     """Report an identification line naming a different month (or year) than the file name."""
-    month = MONTHS.index(ctx.month[:3])
-    year = 2000 + int(ctx.month[3:])
+    exp = expected_for(ctx.month)
     for number, text in ctx.typed_lines(LineType.IDENT):
-        s = text.strip(" \t")
-        for pattern in (_IDENT_A_RE, _IDENT_B_RE, _IDENT_D1_RE):
-            match = pattern.match(s)
-            if match:
-                found = _month_number(match.group(1))
-                if found != month:
-                    yield Issue("F07", number, f"ident month {match.group(1)}, file name {ctx.month[:3]}")
-                if pattern is _IDENT_D1_RE and int(match.group(2)) != year:
-                    yield Issue("F07", number, f"ident year {match.group(2)}, file name {year}")
-                break
+        parts = parse_ident(text)
+        problem = month_mismatch(parts, exp) if parts else None
+        if problem:
+            yield Issue("F07", number, problem)
 
 
 @detector("F08")
@@ -128,21 +111,12 @@ def ident_volume_issue_mismatch(ctx: FileContext) -> Iterator[Issue]:
     Volume is the year minus 1990 and the issue within the volume is the month number; the catalog issue
     number is ``(volume - 1) * 12 + month + 27`` (verified only for JUN19 to MAR20).
     """
-    month = MONTHS.index(ctx.month[:3]) + 1
-    volume = 2000 + int(ctx.month[3:]) - 1990
+    exp = expected_for(ctx.month)
     for number, text in ctx.typed_lines(LineType.IDENT):
-        s = text.strip(" \t")
-        for pattern, v_group, i_group in ((_IDENT_A_RE, 2, 3), (_IDENT_B_RE, 2, 3)):
-            match = pattern.match(s)
-            if match and (int(match.group(v_group)), int(match.group(i_group))) != (volume, month):
-                found = f"{match.group(v_group)}/{match.group(i_group)}"
-                yield Issue("F08", number, f"ident vol/issue {found}, expected {volume}/{month}")
-        match = _IDENT_D2_RE.match(s)
-        if match:
-            catalog = (volume - 1) * 12 + month + 27
-            got = (int(match.group(1)), int(match.group(2)), int(match.group(3)))
-            if got != (catalog, volume, month):
-                yield Issue("F08", number, f"ident {got}, expected {(catalog, volume, month)}")
+        parts = parse_ident(text)
+        problem = number_mismatch(parts, exp) if parts else None
+        if problem:
+            yield Issue("F08", number, problem)
 
 
 @detector("F09")

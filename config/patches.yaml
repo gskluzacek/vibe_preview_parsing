@@ -1,0 +1,6 @@
+# Reviewed edits for issues that cannot be fixed by a rule (see documentation/normalized_cof_spec.md section 4).
+# Each patch replaces the whole text of one line in the normalized file of one month. The patch is applied
+# only if the line still equals `old`; otherwise the run fails, so a stale patch cannot go unnoticed.
+patches: []
+# Example:
+#  - {month: JAN09, line: 5489, old: "POK?MON", new: "POKÉMON", reason: "restore damaged character"}
