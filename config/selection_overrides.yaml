@@ -1,0 +1,5 @@
+# Manual choices that override adhoc/select_versions.py. Each entry names a month, a kind (txt or pdf) and
+# the digest of the version to use, with the reason. Empty by default.
+overrides: []
+# Example:
+#  - {month: JAN13, kind: txt, digest: ARX6H5UOJQMSKFV75BRJ7KLCAUSLTXVJ, reason: "reviewed by hand"}
