@@ -218,3 +218,5 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+# PDFs are large (~1 GB in total); they are re-fetchable from data/acquire/manifest.csv and logged in data/originals/downloads.csv
+data/originals/pdf/

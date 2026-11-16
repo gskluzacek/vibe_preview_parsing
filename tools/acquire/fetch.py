@@ -2,6 +2,7 @@
 
     python3 -I tools/acquire/fetch.py --pilot                       # the pilot set from config.py
     python3 -I tools/acquire/fetch.py --months JAN13,AUG10 --kinds txt
+    python3 -I tools/acquire/fetch.py --all [--kinds txt]           # every distinct version in the manifest
     python3 -I tools/acquire/fetch.py --pilot --dry-run             # show what would be fetched
 
 Reads data/acquire/manifest.csv (run lister.py first). For each month and kind it takes the plausible
@@ -74,6 +75,7 @@ def _read_log():
 def main(argv):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--pilot', action='store_true')
+    ap.add_argument('--all', action='store_true')
     ap.add_argument('--months', help='comma-separated MMMYY list')
     ap.add_argument('--kinds', default='txt,pdf')
     ap.add_argument('--dry-run', action='store_true')
@@ -83,10 +85,13 @@ def main(argv):
     rows = list(csv.DictReader(open(MANIFEST)))
     if a.pilot:
         wanted = config.PILOT
+    elif a.all:
+        kinds = a.kinds.split(',')
+        wanted = sorted({(r['month'], k) for r in rows for k in kinds}, key=lambda t: (cof_urls.month_index(t[0]), t[1]))
     elif a.months:
         wanted = [(m.upper(), k) for m in a.months.split(',') for k in a.kinds.split(',')]
     else:
-        sys.exit('give --pilot or --months')
+        sys.exit('give --pilot, --all or --months')
     todo = []
     for month, kind in wanted:
         todo += select(rows, {month}, {kind})
@@ -96,6 +101,7 @@ def main(argv):
         fp = os.path.join(config.ORIGINALS_DIR, x['path'])
         if os.path.exists(fp):
             x['content_ok'] = str(int(looks_right(x['kind'], open(fp, 'rb').read())))
+    failed = []
     for r in todo:
         p = _path(r)
         rel = os.path.relpath(p, config.ORIGINALS_DIR)
@@ -105,7 +111,12 @@ def main(argv):
         if a.dry_run:
             print('would  ', rel, r['original'])
             continue
-        data = wayback.fetch_capture(r['timestamp'], r['original'])
+        try:
+            data = wayback.fetch_capture(r['timestamp'], r['original'])
+        except wayback.WaybackError as e:
+            failed.append((rel, str(e)))
+            print('FAILED ', rel, e)
+            continue
         os.makedirs(os.path.dirname(p), exist_ok=True)
         with open(p, 'wb') as f:
             f.write(data)
@@ -120,6 +131,9 @@ def main(argv):
         _write_log(log)
 
     _write_log(log)
+    print('%d files considered, %d failed (rerun to retry)' % (len(todo), len(failed)))
+    for rel, why in failed:
+        print('  ', rel)
 
 
 def _write_log(log):

@@ -198,3 +198,16 @@ Things to keep in mind:
 - Capture selection needs a rule, not "earliest" or "latest": prefer the version that is complete and has the fewest known defects, and keep the others.
 - The decode step is part of normalization, with cp1252 as the input encoding.
 - Only a handful of months were checked. Treat all of this as a hypothesis for the full set until the full download is compared.
+
+## 12. Full download results (2026-11-15)
+
+`fetch.py --all` downloaded every distinct plausible version in the manifest: 555 files, 0 failures, every archive digest matched.
+
+| | Files | Notes |
+|---|---|---|
+| Text | 232 (46 MB) | 199 months; 32 months have more than one version (at most 3) |
+| PDF | 323 (1.3 GB, not in git) | 201 complete; **122 are exactly 1,048,576 bytes, so truncated** |
+
+- Only OCT22 and OCT23 have no complete PDF.
+- Text files, the manifest and `downloads.csv` are in git. The PDFs are gitignored and can be re-fetched from the manifest.
+- Not yet done: choose the best text version per month, decode and compare each with the corpus and the spec, and measure the files after MAR20, whose layout is unmeasured.
