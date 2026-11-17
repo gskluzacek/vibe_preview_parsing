@@ -19,18 +19,18 @@ What is not worth carrying forward: the Django bi-temporal experiment, the empty
 
 ## 2. Repository layout
 
-| Path | What it is | Value for new project |
-|---|---|---|
-| `README.md` | Hand-written file catalog of the whole repo (despite the name, not a project README) | High – good orientation |
-| `TODOs.md` | Two items; first: separate data files from old code into a common data dir | Low, but the idea is right (see §8) |
-| `old_code/Preview Parsing/` | **The core.** PHP parser, COF files, SQL dump, notes, spreadsheets | **High** |
-| `old_code/Preview Parsing/analysis.md`, `analysis meat.md` | Analysis of `get_cvr_dt.php` (belongs to the *Get Cover Date* project – misfiled) | Low |
-| `old_code/Preview Parsing/directory_contents.md` | Detailed notes on the parsing dir incl. table definitions and `pv_type` counts | High |
-| `old_code/Preview Parsing/sample.html` | Saved comicbookdb.com series page (sample for `title_index.py`) | Low |
-| `old_code/Get Cover Date/` | PHP + SQLite tool to fetch cover dates from comicbookdb.com for Collectorz exports | Low (different problem) |
-| `other/get title index/` | Python/lxml rewrite of the HTML parsing from the cover-date tool | Low |
-| `slowly_changing_demensions/BiTemporal/` | Django exploration of bi-temporal tables (Windows artifacts, `.pyc`, egg cache) | None |
-| `parse_previews/`, `tests/`, `docs/`, `setup.py`, `requirements.txt` | Empty/boilerplate Python packaging scaffolding (e.g. `parse_previews.py` is 5 bytes) | None |
+| Path                                                                 | What it is                                                                           | Value for new project               |
+|----------------------------------------------------------------------|--------------------------------------------------------------------------------------|-------------------------------------|
+| `README.md`                                                          | Hand-written file catalog of the whole repo (despite the name, not a project README) | High – good orientation             |
+| `TODOs.md`                                                           | Two items; first: separate data files from old code into a common data dir           | Low, but the idea is right (see §8) |
+| `old_code/Preview Parsing/`                                          | **The core.** PHP parser, COF files, SQL dump, notes, spreadsheets                   | **High**                            |
+| `old_code/Preview Parsing/analysis.md`, `analysis meat.md`           | Analysis of `get_cvr_dt.php` (belongs to the *Get Cover Date* project – misfiled)    | Low                                 |
+| `old_code/Preview Parsing/directory_contents.md`                     | Detailed notes on the parsing dir incl. table definitions and `pv_type` counts       | High                                |
+| `old_code/Preview Parsing/sample.html`                               | Saved comicbookdb.com series page (sample for `title_index.py`)                      | Low                                 |
+| `old_code/Get Cover Date/`                                           | PHP + SQLite tool to fetch cover dates from comicbookdb.com for Collectorz exports   | Low (different problem)             |
+| `other/get title index/`                                             | Python/lxml rewrite of the HTML parsing from the cover-date tool                     | Low                                 |
+| `slowly_changing_demensions/BiTemporal/`                             | Django exploration of bi-temporal tables (Windows artifacts, `.pyc`, egg cache)      | None                                |
+| `parse_previews/`, `tests/`, `docs/`, `setup.py`, `requirements.txt` | Empty/boilerplate Python packaging scaffolding (e.g. `parse_previews.py` is 5 bytes) | None                                |
 
 The repo is ~506 MB / 249 tracked files, dominated by `pp_out.txt` (20 MB), `tt_out.txt` (1.6 MB), the SQL dump (59 MB), PDFs and zip archives. It already ships build artifacts that should never have been committed (`*.pyc`, `egg_cache/*.pyd`, `db.sqlite3`).
 
@@ -55,26 +55,26 @@ Location: `old_code/Preview Parsing/previews parsing/MMMYY_COF.txt`
 
 Line types (derived from `pp.php`, matching the observed data):
 
-| Type | Detection | Example |
-|---|---|---|
-| IDENT | no sol code, matches `^PREVIEWS (JAN\|…).* V(OL)?\.? ?\d\d #\d{1,2}$` | `PREVIEWS MAR VOL 23 #03` |
-| BLANK | no sol code and empty column 0 | |
-| PAGE | no sol code, col 0 starts with `PAGE` | `PAGE 40` |
+| Type         | Detection                                                                           | Example                     |
+|--------------|-------------------------------------------------------------------------------------|-----------------------------|
+| IDENT        | no sol code, matches `^PREVIEWS (JAN\|…).* V(OL)?\.? ?\d\d #\d{1,2}$`               | `PREVIEWS MAR VOL 23 #03`   |
+| BLANK        | no sol code and empty column 0                                                      |                             |
+| PAGE         | no sol code, col 0 starts with `PAGE`                                               | `PAGE 40`                   |
 | H1 / H2 / H3 | no sol code; text matches a known heading at the right level in the current context | `COMICS` / `DARK HORSE` / … |
-| NOTFOUND | none of the above – an unknown heading or malformed line | |
-| ITEM | col 1 (solicitation code) non-empty | see below |
+| NOTFOUND     | none of the above – an unknown heading or malformed line                            |                             |
+| ITEM         | col 1 (solicitation code) non-empty                                                 | see below                   |
 
 ITEM line columns (tab-separated):
 
-| Idx | Content | Example |
-|---|---|---|
-| 0 | **Flag code** (often empty) | `SPOT`, `SS`, `OA`, `FI`, `KIDS`, `GEM`, or combos like `OA SS` |
-| 1 | Solicitation code `MMMYY NNNN` | `MAR13 0008` |
-| 2 | Solicitation text (title + all the tokens) | `X #1 (OF 4) (MR)` |
-| 3 | Release date | `05/08/13` (2013 files: `4/10/2013`) |
-| 4 | Price | `SRP: $2.99`, `MSRP: $4.50`, `SRP: PI` |
-| 5 | Order-qty placeholder | ` = $` |
-| 6 | Trailing empty field (absent in the 2013 files) | |
+| Idx | Content                                         | Example                                                         |
+|-----|-------------------------------------------------|-----------------------------------------------------------------|
+| 0   | **Flag code** (often empty)                     | `SPOT`, `SS`, `OA`, `FI`, `KIDS`, `GEM`, or combos like `OA SS` |
+| 1   | Solicitation code `MMMYY NNNN`                  | `MAR13 0008`                                                    |
+| 2   | Solicitation text (title + all the tokens)      | `X #1 (OF 4) (MR)`                                              |
+| 3   | Release date                                    | `05/08/13` (2013 files: `4/10/2013`)                            |
+| 4   | Price                                           | `SRP: $2.99`, `MSRP: $4.50`, `SRP: PI`                          |
+| 5   | Order-qty placeholder                           | ` = $`                                                          |
+| 6   | Trailing empty field (absent in the 2013 files) |                                                                 |
 
 Flag-code frequencies across all 53 files (105,450 item lines): none 62,756 · `SS` 19,085 · `SPOT` 10,846 · `OA` 5,137 · `FI` 4,871 · `KIDS` 2,053 · `GEM` 505 · `OA SS` 103 · `OA SPOT` 38 · `SS KIDS` 35. The meaning of these codes is **not documented anywhere in the repo** (`SS` appears to be "previously solicited"; `OA` presumably "offered again"; `FI` appears on Previews-publications rows; `SPOT` presumably "spotlight") – these are guesses to verify against Diamond documentation, **not** facts from the repo. The old parser stores column 0 in `pv_value` for ITEM rows, so the flag is preserved but unnamed.
 
@@ -139,22 +139,22 @@ Sources: `tt.php` regexes, `solicitations text codes.txt` (the author's notes + 
 
 Tokens are mostly space-separated words or parenthesised groups at the end, in no fixed order:
 
-| Token class | Examples | Notes |
-|---|---|---|
-| Issue number | `#1`, `#0-6`, `#4.1`, `#1 & #2`, `#80` | Regex `#([\w.#\-]+)`; also `ONE SHOT` ⇒ issue 1 |
-| Limited series `(OF n)` | `(OF 4)`, `PT 4 (OF 5)`, `( OF 5)` (stray space) | `tt.php` flags this as a known failure case |
-| Printing | `2ND PTG`, `3RD PTG`, `NEW PTG`, `(NEW PTG)`, `CURR PTG`, `2ND PRINTING` | |
-| Caution code | `(C: 0-1-2)` | Three flags: I-Rights / Content changes / Ship-date changes (defined in the `pp.php` header: 0/1, 0/1, 0–4) |
-| Advisory | `(MR)` mature, `(A)` adult | |
-| Solicitation info | `(RES)` resolicited, `(O/A)` offered again | |
-| Other designations | `(Net)`, `(NOTE PRICE)`, `(PD)`, `(OSW)`, `NOW`, `(ONGOING)` | `(ONGOING)` becomes `title_type` ONGOING |
-| Previous solicitation code | `(MAY120825)`, `(STAR12345)`, or `MAY 2010` | Pattern `(MMMYY######)` |
-| Cover variant | `CVR A XXXX`, `XXXX VAR CVR`, `REG CVR`, `GATEFOLD CVR`, `SUB VAR`, `SGN`, `C2E2`, `AUXILIARY`, `NEWSSTAND`, `CGC`, `W/ SKETCH` | Most ambiguous class: artist names are free text |
-| Packaged sets | `COMPLETE BAG SET`, `BOX SET`, `COMBO PACK`, `#0-6 COMPLETE BAG SET` | |
-| Collected-edition type | `GN`, `TP`, `TPB`, `HC`, `SC`, `OMNIBUS TP`, `COLL ED`, `HC W/ DUST JACKET`, with optional `VOL nn` | GN/TP/etc. *not* handled by `tt.php` (it skips them) – only described in the notes |
-| Edition qualifiers | `SGN`, `LTD ED`, `SP ED`, `PX ED`, `GOLD ED`, `NYCC 2009 EX`, `SDCC ED`, `US ED`, `UK ED`, `SPANISH ED`, `FIRST LOOK ED`, `EXPANDED REG ED`, `30TH ANNIV` | |
-| Special-issue words | `ANNUAL`, `CHRISTMAS SP`, `HOLIDAYS SPECIAL`, `SERIES SPECIAL`, `DIRECTORS CUT`, `DOUBLE-SIZED`, `DOUBLE DIGEST`, `NUDE` | |
-| Subtitle | `OLYMPIANS GN VOL 01 ZEUS KING OF THE GODS`, `FILLER BUNNY #2 REVENGE OF THE FILLER BUNNY`, `ARCHIE #627 (ARCHIE MEETS KISS PT 1)` | Free text; hard to separate from title without a title dictionary |
+| Token class                | Examples                                                                                                                                                  | Notes                                                                                                       |
+|----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| Issue number               | `#1`, `#0-6`, `#4.1`, `#1 & #2`, `#80`                                                                                                                    | Regex `#([\w.#\-]+)`; also `ONE SHOT` ⇒ issue 1                                                             |
+| Limited series `(OF n)`    | `(OF 4)`, `PT 4 (OF 5)`, `( OF 5)` (stray space)                                                                                                          | `tt.php` flags this as a known failure case                                                                 |
+| Printing                   | `2ND PTG`, `3RD PTG`, `NEW PTG`, `(NEW PTG)`, `CURR PTG`, `2ND PRINTING`                                                                                  |                                                                                                             |
+| Caution code               | `(C: 0-1-2)`                                                                                                                                              | Three flags: I-Rights / Content changes / Ship-date changes (defined in the `pp.php` header: 0/1, 0/1, 0–4) |
+| Advisory                   | `(MR)` mature, `(A)` adult                                                                                                                                |                                                                                                             |
+| Solicitation info          | `(RES)` resolicited, `(O/A)` offered again                                                                                                                |                                                                                                             |
+| Other designations         | `(Net)`, `(NOTE PRICE)`, `(PD)`, `(OSW)`, `NOW`, `(ONGOING)`                                                                                              | `(ONGOING)` becomes `title_type` ONGOING                                                                    |
+| Previous solicitation code | `(MAY120825)`, `(STAR12345)`, or `MAY 2010`                                                                                                               | Pattern `(MMMYY######)`                                                                                     |
+| Cover variant              | `CVR A XXXX`, `XXXX VAR CVR`, `REG CVR`, `GATEFOLD CVR`, `SUB VAR`, `SGN`, `C2E2`, `AUXILIARY`, `NEWSSTAND`, `CGC`, `W/ SKETCH`                           | Most ambiguous class: artist names are free text                                                            |
+| Packaged sets              | `COMPLETE BAG SET`, `BOX SET`, `COMBO PACK`, `#0-6 COMPLETE BAG SET`                                                                                      |                                                                                                             |
+| Collected-edition type     | `GN`, `TP`, `TPB`, `HC`, `SC`, `OMNIBUS TP`, `COLL ED`, `HC W/ DUST JACKET`, with optional `VOL nn`                                                       | GN/TP/etc. *not* handled by `tt.php` (it skips them) – only described in the notes                          |
+| Edition qualifiers         | `SGN`, `LTD ED`, `SP ED`, `PX ED`, `GOLD ED`, `NYCC 2009 EX`, `SDCC ED`, `US ED`, `UK ED`, `SPANISH ED`, `FIRST LOOK ED`, `EXPANDED REG ED`, `30TH ANNIV` |                                                                                                             |
+| Special-issue words        | `ANNUAL`, `CHRISTMAS SP`, `HOLIDAYS SPECIAL`, `SERIES SPECIAL`, `DIRECTORS CUT`, `DOUBLE-SIZED`, `DOUBLE DIGEST`, `NUDE`                                  |                                                                                                             |
+| Subtitle                   | `OLYMPIANS GN VOL 01 ZEUS KING OF THE GODS`, `FILLER BUNNY #2 REVENGE OF THE FILLER BUNNY`, `ARCHIE #627 (ARCHIE MEETS KISS PT 1)`                        | Free text; hard to separate from title without a title dictionary                                           |
 
 ### Why this is hard (and where NLP / a dictionary helps)
 
@@ -195,16 +195,16 @@ Exploration of valid-time/transaction-time tables (comments in `temporal.py`, pu
 
 ## 8. Reusable assets for `vibe_preview_parsing`
 
-| Asset | Where | Suggested use |
-|---|---|---|
-| COF text files (dedupe first) | `old_code/Preview Parsing/previews parsing/*_COF.txt` | Test corpus; copy (not link) into the new repo's `data/` or reference by path. Respect TODO #1 from the old repo (data separate from code). |
-| `previews_raw` rows | SQL dump | Baseline for regression comparison (`pv_type`, `pv_source`, `sol_code`, `sol_text`, price, date) |
-| Heading table (`previews_hdg_lvls`) / `headings.xlsx` | SQL dump, xlsx | Seed for a heading dictionary; export to CSV/JSON |
-| Token regexes | `tt.php` | Starting rule-set / features for a hybrid rules + NLP parser |
-| Token catalogue and examples | `solicitations text codes.txt` | Seed test cases / labelled examples |
-| Analysis spreadsheets | `titles and token parsing.xlsx` (26k rows), `test1.xlsx` (24k), `Workbook2.xlsx` (24k), `Workbook6.xlsx` (400 `pv_source`/`sol_text` samples) | Candidate silver labels – they show the old parser output *and* the author's manual review; quality unknown |
-| Caution-code and cancellation-code definitions | `pp.php` header comment | Reference data (caution = 3 flags; cancellation codes 1–10) |
-| Previews site URL patterns | `pp.php` header comment | Download automation (needs re-verification) |
+| Asset                                                 | Where                                                                                                                                         | Suggested use                                                                                                                               |
+|-------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| COF text files (dedupe first)                         | `old_code/Preview Parsing/previews parsing/*_COF.txt`                                                                                         | Test corpus; copy (not link) into the new repo's `data/` or reference by path. Respect TODO #1 from the old repo (data separate from code). |
+| `previews_raw` rows                                   | SQL dump                                                                                                                                      | Baseline for regression comparison (`pv_type`, `pv_source`, `sol_code`, `sol_text`, price, date)                                            |
+| Heading table (`previews_hdg_lvls`) / `headings.xlsx` | SQL dump, xlsx                                                                                                                                | Seed for a heading dictionary; export to CSV/JSON                                                                                           |
+| Token regexes                                         | `tt.php`                                                                                                                                      | Starting rule-set / features for a hybrid rules + NLP parser                                                                                |
+| Token catalogue and examples                          | `solicitations text codes.txt`                                                                                                                | Seed test cases / labelled examples                                                                                                         |
+| Analysis spreadsheets                                 | `titles and token parsing.xlsx` (26k rows), `test1.xlsx` (24k), `Workbook2.xlsx` (24k), `Workbook6.xlsx` (400 `pv_source`/`sol_text` samples) | Candidate silver labels – they show the old parser output *and* the author's manual review; quality unknown                                 |
+| Caution-code and cancellation-code definitions        | `pp.php` header comment                                                                                                                       | Reference data (caution = 3 flags; cancellation codes 1–10)                                                                                 |
+| Previews site URL patterns                            | `pp.php` header comment                                                                                                                       | Download automation (needs re-verification)                                                                                                 |
 
 ## 9. Observations and recommendations
 

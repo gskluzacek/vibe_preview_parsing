@@ -23,19 +23,19 @@ What is not worth carrying forward: the code itself (one 1,439-line `main.py`, M
 
 152 tracked files outside `.git/.idea`; `.git` is 8.6 MB. 16 commits, 2020-02-18 → 2020-03-07.
 
-| Path | Purpose | Value |
-|---|---|---|
-| `README.md` | 2 lines, no content | – |
-| `requirements.txt` | `chardet==3.0.4`, `dnspython==1.16.0`, `mysql-connector-python==8.0.19`, `protobuf==3.6.1`, `six==1.14.0` | Shows the (old) stack; no `setup.py`/`pyproject`, Python version unstated (f-strings ⇒ 3.6+) |
-| `previews_parser/main.py` | The whole app (~1,440 lines): SQL strings + Python | Source of the knowledge listed below; rewrite, don't port |
-| `test.py` | 41-line scratch script (not a test) prototyping the heading path search on a toy dict | Idea only |
-| `hierarchy_resolution.sql` | 216 lines of pseudo-SQL/design notes for the heading-path algorithm | Good design note |
-| `database/ddl/crt_previews_tbls.sql` | MySQL 8 DDL | Schema reference |
-| `database/useful_queries.sql` | One ad-hoc query + a `LAST_INSERT_ID` sequence-table trick | Low |
-| `heading_hrch_extract.xlsx` (1.1 MB) | First-pass heading extract from JAN09 | Low |
-| `headings_hrch_extract_2.txt` / `.xlsx` | Refined, tab-separated heading extract with hand-assigned levels (e.g. PREVIEWS PUBLICATIONS = 1, DC COMICS = 2, DC UNIVERSE: BATMAN = 3) | **Useful** as heading seed/labels |
-| `cof_files/` (29 MB, 141 files) | 135 × `MMMYY.txt`, 3 `*_original_txt` backups (DEC15, JAN09, JUN17), `download_cof.sh`, `copy_cof_files.sh`, `files_charset_txt` (chardet output) | **High** |
-| `.idea/` | IDE config, **tracked** | Should not be committed (see §8) |
+| Path                                    | Purpose                                                                                                                                           | Value                                                                                        |
+|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
+| `README.md`                             | 2 lines, no content                                                                                                                               | –                                                                                            |
+| `requirements.txt`                      | `chardet==3.0.4`, `dnspython==1.16.0`, `mysql-connector-python==8.0.19`, `protobuf==3.6.1`, `six==1.14.0`                                         | Shows the (old) stack; no `setup.py`/`pyproject`, Python version unstated (f-strings ⇒ 3.6+) |
+| `previews_parser/main.py`               | The whole app (~1,440 lines): SQL strings + Python                                                                                                | Source of the knowledge listed below; rewrite, don't port                                    |
+| `test.py`                               | 41-line scratch script (not a test) prototyping the heading path search on a toy dict                                                             | Idea only                                                                                    |
+| `hierarchy_resolution.sql`              | 216 lines of pseudo-SQL/design notes for the heading-path algorithm                                                                               | Good design note                                                                             |
+| `database/ddl/crt_previews_tbls.sql`    | MySQL 8 DDL                                                                                                                                       | Schema reference                                                                             |
+| `database/useful_queries.sql`           | One ad-hoc query + a `LAST_INSERT_ID` sequence-table trick                                                                                        | Low                                                                                          |
+| `heading_hrch_extract.xlsx` (1.1 MB)    | First-pass heading extract from JAN09                                                                                                             | Low                                                                                          |
+| `headings_hrch_extract_2.txt` / `.xlsx` | Refined, tab-separated heading extract with hand-assigned levels (e.g. PREVIEWS PUBLICATIONS = 1, DC COMICS = 2, DC UNIVERSE: BATMAN = 3)         | **Useful** as heading seed/labels                                                            |
+| `cof_files/` (29 MB, 141 files)         | 135 × `MMMYY.txt`, 3 `*_original_txt` backups (DEC15, JAN09, JUN17), `download_cof.sh`, `copy_cof_files.sh`, `files_charset_txt` (chardet output) | **High**                                                                                     |
+| `.idea/`                                | IDE config, **tracked**                                                                                                                           | Should not be committed (see §8)                                                             |
 
 No build artifacts or `__pycache__` are tracked.
 
@@ -52,17 +52,17 @@ No build artifacts or `__pycache__` are tracked.
 
 All in `previews_parser/main.py`; there is no CLI. Steps are run by uncommenting calls in the `__main__` block (only `explode_line_text()` is active at the last commit). MySQL 8 at localhost; progress tracked per file in `previews_hdr.proc_sts`.
 
-| Stage | Function | What it does |
-|---|---|---|
-| 1 | `convert_files_encoding` | chardet-detect each file, rewrite non-UTF-8 to `converted/` (uses `codecs.open(..., 'rU')`, invalid on modern Python) |
-| 2 | `log_cof_files` | scan dir, derive period from the filename, find/parse the IDENT line, insert `previews_hdr` (status LOGGED). Truncates `previews_hdr` first |
-| 3 | `load_line` | insert every raw line into `previews_lines` (status LOADED). Truncates `previews_lines` first |
-| 4 | `set_pv_type` | one large SQL `CASE` classifies each line (status TYPED) |
-| 5 | `set_page_nbr` | SQL window ranges assign page numbers (PAGED) |
-| 6 | `resolve_heading_hierarchy(pvh_id)` | match HDG lines to `previews_hdg_hrch`; export unmatched headings as TSV for manual levelling |
-| 7 | `import_hdg_hrch_lvls_file` | re-import the hand-edited TSV |
-| 8 | `update_pv_item_lines_with_hhid` | attach each ITEM line's heading id |
-| 9 | `explode_line_text` | split ITEM lines into `previews_basic_dtl` |
+| Stage | Function                            | What it does                                                                                                                                |
+|-------|-------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| 1     | `convert_files_encoding`            | chardet-detect each file, rewrite non-UTF-8 to `converted/` (uses `codecs.open(..., 'rU')`, invalid on modern Python)                       |
+| 2     | `log_cof_files`                     | scan dir, derive period from the filename, find/parse the IDENT line, insert `previews_hdr` (status LOGGED). Truncates `previews_hdr` first |
+| 3     | `load_line`                         | insert every raw line into `previews_lines` (status LOADED). Truncates `previews_lines` first                                               |
+| 4     | `set_pv_type`                       | one large SQL `CASE` classifies each line (status TYPED)                                                                                    |
+| 5     | `set_page_nbr`                      | SQL window ranges assign page numbers (PAGED)                                                                                               |
+| 6     | `resolve_heading_hierarchy(pvh_id)` | match HDG lines to `previews_hdg_hrch`; export unmatched headings as TSV for manual levelling                                               |
+| 7     | `import_hdg_hrch_lvls_file`         | re-import the hand-edited TSV                                                                                                               |
+| 8     | `update_pv_item_lines_with_hhid`    | attach each ITEM line's heading id                                                                                                          |
+| 9     | `explode_line_text`                 | split ITEM lines into `previews_basic_dtl`                                                                                                  |
 
 Output is DB tables only (plus `hdg_hrch_export_*.txt`). `previews_basic_dtl` columns: `promo_cd, sol_code, sol_text, release_dt, price_type, unit_price, price_ind`.
 
@@ -143,31 +143,31 @@ For the new project: keep config/secrets in env vars or an untracked file, and m
 
 ## 9. Reuse assessment
 
-| Area | Reuse | Notes |
-|---|---|---|
-| COF data (135 files) | **Copy/reference** | Primary corpus; dedupe against the 2016 repo's files; compare `JAN09.txt` vs `JAN09_COF.txt` first to decide which is canonical |
-| `download_cof.sh` | Adapt | Re-verify URL pattern; add rate-limiting/politeness; rewrite in Python if desired |
-| Ident-line variants + filename cross-check | **Port the ideas** | Good source of test cases; formulas for volume/issue from year/month are the author's derivation, so verify |
-| Line-type taxonomy | **Port** | Add explicit rules for headings and keep UNKNOWN separate from HDG |
-| Item field quirks list | **Port** | Turn each into a fixture + test |
-| Dated heading hierarchy + path search | **Port the algorithm** | Pure Python over a curated heading table (start from `headings_hrch_extract_2.txt`) |
-| Heading extract (`headings_hrch_extract_2.*`) | Reuse as seed/labels | Hand-levelled; check coverage for 2014–2020 |
-| `main.py` and DDL | Do not port | DB-bound, one big file, bugs listed above |
-| Description parsing | **Nothing to port from this repo** | Use `tt.php` rules (previews repo), check `previews_parsing_pandas` |
+| Area                                          | Reuse                              | Notes                                                                                                                           |
+|-----------------------------------------------|------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| COF data (135 files)                          | **Copy/reference**                 | Primary corpus; dedupe against the 2016 repo's files; compare `JAN09.txt` vs `JAN09_COF.txt` first to decide which is canonical |
+| `download_cof.sh`                             | Adapt                              | Re-verify URL pattern; add rate-limiting/politeness; rewrite in Python if desired                                               |
+| Ident-line variants + filename cross-check    | **Port the ideas**                 | Good source of test cases; formulas for volume/issue from year/month are the author's derivation, so verify                     |
+| Line-type taxonomy                            | **Port**                           | Add explicit rules for headings and keep UNKNOWN separate from HDG                                                              |
+| Item field quirks list                        | **Port**                           | Turn each into a fixture + test                                                                                                 |
+| Dated heading hierarchy + path search         | **Port the algorithm**             | Pure Python over a curated heading table (start from `headings_hrch_extract_2.txt`)                                             |
+| Heading extract (`headings_hrch_extract_2.*`) | Reuse as seed/labels               | Hand-levelled; check coverage for 2014–2020                                                                                     |
+| `main.py` and DDL                             | Do not port                        | DB-bound, one big file, bugs listed above                                                                                       |
+| Description parsing                           | **Nothing to port from this repo** | Use `tt.php` rules (previews repo), check `previews_parsing_pandas`                                                             |
 
 ## 10. Comparison with the 2016 repo (`previews`)
 
-| Aspect | 2016 PHP (`previews`) | 2020 Python (`previews_parsing`) |
-|---|---|---|
-| Data | JAN09–AUG14 (53 files) + PDFs + DB dump | JAN09–MAR20 (135 files) |
-| Line types | IDENT, BLANK, PAGE, H1/H2/H3, NOTFOUND, ITEM | IDENT, BLANK, ITEM, PAGE, JUNK, HDG |
-| Heading logic | text lookup in a manual 3-level table; unknown ⇒ NOTFOUND; `override_pvhl_id` hack | path match in a dated hierarchy table (≈4 levels); unknown ⇒ manual TSV round trip |
-| Ident line | 1 format | 4 formats + filename cross-check |
-| Item fields | flag code kept in `pv_value`; price SRP/MSRP/PI/E | `promo_cd` (the flag) kept; price adds FREE and NONE |
-| Description tokens | prototyped (`tt.php`, comics only) | **not attempted** |
-| Process | 3 scripts, hand-run | status machine, hand-run |
-| Tests/docs | notes in markdown | none |
-| Secrets in repo | local credentials in PHP | root password in code and `.idea/` |
+| Aspect             | 2016 PHP (`previews`)                                                              | 2020 Python (`previews_parsing`)                                                   |
+|--------------------|------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
+| Data               | JAN09–AUG14 (53 files) + PDFs + DB dump                                            | JAN09–MAR20 (135 files)                                                            |
+| Line types         | IDENT, BLANK, PAGE, H1/H2/H3, NOTFOUND, ITEM                                       | IDENT, BLANK, ITEM, PAGE, JUNK, HDG                                                |
+| Heading logic      | text lookup in a manual 3-level table; unknown ⇒ NOTFOUND; `override_pvhl_id` hack | path match in a dated hierarchy table (≈4 levels); unknown ⇒ manual TSV round trip |
+| Ident line         | 1 format                                                                           | 4 formats + filename cross-check                                                   |
+| Item fields        | flag code kept in `pv_value`; price SRP/MSRP/PI/E                                  | `promo_cd` (the flag) kept; price adds FREE and NONE                               |
+| Description tokens | prototyped (`tt.php`, comics only)                                                 | **not attempted**                                                                  |
+| Process            | 3 scripts, hand-run                                                                | status machine, hand-run                                                           |
+| Tests/docs         | notes in markdown                                                                  | none                                                                               |
+| Secrets in repo    | local credentials in PHP                                                           | root password in code and `.idea/`                                                 |
 
 Both repos name the same column in the same places (flag code at index 0), but neither documents what the flag values mean. `previews_parsing` calls the column `promo_cd` (promotion code), which is a hint but not a definition.
 

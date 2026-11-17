@@ -25,20 +25,20 @@ Not worth carrying forward: `main.py` itself.
 
 18 tracked files, ~200 KB; `.git` ≈ 156 KB. No data files, notebooks, tests, `requirements.txt` or `pyproject`.
 
-| Path | Purpose | Value |
-|---|---|---|
-| `README.md` (212 lines) | Goals, COF source notes, line-format description (ported from the PHP), caution/cancellation codes, DB design thoughts | **High** (domain notes) |
-| `todos.md` (20 lines) | Incremental re-encoding; how to track edited vs. original COFs; repeated-heading level problem | Medium |
-| `design.md` | Task-name stub for the pipeline stages | Low |
-| `parse_previews/main.py` (743 lines) | The only application code | Ideas only |
-| `data/cof_notes/cof_notes.md` (302 lines), `modified_files.txt` | Per-file defects and the manual edits applied | **High** |
-| `data/table_notes/preview_hdr.md`, `validations.md` | Header-table schema (`fn_*` from filename, `txt_*` from text); validations that were never coded | Medium |
-| `data/cof_char_set_encodings/file_encoding_listing_2023_06_23.txt` | charset_normalizer output for 164 files | Medium |
-| `data/customer_order_form_grep.txt` (14 KB) | One row per month: the `PREVIEWS #nnn <MONTH YEAR> CUSTOMER ORDER FORM` item line (appears APR10 → APR17) | Medium – ident-line source data |
-| `data/previews_publications_grep.txt` (81 KB) | PREVIEWS PUBLICATIONS section with context, per file | Medium – shows heading/ident variation |
-| `data/test_sqlite.db` | **0 bytes**, committed empty | – |
-| `tools_and_utils/gen_download_script*.py`, `download_cof_files.sh`, `download_cof_pdfs.sh` | Generate/hold curl scripts for TXT and PDF COFs | Medium |
-| `tools_and_utils/log_file_encodings.py` | charset_normalizer detect → rewrite as UTF-8; **hard-coded to only process names containing "09"** (stale debug filter) | Low |
+| Path                                                                                       | Purpose                                                                                                                 | Value                                  |
+|--------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|----------------------------------------|
+| `README.md` (212 lines)                                                                    | Goals, COF source notes, line-format description (ported from the PHP), caution/cancellation codes, DB design thoughts  | **High** (domain notes)                |
+| `todos.md` (20 lines)                                                                      | Incremental re-encoding; how to track edited vs. original COFs; repeated-heading level problem                          | Medium                                 |
+| `design.md`                                                                                | Task-name stub for the pipeline stages                                                                                  | Low                                    |
+| `parse_previews/main.py` (743 lines)                                                       | The only application code                                                                                               | Ideas only                             |
+| `data/cof_notes/cof_notes.md` (302 lines), `modified_files.txt`                            | Per-file defects and the manual edits applied                                                                           | **High**                               |
+| `data/table_notes/preview_hdr.md`, `validations.md`                                        | Header-table schema (`fn_*` from filename, `txt_*` from text); validations that were never coded                        | Medium                                 |
+| `data/cof_char_set_encodings/file_encoding_listing_2023_06_23.txt`                         | charset_normalizer output for 164 files                                                                                 | Medium                                 |
+| `data/customer_order_form_grep.txt` (14 KB)                                                | One row per month: the `PREVIEWS #nnn <MONTH YEAR> CUSTOMER ORDER FORM` item line (appears APR10 → APR17)               | Medium – ident-line source data        |
+| `data/previews_publications_grep.txt` (81 KB)                                              | PREVIEWS PUBLICATIONS section with context, per file                                                                    | Medium – shows heading/ident variation |
+| `data/test_sqlite.db`                                                                      | **0 bytes**, committed empty                                                                                            | –                                      |
+| `tools_and_utils/gen_download_script*.py`, `download_cof_files.sh`, `download_cof_pdfs.sh` | Generate/hold curl scripts for TXT and PDF COFs                                                                         | Medium                                 |
+| `tools_and_utils/log_file_encodings.py`                                                    | charset_normalizer detect → rewrite as UTF-8; **hard-coded to only process names containing "09"** (stale debug filter) | Low                                    |
 
 ## 3. Data
 
@@ -59,17 +59,17 @@ Not worth carrying forward: `main.py` itself.
 
 **Per-file defects** (each file was copied to `MMMYY_txt` before editing; the list below is from the notes and survey, with the sections I could confirm in the notes marked †)
 
-| Issue | Defect | Fix applied |
-|---|---|---|
-| FEB09 † | extra tab between item code and title (line 5 shown) | removed one tab |
-| APR, MAY, JUN, JUL, SEP 2009 † | basic ident line has wrong month (`PREVIEWS MAR V19 #4` in the APR file) but correct volume/issue | corrected month |
-| JAN10, AUG10, JAN12, JAN13, JAN14 † | ident-line month wrong (per survey; sections present in notes) | corrected |
-| DEC12 † | missing page number | inserted `PAGE 0` |
-| JAN13, AUG13 † | PAGE line appears after the headings | moved before headings |
-| NOV14 † | malformed page line (`GE 24`) | repaired |
-| MAY20 | no issue exists | none; recorded in `modified_files.txt` |
-| JUN20 | ident lines are `PREVIEWS MAY/JUNE 2020` / `ISSUE #380/381 (VOL. 30 #5/6)` | rewritten to `PREVIEWS JUNE 2020` / `ISSUE 381 (VOL. 30 #6)` |
-| MAR21 † | section present in the notes; details not reviewed | – |
+| Issue                               | Defect                                                                                            | Fix applied                                                  |
+|-------------------------------------|---------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
+| FEB09 †                             | extra tab between item code and title (line 5 shown)                                              | removed one tab                                              |
+| APR, MAY, JUN, JUL, SEP 2009 †      | basic ident line has wrong month (`PREVIEWS MAR V19 #4` in the APR file) but correct volume/issue | corrected month                                              |
+| JAN10, AUG10, JAN12, JAN13, JAN14 † | ident-line month wrong (per survey; sections present in notes)                                    | corrected                                                    |
+| DEC12 †                             | missing page number                                                                               | inserted `PAGE 0`                                            |
+| JAN13, AUG13 †                      | PAGE line appears after the headings                                                              | moved before headings                                        |
+| NOV14 †                             | malformed page line (`GE 24`)                                                                     | repaired                                                     |
+| MAY20                               | no issue exists                                                                                   | none; recorded in `modified_files.txt`                       |
+| JUN20                               | ident lines are `PREVIEWS MAY/JUNE 2020` / `ISSUE #380/381 (VOL. 30 #5/6)`                        | rewritten to `PREVIEWS JUNE 2020` / `ISSUE 381 (VOL. 30 #6)` |
+| MAR21 †                             | section present in the notes; details not reviewed                                                | –                                                            |
 
 † = a section with that heading exists in `cof_notes.md`; I read the first ~60 lines and listed the section headings, but did not read every entry. The table's *Defect* column beyond FEB09/APR/MAY/JUN09/JUN20 is from the survey subagent.
 
@@ -87,14 +87,14 @@ Implication: **a robust parser should handle these in code (or in a separate, ve
 
 SQLite file `test_sqlite.db` (relative path; a TODO says to move to Postgres), pandas/numpy for row-wise logic, SQLAlchemy to read/write tables, `anytree` for heading paths. Free functions and namedtuples, no classes. Entry point is the `__main__` block (l.733–743) where everything is commented out except `set_pv_lines_type(); set_page_numbers()` — so on a fresh DB it fails. Hard-coded absolute input path (l.18; personal home directory).
 
-| Stage | Function | Notes |
-|---|---|---|
-| 1 | `load_previews_hdr` / `derive_fn_fields` / `parse_cof_files_for_txt_fields` | filename → period (`strptime("%d%b%y")`), volume = year − 1990, issue = (vol−1)·12 + month + 27; scan text for the ident line; cross-check `fn_*` vs `txt_*` |
-| 2 | `load_lines` | all raw lines → `previews_lines`; drops/recreates the table; opens files with the default encoding (not utf-8) |
-| 3 | `set_pv_lines_type` | vectorised classification (below) → `pv_line_type` |
-| 4 | `set_page_numbers` | page number + type (page/merch) → `pv_lines_fnl`; non-equi join of lines × page ranges, acknowledged as slow |
-| 5 | `create_previews_hdg_hrch_empty_table`, `build_heading_paths`, `resolve_heading_hierarchy` | **unfinished**: builds `matches` but never returns/stores it; reads a `pv_lines` table nothing creates; the empty table is never seeded, so the lookup data isn't in the repo |
-| – | item splitting (`import_hdg_hrch_lvls_file`, `update_pv_item_lines_with_hhid`, field explode) | **not implemented**; only task names in `README.md`/`design.md` |
+| Stage | Function                                                                                      | Notes                                                                                                                                                                         |
+|-------|-----------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1     | `load_previews_hdr` / `derive_fn_fields` / `parse_cof_files_for_txt_fields`                   | filename → period (`strptime("%d%b%y")`), volume = year − 1990, issue = (vol−1)·12 + month + 27; scan text for the ident line; cross-check `fn_*` vs `txt_*`                  |
+| 2     | `load_lines`                                                                                  | all raw lines → `previews_lines`; drops/recreates the table; opens files with the default encoding (not utf-8)                                                                |
+| 3     | `set_pv_lines_type`                                                                           | vectorised classification (below) → `pv_line_type`                                                                                                                            |
+| 4     | `set_page_numbers`                                                                            | page number + type (page/merch) → `pv_lines_fnl`; non-equi join of lines × page ranges, acknowledged as slow                                                                  |
+| 5     | `create_previews_hdg_hrch_empty_table`, `build_heading_paths`, `resolve_heading_hierarchy`    | **unfinished**: builds `matches` but never returns/stores it; reads a `pv_lines` table nothing creates; the empty table is never seeded, so the lookup data isn't in the repo |
+| –     | item splitting (`import_hdg_hrch_lvls_file`, `update_pv_item_lines_with_hhid`, field explode) | **not implemented**; only task names in `README.md`/`design.md`                                                                                                               |
 
 **Line classification** (`set_pv_lines_type`, ~l.523–530, nested `np.where`), precedence:
 JUNK (after the last line matching `%\t%\t%`) → BLANK → PAGE (`^PAGE (?:M-)?\d{1,3}\s*$`, with page number and M/S type extracted) → IDENT (`pvl_seq == ident_line`) → ITEM (`[^\t]*\t[^\t]*\t[^\t]*`, i.e. ≥ 3 fields) → NOTE (`^\(NOTE: .*\)$`) → else HDG.
@@ -138,12 +138,12 @@ JUNK (after the last line matching `%\t%\t%`) → BLANK → PAGE (`^PAGE (?:M-)?
 
 ## 10. Cross-repo takeaways so far (all three repos analyzed)
 
-| Question | Answer |
-|---|---|
-| Where is the description-parsing work? | **Only** the 2016 `tt.php` prototype (comics with `#`/ONE SHOT; ~24–26k rows; regex token classes). The 2020 and 2023 repos never attempted it. |
+| Question                                       | Answer                                                                                                                                                                                                 |
+|------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Where is the description-parsing work?         | **Only** the 2016 `tt.php` prototype (comics with `#`/ONE SHOT; ~24–26k rows; regex token classes). The 2020 and 2023 repos never attempted it.                                                        |
 | Where is the best structure-parsing knowledge? | Combine: 2016 `pp.php` (line types, price, headings), 2020 `main.py` (4 ident variants, field quirks, dated hierarchy), 2023 `cof_notes.md` (per-file defects, page conventions, M-pages, NOTE lines). |
-| Where is the best data? | 2016 repo (JAN09–AUG14 + PDFs + DB dump of parsed output), 2020 repo (JAN09–MAR20), 2023 scripts (JAN10–AUG23). Need to dedupe and decide a canonical, pristine corpus plus a separate patch list. |
-| What keeps recurring unsolved? | (1) heading hierarchy needs manual levelling; (2) title/subtitle/variant/artist separation; (3) undocumented flag codes (`SS`, `SPOT`, `OA`, `FI`, `KIDS`, `GEM`); (4) hand-editing source files. |
-| Reuse code? | No. Reuse **knowledge, test cases and data**; rewrite as pure, tested Python with explicit unknowns. |
+| Where is the best data?                        | 2016 repo (JAN09–AUG14 + PDFs + DB dump of parsed output), 2020 repo (JAN09–MAR20), 2023 scripts (JAN10–AUG23). Need to dedupe and decide a canonical, pristine corpus plus a separate patch list.     |
+| What keeps recurring unsolved?                 | (1) heading hierarchy needs manual levelling; (2) title/subtitle/variant/artist separation; (3) undocumented flag codes (`SS`, `SPOT`, `OA`, `FI`, `KIDS`, `GEM`); (4) hand-editing source files.      |
+| Reuse code?                                    | No. Reuse **knowledge, test cases and data**; rewrite as pure, tested Python with explicit unknowns.                                                                                                   |
 
 Suggested next step: a cross-repo synthesis document (`documentation/cof_format_spec.md`) merging the three sources into one format specification with test fixtures, then a labelled sample set for description parsing.

@@ -13,14 +13,14 @@ selection.csv ──► decode ──► classify lines ──► detect issues 
 
 Outputs in `data/normalized/` (full description in `documentation/normalized_cof_spec.md`):
 
-| File | Content |
-|---|---|
-| `YYYY_MM.txt` | the clean table: `src_line, page, section, merchandise_flag, kind, flag, sol_code, text, release_date, price_designation, price` (tab-separated, header row) |
-| `sidecar/YYYY_MM.txt` | lines moved out of the table: notes, annotations, unknown lines, placeholders |
-| `issues.csv` | every defect found, its rule, line, and whether it was fixed, open, patched or only informational |
-| `summary.csv` | one row per file: original encoding, compression, line-ending style, line counts, issue counts |
-| `ledger.csv` | every source line counted by type and fate (kept, dropped, sidecar, replaced) |
-| `idents.csv` | what each file says about its own month, volume, issue and catalog number, compared with the file name |
+| File                  | Content                                                                                                                                                      |
+|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `YYYY_MM.txt`         | the clean table: `src_line, page, section, merchandise_flag, kind, flag, sol_code, text, release_date, price_designation, price` (tab-separated, header row) |
+| `sidecar/YYYY_MM.txt` | lines moved out of the table: notes, annotations, unknown lines, placeholders                                                                                |
+| `issues.csv`          | every defect found, its rule, line, and whether it was fixed, open, patched or only informational                                                            |
+| `summary.csv`         | one row per file: original encoding, compression, line-ending style, line counts, issue counts                                                               |
+| `ledger.csv`          | every source line counted by type and fate (kept, dropped, sidecar, replaced)                                                                                |
+| `idents.csv`          | what each file says about its own month, volume, issue and catalog number, compared with the file name                                                       |
 
 Load a month with pandas: `pd.read_csv("data/normalized/2015_03.txt", sep="\t", dtype=str, keep_default_na=False)`.
 
@@ -49,19 +49,19 @@ For an open issue that needs a human decision (for example restoring a damaged c
 
 Entry point: `cli.py`. The `cof-normalize` command is declared in `pyproject.toml` as `cof.normalize.cli:app`; `app` is a **typer** application whose `@app.command()` functions (`run`, `rules`, `detect`) call `pipeline.run_pipeline` and the rule registry.
 
-| Module | Role |
-|---|---|
-| `decode.py` | bytes → text: gzip detection and recovery, encoding detection (UTF-16 BOM, UTF-8 BOM, ASCII, strict UTF-8, else Windows-1252), line-ending style; records the facts for `summary.csv` |
-| `classify.py` | gives every line a `LineType`: `BLANK`, `PAGE`, `NOTE`, `IDENT`, `ITEM`, `FOOTER`, `ANNOTATION`, `HEADING`, `UNKNOWN` (first matching rule wins) |
-| `context.py` | `FileContext` (decoded + classified file, the input of every detector) and `Issue` |
-| `rules.py` | the **rule registry**: `Rule` (a pydantic model for one entry of `config/rules.yaml`), `load_rules()`, the `@detector("I05")` decorator that registers a function under a rule id, `detect_all()`, and `rule_param()` for tunable numbers (for example `L03`'s `max_jump`) |
-| `detectors.py` | one function per rule (importing the module registers them all); `tests/normalize/test_rules.py` keeps YAML and detectors in step |
-| `items.py` | item-line structure: layouts A–D, known flags, regular expressions for sol codes, prices and dates |
-| `ident.py` | parse ident lines (variants A, B, C, D), compute the values implied by a file name, build the canonical ident line, compare |
-| `fixers.py` | the automatic structural repairs (one `Change` recorded per repair); the output is the repaired source lines, one per source line |
-| `emit.py` | the final shape: rows with `src_line`, `page`, `section`, `kind`; whitespace, date, price and sol-code transforms; side-car routing; the ledger; rendering to TSV |
-| `normalize.py` | `normalize_file`: runs the stages for one file, applies patches, and **verifies the post-conditions** (nothing repairable left, repair is stable, every source line is in the ledger, the table reads back). A failed check raises `NormalizationError` |
-| `pipeline.py` | `run_pipeline`: loops over `selection.csv`, writes the files and CSV reports |
+| Module         | Role                                                                                                                                                                                                                                                                       |
+|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `decode.py`    | bytes → text: gzip detection and recovery, encoding detection (UTF-16 BOM, UTF-8 BOM, ASCII, strict UTF-8, else Windows-1252), line-ending style; records the facts for `summary.csv`                                                                                      |
+| `classify.py`  | gives every line a `LineType`: `BLANK`, `PAGE`, `NOTE`, `IDENT`, `ITEM`, `FOOTER`, `ANNOTATION`, `HEADING`, `UNKNOWN` (first matching rule wins)                                                                                                                           |
+| `context.py`   | `FileContext` (decoded + classified file, the input of every detector) and `Issue`                                                                                                                                                                                         |
+| `rules.py`     | the **rule registry**: `Rule` (a pydantic model for one entry of `config/rules.yaml`), `load_rules()`, the `@detector("I05")` decorator that registers a function under a rule id, `detect_all()`, and `rule_param()` for tunable numbers (for example `L03`'s `max_jump`) |
+| `detectors.py` | one function per rule (importing the module registers them all); `tests/normalize/test_rules.py` keeps YAML and detectors in step                                                                                                                                          |
+| `items.py`     | item-line structure: layouts A–D, known flags, regular expressions for sol codes, prices and dates                                                                                                                                                                         |
+| `ident.py`     | parse ident lines (variants A, B, C, D), compute the values implied by a file name, build the canonical ident line, compare                                                                                                                                                |
+| `fixers.py`    | the automatic structural repairs (one `Change` recorded per repair); the output is the repaired source lines, one per source line                                                                                                                                          |
+| `emit.py`      | the final shape: rows with `src_line`, `page`, `section`, `kind`; whitespace, date, price and sol-code transforms; side-car routing; the ledger; rendering to TSV                                                                                                          |
+| `normalize.py` | `normalize_file`: runs the stages for one file, applies patches, and **verifies the post-conditions** (nothing repairable left, repair is stable, every source line is in the ledger, the table reads back). A failed check raises `NormalizationError`                    |
+| `pipeline.py`  | `run_pipeline`: loops over `selection.csv`, writes the files and CSV reports                                                                                                                                                                                               |
 
 Key ideas for newcomers:
 

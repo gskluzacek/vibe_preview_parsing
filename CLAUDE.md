@@ -37,6 +37,8 @@ Standards for all new code (the user's requirements):
 - Add pytest tests with the code; no real network access in tests.
 - Standard transforms (UTF-8, LF, `YYYY_MM` file names) are not recorded as edits. Only real defects are issues.
 
+- Markdown tables (PyCharm flags them otherwise): pad every cell with spaces to the width of the widest cell in its column, and make the separator row dashes the **full width** of the column (`|------|-----|`, not `|---|---|`), with one space inside each pipe. Keep alignment colons (`------:`) inside that width. Write the table already padded, or compute the widths before writing; never leave short `---` separators.
+
 Commands (the environment is managed with `uv`):
 
 ```bash

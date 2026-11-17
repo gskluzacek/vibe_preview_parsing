@@ -20,13 +20,13 @@ Tested with Python 3.13 and the standard library only (no third-party packages).
 
 Defaults assume the reference repos are cloned next to this one (see the root `CLAUDE.md`). Override with environment variables:
 
-| Variable | Default | Used by |
-|---|---|---|
-| `COF_DIR` | `../previews_parsing/cof_files` | all topics (135 `MMMYY.txt` files) |
-| `OLD_COF_DIR` | `../previews/old_code/Preview Parsing/previews parsing` | `lines` (old-vs-new comparisons) and the default for `DUMP_SQL` |
-| `DUMP_SQL` | `$OLD_COF_DIR/bipolar_2014_08_16.sql` | `headings/ld.py` (reads heading `INSERT` rows only; never the `users` table) |
-| `HEADING_EXTRACT` | `../previews_parsing/headings_hrch_extract_2.txt` | `headings` (hand-levelled JAN09 extract) |
-| `OUT_DIR` | `tools/analysis/out` (gitignored) | pickles and captured output |
+| Variable          | Default                                                 | Used by                                                                      |
+|-------------------|---------------------------------------------------------|------------------------------------------------------------------------------|
+| `COF_DIR`         | `../previews_parsing/cof_files`                         | all topics (135 `MMMYY.txt` files)                                           |
+| `OLD_COF_DIR`     | `../previews/old_code/Preview Parsing/previews parsing` | `lines` (old-vs-new comparisons) and the default for `DUMP_SQL`              |
+| `DUMP_SQL`        | `$OLD_COF_DIR/bipolar_2014_08_16.sql`                   | `headings/ld.py` (reads heading `INSERT` rows only; never the `users` table) |
+| `HEADING_EXTRACT` | `../previews_parsing/headings_hrch_extract_2.txt`       | `headings` (hand-levelled JAN09 extract)                                     |
+| `OUT_DIR`         | `tools/analysis/out` (gitignored)                       | pickles and captured output                                                  |
 
 If an input is missing, the runner skips that topic and says which path is wrong. If only the dump is missing, `headings` still runs using the committed `headings/hdg_lvls.json`.
 
@@ -34,12 +34,12 @@ If an input is missing, the runner skips that topic and says which path is wrong
 
 `run.py` runs each script with `OUT_DIR/<topic>/` as its working directory, so the intermediate pickles (25–70 MB each) are written there, not into the repo, and prints are captured to `OUT_DIR/<topic>/<script>.out`. `python3 -I` is supported: `run.py` puts this directory and the topic directory on `sys.path` itself.
 
-| Topic | Spec § | Loaders (create) | Then |
-|---|---|---|---|
-| `lines/` | §1–§3 | none (`common.py` has the shared file lister) | `p1` … `p21` |
-| `items/` | §4 | `a` → `rows.pkl`; `c` → `items.pkl`; `e` → `items2.pkl`; `f` → `P.pkl` | `b d g h i j k l` |
-| `headings/` | §5 | `ex` → `rec.pkl`; `ld` → `hdg_lvls.json` | `a1` … `a7`, `t` |
-| `tokens/` | §6 | `load` → `rows.pkl` | `s1` … `s12` (`cls.py` is a module imported by `s3`; `h.py` is a scratch dump and is not run) |
+| Topic       | Spec § | Loaders (create)                                                       | Then                                                                                          |
+|-------------|--------|------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| `lines/`    | §1–§3  | none (`common.py` has the shared file lister)                          | `p1` … `p21`                                                                                  |
+| `items/`    | §4     | `a` → `rows.pkl`; `c` → `items.pkl`; `e` → `items2.pkl`; `f` → `P.pkl` | `b d g h i j k l`                                                                             |
+| `headings/` | §5     | `ex` → `rec.pkl`; `ld` → `hdg_lvls.json`                               | `a1` … `a7`, `t`                                                                              |
+| `tokens/`   | §6     | `load` → `rows.pkl`                                                    | `s1` … `s12` (`cls.py` is a module imported by `s3`; `h.py` is a scratch dump and is not run) |
 
 `headings/hdg_lvls.json` (918 heading rows from the 2016 dump) is committed; regenerating it with `ld.py` gives a byte-identical file.
 

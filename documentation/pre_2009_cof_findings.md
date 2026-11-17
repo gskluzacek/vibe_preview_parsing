@@ -11,13 +11,13 @@ Research of 2026-11-17 into the sources listed in `additional_sources_of_cof_and
 
 ## The Internet Archive item
 
-| | |
-|---|---|
-| Address | `https://archive.org/details/diamond-customer-order-form-2002-07` |
+|         |                                                                                                                                                                                                           |
+|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Address | `https://archive.org/details/diamond-customer-order-form-2002-07`                                                                                                                                         |
 | Content | 120 PDFs named `Diamond Customer Order Form YYYY MM.pdf`, each also as `.cbr` (page images), `_jp2.zip` (page images, JPEG 2000), `_djvu.txt` (OCR text), `_hocr.html`, `_djvu.xml` and other OCR formats |
-| Size | about 9.4 GB for the item; the 120 PDFs total 588 MB (3–6 MB each); each OCR text is 125–325 KB |
-| Added | 2026-10-04 |
-| Index | `data/originals_pre2009/ia_item_files.csv` (period, file name, sizes) |
+| Size    | about 9.4 GB for the item; the 120 PDFs total 588 MB (3–6 MB each); each OCR text is 125–325 KB                                                                                                           |
+| Added   | 2026-10-04                                                                                                                                                                                                |
+| Index   | `data/originals_pre2009/ia_item_files.csv` (period, file name, sizes)                                                                                                                                     |
 
 Coverage by year (files per year): 1998 12 · 1999 **4** · 2000 12 · 2001 11 · 2002 12 · 2003 12 · 2004 11 · 2005 12 · 2006 12 · 2007 **3** · 2008 **3** · 2009 6 · 2010 4 · 2011 3 · 2012 3.
 

@@ -4,11 +4,11 @@ Small helpers used by every stage. Nothing here knows about the Internet Archive
 
 ## What is in it
 
-| Module | What it does |
-|---|---|
-| `settings.py` | `Settings` (typed scalars, directories, delays) and `load_yaml()` (structured configuration), plus `PROJECT_ROOT` |
-| `months.py` | Month codes (`JAN13`) and sortable periods (`2013_01`): `month_index`, `months_between`, `to_period`, `from_period`, and the `MONTHS` list |
-| `csvio.py` | `read_rows()` (CSV → list of dicts) and `write_rows_atomic()` (write a temp file, then rename, so a crash cannot truncate a result file) |
+| Module        | What it does                                                                                                                               |
+|---------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| `settings.py` | `Settings` (typed scalars, directories, delays) and `load_yaml()` (structured configuration), plus `PROJECT_ROOT`                          |
+| `months.py`   | Month codes (`JAN13`) and sortable periods (`2013_01`): `month_index`, `months_between`, `to_period`, `from_period`, and the `MONTHS` list |
+| `csvio.py`    | `read_rows()` (CSV → list of dicts) and `write_rows_atomic()` (write a temp file, then rename, so a crash cannot truncate a result file)   |
 
 ## Using it
 

@@ -83,12 +83,12 @@ cautions listed at the end of catalog descriptions indicate an item that may shi
 
 # ratings
 
-| rating  | description  |
-|---|---|
-| E   | Everyone: All Ages  |
-| T  | Teen (12+): No Nudity, no profanity  |
-| T+  | Teen Plus (16+): Mild Profanity  |
-| M  | Mature (18+): Nudity, Profanity, Dtrug Paraphernalia, Excessive Violence  |
+| rating | description                                                              |
+|--------|--------------------------------------------------------------------------|
+| E      | Everyone: All Ages                                                       |
+| T      | Teen (12+): No Nudity, no profanity                                      |
+| T+     | Teen Plus (16+): Mild Profanity                                          |
+| M      | Mature (18+): Nudity, Profanity, Dtrug Paraphernalia, Excessive Violence |
 
 
 # publishers
@@ -160,7 +160,7 @@ Inline Flags & Codes: Codes like FI, OS, RES, OA, BI, SS, FO, and KIDS typically
 
 Price Field: Usually the final token on the line. Expect non-numeric strings here—specifically PI (Please Inquire), AR (Ask Retailer), or $TBD—so parse prices as strings first before converting valid currency values ($3.99) to floats or decimals.
 
- Multi-Line Wrapped Descriptions: In older fixed-width .txt files, long titles or bundle descriptions occasionally wrap onto a second line without a leading Diamond SKU. Check whether a line begins with the ^[A-Z]{3}\d{6} regex pattern; if it does not (and isn't a section header), append it to the previous item's title/notes.
+ Multi-Line Wrapped Descriptions: In older fixed-width .txt files, long titles or bundle descriptions occasionally wrap onto a second line without a leading Diamond SKU. Check whether a line begins with the `^[A-Z]{3}\d{6}` regex pattern; if it does not (and isn't a section header), append it to the previous item's title/notes.
 
 Character Encoding: Older files from the 2002–2012 era frequently use Windows-1252 (CP1252) or ISO-8859-1 rather than UTF-8 (especially for copyright symbols ©, trademark ™, and accented characters in creator names). Opening files with encoding="cp1252" or errors="replace" prevents UnicodeDecodeError crashes.
 
@@ -173,17 +173,17 @@ This section ties the publisher's definitions above to what the normalizer write
 
 ## Where each code lives in a normalized row
 
-| Code | Column | Notes |
-|------|--------|-------|
-| `SS`, `SPOT`, `OA`, `FI`, `KIDS`, `GEM`, `BL`, `FO` and combinations | `flag` | one or two codes separated by a space, upper case |
-| `SRP`, `MSRP` | `price_designation` | the text before the colon in the published price |
-| `PI` (please inquire), `AR` (ask retailer) | `price` empty | the designation is kept (`SRP` + empty price); a bare `PI` has an empty designation too (rule I21, info) |
-| `FREE` | `price` = `0.00` | |
-| `(Net)` | `text` | stays in the description; it means the price is a net wholesale price |
-| `(C: i-c-s)` caution code | `text` | stays in the description; see *caution codes* above (international rights, content changes, ship-date changes) |
-| `O/A`, `RES` | `text` | appear inside descriptions; not separate columns |
-| solicitation code `MMMYY nnnn` | `sol_code` | rewritten as `YYYY-MM-nnnn-m` (`m` = 0 for the first use in the file, 1 for a repeat, and so on) |
-| page `PAGE n` / `PAGE M-n` | `page`, `merchandise_flag` | `M-` marks catalog merchandise pages from APR18 on and is not part of the number; `section` counts restarts of the page numbering |
+| Code                                                                 | Column                     | Notes                                                                                                                             |
+|----------------------------------------------------------------------|----------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| `SS`, `SPOT`, `OA`, `FI`, `KIDS`, `GEM`, `BL`, `FO` and combinations | `flag`                     | one or two codes separated by a space, upper case                                                                                 |
+| `SRP`, `MSRP`                                                        | `price_designation`        | the text before the colon in the published price                                                                                  |
+| `PI` (please inquire), `AR` (ask retailer)                           | `price` empty              | the designation is kept (`SRP` + empty price); a bare `PI` has an empty designation too (rule I21, info)                          |
+| `FREE`                                                               | `price` = `0.00`           |                                                                                                                                   |
+| `(Net)`                                                              | `text`                     | stays in the description; it means the price is a net wholesale price                                                             |
+| `(C: i-c-s)` caution code                                            | `text`                     | stays in the description; see *caution codes* above (international rights, content changes, ship-date changes)                    |
+| `O/A`, `RES`                                                         | `text`                     | appear inside descriptions; not separate columns                                                                                  |
+| solicitation code `MMMYY nnnn`                                       | `sol_code`                 | rewritten as `YYYY-MM-nnnn-m` (`m` = 0 for the first use in the file, 1 for a repeat, and so on)                                  |
+| page `PAGE n` / `PAGE M-n`                                           | `page`, `merchandise_flag` | `M-` marks catalog merchandise pages from APR18 on and is not part of the number; `section` counts restarts of the page numbering |
 
 ## Flags actually found in the corpus
 
@@ -195,23 +195,23 @@ Counts are item rows in the 199 normalized files. "known" means the flag is in `
 - `KIDS` first appears in OCT10; `GEM` is gone after JUL25.
 
 <!-- flag-inventory:start (generated by adhoc/flag_inventory.py; do not edit) -->
-| flag | items | first | last | example | known to the normalizer |
-|------|------:|-------|------|---------|-------------------------|
-| (none) | 306732 | 2009_01 | 2025_10 | FCBD 2009 ORANGE WRIST BAND (Net) (C: 1- | yes |
-| `SS` | 68554 | 2009_01 | 2025_10 | ACHEWOOD HC VOL 01 GREAT OUTDOOR FIGHT ( | yes |
-| `SPOT` | 41691 | 2009_01 | 2025_10 | PREVIEWS #246 MARCH 2009 (Net) | yes |
-| `OA` | 32096 | 2009_01 | 2025_10 | LITTLE LULU TP VOL 16 A HANDY KID (O/A) | yes |
-| `FI` | 21461 | 2009_01 | 2025_10 | TOYFARE #141 HASBRO X-MEN ORIGIN WOLVERI | yes |
-| `KIDS` | 14752 | 2010_10 | 2025_10 | LITTLE LULU TP VOL 26 FEUD & OTHER STORI | yes |
-| `GEM` | 3386 | 2009_01 | 2025_07 | APPLEGEEKS TP VOL 01 FRESHMAN YEAR (C: 0 | yes |
-| `OA SS` | 127 | 2009_01 | 2015_03 | AI NO KUSABI SPACE BETWEEN NOVEL VOL 02  | yes |
-| `OA FI` | 67 | 2009_07 | 2015_04 | TOUMA X HONEYBABY MINI FIG BMB ASST SER  | yes |
-| `SS KIDS` | 64 | 2010_10 | 2014_12 | ADVENTURES OF LITTLE ARCHIE TP VOL 01 NE | yes |
-| `OA SPOT` | 50 | 2009_01 | 2015_03 | LIBERTY MEADOWS TP VOL 04 COLD COLD HEAR | yes |
-| `OA KIDS` | 20 | 2010_10 | 2014_10 | AMELIA RULES TP VERY NINJA CHRISTMAS (O/ | yes |
-| `BL` | 10 | 2024_08 | 2024_08 | BIG BIG OVERSTREET PRICE GD VOL 54 CVR A | yes |
-| `SS SPOT` | 9 | 2009_07 | 2014_10 | FOUR LETTER WORLDS GN (NOV041533) | yes |
-| `SS FI` | 1 | 2012_06 | 2012_06 | KUBRICKS CLEAR FIGURE CASE (APR108187) ( | yes |
-| `FO` | 1 | 2019_09 | 2019_09 | BATMAN DARK KNIGHT SYMBOL T/S XXL (C: 1- | yes |
-| `S` | 1 | 2025_09 | 2025_09 | FRIDAY FOSTER COLLECTED HC (FEB201364) | no (rule I13) |
+| flag      |  items | first   | last    | example                                  | known to the normalizer |
+|-----------|-------:|---------|---------|------------------------------------------|-------------------------|
+| (none)    | 306732 | 2009_01 | 2025_10 | FCBD 2009 ORANGE WRIST BAND (Net) (C: 1- | yes                     |
+| `SS`      |  68554 | 2009_01 | 2025_10 | ACHEWOOD HC VOL 01 GREAT OUTDOOR FIGHT ( | yes                     |
+| `SPOT`    |  41691 | 2009_01 | 2025_10 | PREVIEWS #246 MARCH 2009 (Net)           | yes                     |
+| `OA`      |  32096 | 2009_01 | 2025_10 | LITTLE LULU TP VOL 16 A HANDY KID (O/A)  | yes                     |
+| `FI`      |  21461 | 2009_01 | 2025_10 | TOYFARE #141 HASBRO X-MEN ORIGIN WOLVERI | yes                     |
+| `KIDS`    |  14752 | 2010_10 | 2025_10 | LITTLE LULU TP VOL 26 FEUD & OTHER STORI | yes                     |
+| `GEM`     |   3386 | 2009_01 | 2025_07 | APPLEGEEKS TP VOL 01 FRESHMAN YEAR (C: 0 | yes                     |
+| `OA SS`   |    127 | 2009_01 | 2015_03 | AI NO KUSABI SPACE BETWEEN NOVEL VOL 02  | yes                     |
+| `OA FI`   |     67 | 2009_07 | 2015_04 | TOUMA X HONEYBABY MINI FIG BMB ASST SER  | yes                     |
+| `SS KIDS` |     64 | 2010_10 | 2014_12 | ADVENTURES OF LITTLE ARCHIE TP VOL 01 NE | yes                     |
+| `OA SPOT` |     50 | 2009_01 | 2015_03 | LIBERTY MEADOWS TP VOL 04 COLD COLD HEAR | yes                     |
+| `OA KIDS` |     20 | 2010_10 | 2014_10 | AMELIA RULES TP VERY NINJA CHRISTMAS (O/ | yes                     |
+| `BL`      |     10 | 2024_08 | 2024_08 | BIG BIG OVERSTREET PRICE GD VOL 54 CVR A | yes                     |
+| `SS SPOT` |      9 | 2009_07 | 2014_10 | FOUR LETTER WORLDS GN (NOV041533)        | yes                     |
+| `SS FI`   |      1 | 2012_06 | 2012_06 | KUBRICKS CLEAR FIGURE CASE (APR108187) ( | yes                     |
+| `FO`      |      1 | 2019_09 | 2019_09 | BATMAN DARK KNIGHT SYMBOL T/S XXL (C: 1- | yes                     |
+| `S`       |      1 | 2025_09 | 2025_09 | FRIDAY FOSTER COLLECTED HC (FEB201364)   | no (rule I13)           |
 <!-- flag-inventory:end -->
