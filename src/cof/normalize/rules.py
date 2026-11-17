@@ -1,6 +1,7 @@
 """The rule registry: rule metadata from ``config/rules.yaml`` and the detector function of each rule."""
 
 from collections.abc import Callable, Iterator
+from functools import cache
 from typing import Any
 
 from pydantic import BaseModel, ConfigDict, Field
@@ -26,6 +27,8 @@ class Rule(BaseModel):
     description: str
     fix: str
     anomaly: str | None = None
+    optional: bool = False  # runs only with --full-checks
+    params: dict[str, Any] = Field(default_factory=dict)  # tunable numbers for the detector
 
 
 def load_rules(settings: Settings | None = None) -> dict[str, Rule]:
@@ -52,6 +55,26 @@ def load_rules(settings: Settings | None = None) -> dict[str, Rule]:
     return rules
 
 
+@cache
+def _default_rules() -> dict[str, Rule]:
+    """Read the rules once with the default settings (for :func:`rule_param`)."""
+    return load_rules()
+
+
+def rule_param(rule_id: str, name: str) -> int | float | str:
+    """Return a tunable number of a rule from ``config/rules.yaml``.
+
+    Args:
+        rule_id: The rule id, for example ``"L03"``.
+        name: The key under the rule's ``params``.
+
+    Returns:
+        The configured value.
+    """
+    value: int | float | str = _default_rules()[rule_id].params[name]
+    return value
+
+
 def detector(rule_id: str) -> Callable[[Detector], Detector]:
     """Register a function as the detector of a rule.
 
@@ -76,7 +99,7 @@ def detector_ids() -> set[str]:
     return set(_DETECTORS)
 
 
-def detect_all(ctx: FileContext) -> list[Issue]:
+def detect_all(ctx: FileContext, include_optional: bool = True) -> list[Issue]:
     """Run every registered detector on a file.
 
     A file that is not a COF text file at all (rule F01) is reported only for its file-level facts, because
@@ -84,15 +107,18 @@ def detect_all(ctx: FileContext) -> list[Issue]:
 
     Args:
         ctx: The decoded, classified file.
+        include_optional: Also run the rules marked ``optional`` in ``config/rules.yaml``. Selection and
+            analysis always use all rules; the normalizer skips the optional ones unless asked.
 
     Returns:
         All issues, ordered by line number then rule id (whole-file issues first).
     """
+    optional = set() if include_optional else {r.id for r in _default_rules().values() if r.optional}
     issues: list[Issue] = []
     foreign = list(_DETECTORS["F01"](ctx))
     issues += foreign
     for rule_id, func in _DETECTORS.items():
-        if rule_id == "F01" or (foreign and not rule_id.startswith("F")):
+        if rule_id == "F01" or rule_id in optional or (foreign and not rule_id.startswith("F")):
             continue
         issues += func(ctx)
     return sorted(issues, key=lambda i: (i.line or 0, i.rule_id))

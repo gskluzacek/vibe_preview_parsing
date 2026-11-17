@@ -1,0 +1,3 @@
+src_line	page	section	merchandise_flag	kind	text
+144	84	1	0	NOTE	(NOTE: All DC Comics will be available digital day and date.)
+1167	300	2	0	NOTE	(NOTE: Look for the exciting relaunch of Boundless in 2014!)

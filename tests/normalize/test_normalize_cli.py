@@ -31,6 +31,13 @@ def test_run_normalizes_the_selected_files(tmp_path: Path, monkeypatch: pytest.M
     monkeypatch.setenv("COF_NORMALIZED_DIR", str(tmp_path / "out"))
     result = runner.invoke(cli.app, ["run", "--months", "jan13"])
     assert result.exit_code == 0 and "1 files" in result.output
-    assert (tmp_path / "out" / "2013_01.txt").read_text() == GOOD.replace("\r\n", "\n").replace(
-        "1/16/2013", "01/16/13"
-    )
+    table = (tmp_path / "out" / "2013_01.txt").read_text().splitlines()
+    assert table[0].split("\t")[:5] == ["src_line", "page", "section", "merchandise_flag", "kind"]
+    assert table[1].split("\t")[4] == "D" and "JAN13" not in table[1]
+    assert table[3].split("\t")[5:] == ["SS", "2013-01-0001-0", "BATMAN", "2013-01-16", "SRP", "2.99"]
+
+
+def test_rules_lists_required_and_optional_sets() -> None:
+    result = runner.invoke(cli.app, ["rules"])
+    assert result.exit_code == 0
+    assert "F03  optional" in result.output and "I01  required" in result.output

@@ -1,0 +1,2 @@
+src_line	page	section	merchandise_flag	kind	text
+2518	4	2	0	NOTE	(NOTE: This contains a reprinting of Halo Uprising #1 and #2. Last minute addition, not listed in Marvel Previews.)

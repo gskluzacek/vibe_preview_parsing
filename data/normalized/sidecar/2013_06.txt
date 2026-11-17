@@ -1,0 +1,2 @@
+src_line	page	section	merchandise_flag	kind	text
+2000	402	2	0	PLACEHOLDER	| JUN13 1650 | DO NOT ORDER FROM THIS LINE

@@ -1,12 +1,16 @@
 """Normalize one COF text file: decode, repair, validate, and account for every issue found."""
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 
 from pydantic import BaseModel
 
 from cof.common.months import to_period
+from cof.normalize.classify import LineType
 from cof.normalize.context import FileContext, Issue, build_context
+from cof.normalize.detectors import first_catalog_item_number
+from cof.normalize.emit import COLUMNS, SIDECAR_COLUMNS, Emitted, emit, render
 from cof.normalize.fixers import Change, apply_fixes
+from cof.normalize.ident import ident_facts
 from cof.normalize.rules import Rule, detect_all
 
 
@@ -44,15 +48,19 @@ class NormalizedFile:
 
     month: str
     period: str  # YYYY_MM
-    text: str | None  # the normalized text, or None when the file was rejected
+    text: str | None  # the final table (header row plus rows), or None when the file was rejected
     status: str  # "ok" or "rejected"
     encoding: str
     compression: str
     eol: str
     source_lines: int
-    output_lines: int
+    output_rows: int  # rows in the final table, without the header row
     non_ascii_bytes: int
     records: list[IssueRecord] = field(default_factory=list)
+    sidecar: str | None = None  # the side-car table, or None when there is nothing to put in it
+    sidecar_rows: int = 0
+    ledger: dict[tuple[str, str], int] = field(default_factory=dict)  # (line type, fate) -> source lines
+    ident: dict[str, str] = field(default_factory=dict)  # facts for idents.csv
 
     def count(self, status: str) -> int:
         """Number of issue records with a status."""
@@ -65,7 +73,11 @@ def _render(lines: list[str]) -> str:
 
 
 def normalize_file(
-    month: str, data: bytes, rules: dict[str, Rule], patches: list[Patch] | None = None
+    month: str,
+    data: bytes,
+    rules: dict[str, Rule],
+    patches: list[Patch] | None = None,
+    full_checks: bool = True,
 ) -> NormalizedFile:
     """Normalize one file and verify the result.
 
@@ -74,17 +86,19 @@ def normalize_file(
         data: Raw bytes of the selected version, as downloaded.
         rules: The rule registry (``config/rules.yaml``).
         patches: Reviewed edits; only those for ``month`` are used.
+        full_checks: Also run the rules marked ``optional`` in ``config/rules.yaml``.
 
     Returns:
-        The normalized text and a record for every issue found. A file that is not a COF text file (F01)
-        is rejected: ``text`` is ``None``.
+        The final table, the side-car, the ledger and a record for every issue found. A file that is not a
+        COF text file (F01) is rejected: ``text`` is ``None``.
 
     Raises:
-        NormalizationError: If a patch is stale, or a post-condition fails (line count changed, or a
-            rule that was repaired automatically is still detected in the output).
+        NormalizationError: If a patch is stale, or a post-condition fails (the repair stage changed the
+            line count, a rule repaired automatically is still detected, the repair is not stable, a source
+            line is missing from the ledger, or the table does not read back).
     """
     ctx = build_context(month, data)
-    before_issues = detect_all(ctx)
+    before_issues = detect_all(ctx, full_checks)
     if any(i.rule_id == "F01" for i in before_issues):
         rejected = [
             _record(i, rules, "open", "", "", "file rejected: " + rules[i.rule_id].fix) for i in before_issues
@@ -99,13 +113,13 @@ def normalize_file(
             )
         lines[patch.line - 1] = patch.new
         changes.append(Change("PATCH", patch.line, patch.old, patch.new, patch.reason))
-    text = _render(lines)
+    text = _render(lines)  # the repaired source text (an intermediate form; the final table is built below)
 
-    # Post-conditions: same number of lines; nothing repairable is left; the result is stable.
+    # Post-conditions of the repair stage: same number of lines; nothing repairable is left; it is stable.
     if len(lines) != len(ctx.lines):
         raise NormalizationError(f"{month}: line count changed from {len(ctx.lines)} to {len(lines)}")
     after = build_context(month, text.encode("utf-8"))
-    after_issues = detect_all(after)
+    after_issues = detect_all(after, full_checks)
     still = [i for i in after_issues if rules[i.rule_id].rule_class.startswith("auto-")]
     if still:
         raise NormalizationError(f"{month}: rules repaired automatically are still detected: {still[:3]}")
@@ -141,7 +155,38 @@ def normalize_file(
             )  # fmt: skip
         else:
             out_records.append(_record(issue, rules, "open", "", "", rule.fix))
-    return _result(ctx, month, text, "ok", len(lines), out_records)
+    emitted = emit(ctx, lines)
+    table = _checked_table(month, ctx, emitted)
+    ident_lines = [text for _, text in ctx.typed_lines(LineType.IDENT)]
+    return replace(
+        _result(ctx, month, table, "ok", len(emitted.rows), out_records),
+        sidecar=render(SIDECAR_COLUMNS, emitted.sidecar) if emitted.sidecar else None,
+        sidecar_rows=len(emitted.sidecar),
+        ledger=dict(emitted.ledger),
+        ident=ident_facts(month, ident_lines, first_catalog_item_number(ctx)),
+    )
+
+
+def _checked_table(month: str, ctx: FileContext, emitted: Emitted) -> str:
+    """Render the final table and verify the ledger and the read-back.
+
+    Raises:
+        NormalizationError: If a source line is not accounted for exactly once, or the rendered table does
+            not read back to the same rows.
+    """
+    counted = sum(emitted.ledger.values())
+    if counted != len(ctx.lines):
+        raise NormalizationError(f"{month}: ledger counts {counted} lines, the source has {len(ctx.lines)}")
+    kept = sum(n for (_, fate), n in emitted.ledger.items() if fate == "kept")
+    if len(emitted.rows) != kept + 1:  # every kept line is one row; plus the canonical ident row
+        raise NormalizationError(f"{month}: {len(emitted.rows)} rows for {kept} kept lines")
+    table = render(COLUMNS, emitted.rows)
+    back = [line.split("\t") for line in table.splitlines()]
+    if back[0] != list(COLUMNS) or any(len(r) != len(COLUMNS) for r in back):
+        raise NormalizationError(f"{month}: the table does not read back with {len(COLUMNS)} columns")
+    if [r[0] for r in back[1:]] != [str(row.src_line) for row in emitted.rows]:
+        raise NormalizationError(f"{month}: the table does not read back to the same rows")
+    return table
 
 
 def _record(
@@ -161,7 +206,7 @@ def _record(
 
 
 def _result(
-    ctx: FileContext, month: str, text: str | None, status: str, output_lines: int, records: list[IssueRecord]
+    ctx: FileContext, month: str, text: str | None, status: str, output_rows: int, records: list[IssueRecord]
 ) -> NormalizedFile:
     """Assemble a :class:`NormalizedFile` from the source context and the outcome."""
     return NormalizedFile(
@@ -173,7 +218,7 @@ def _result(
         compression=ctx.decoded.compression,
         eol=ctx.decoded.eol,
         source_lines=len(ctx.lines),
-        output_lines=output_lines,
+        output_rows=output_rows,
         non_ascii_bytes=ctx.decoded.non_ascii_bytes,
         records=records,
     )

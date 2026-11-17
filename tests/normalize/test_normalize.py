@@ -14,8 +14,8 @@ SOURCE = "\r\n".join(["PREVIEWS DECEMBER VOL. 23 #1", "", "PAGE 1\t", "HEAD", IT
 def test_normalizes_and_accounts_for_every_issue() -> None:
     done = normalize_file("JAN13", SOURCE.encode("cp1252"), RULES)
     assert done.status == "ok" and done.period == "2013_01"
-    assert done.text is not None and "\r" not in done.text and done.text.endswith("9\n")
-    assert done.source_lines == done.output_lines == 7
+    assert done.text is not None and "\r" not in done.text and done.text.endswith("\n")
+    assert done.source_lines == 7 and done.output_rows == 4  # ident row, heading, item, "GE 24" (a heading)
     statuses = {(r.rule_id, r.status) for r in done.records}
     assert {
         ("F07", "fixed"),
@@ -25,15 +25,20 @@ def test_normalizes_and_accounts_for_every_issue() -> None:
         ("I09", "fixed"),
     } <= statuses
     assert ("L02", "open") in statuses  # the damaged PAGE line is reported, not changed
-    assert "GE 24" in done.text
+    assert done.sidecar is None  # nothing in this file is neither a heading nor an item
+    assert sum(done.ledger.values()) == done.source_lines  # every source line is accounted for
 
 
-def test_second_pass_changes_nothing() -> None:
+def test_output_is_deterministic() -> None:
     first = normalize_file("JAN13", SOURCE.encode("cp1252"), RULES)
-    assert first.text is not None
-    second = normalize_file("JAN13", first.text.encode("utf-8"), RULES)
-    assert second.text == first.text
-    assert all(r.status in ("open", "info") for r in second.records)
+    assert normalize_file("JAN13", SOURCE.encode("cp1252"), RULES).text == first.text
+
+
+def test_optional_rules_run_only_with_full_checks() -> None:
+    data = SOURCE.replace("PAGE 1\t", "PAGE 1\t").encode("cp1252").replace(b"HEAD", b"HE\rAD")
+    assert any(r.rule_id == "F03" for r in normalize_file("JAN13", data, RULES, None, True).records)
+    assert not any(r.rule_id == "F03" for r in normalize_file("JAN13", data, RULES, None, False).records)
+    assert "HE AD" in (normalize_file("JAN13", data, RULES, None, False).text or "")  # the \r becomes a space
 
 
 @pytest.mark.parametrize(

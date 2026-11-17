@@ -138,3 +138,74 @@ def corrected_line(parts: IdentParts, exp: Expected) -> str:
     if parts.variant == "D1":
         return f"PREVIEWS {word} {exp.year}"
     return f"ISSUE #{exp.catalog} (VOL. {exp.volume} #{exp.issue})"
+
+
+def canonical_ident(month_code: str) -> str:
+    """Render the one ident line every normalized file gets, derived from the file name.
+
+    Args:
+        month_code: Month code from the file name, for example ``"MAR15"``.
+
+    Returns:
+        ``PREVIEWS <MONTH> <YYYY> ISSUE #<catalog> (VOL. <volume> #<issue>)``.
+    """
+    exp = expected_for(month_code)
+    return (
+        f"PREVIEWS {MONTH_NAMES[exp.month]} {exp.year} ISSUE #{exp.catalog} (VOL. {exp.volume} #{exp.issue})"
+    )
+
+
+def _yes_no(ok: bool | None) -> str:
+    """Render a check result: ``yes``, ``no`` or empty when the check does not apply."""
+    return "" if ok is None else ("yes" if ok else "no")
+
+
+def ident_facts(month_code: str, ident_lines: list[str], item_catalog: int | None) -> dict[str, str]:
+    """Collect what the file says about its own identity and compare it with the file name.
+
+    Args:
+        month_code: Month code from the file name.
+        ident_lines: The source ident lines (zero, one or two), as published.
+        item_catalog: Number from the first ``PREVIEWS #nnn`` item, or ``None``.
+
+    Returns:
+        One flat record for ``idents.csv``: what was found, what the file name implies, and one
+        ``yes``/``no``/empty check per comparison.
+    """
+    exp = expected_for(month_code)
+    found: dict[str, int | None] = dict.fromkeys(("month", "year", "volume", "issue", "catalog"))
+    variants: list[str] = []
+    for line in ident_lines:
+        parts = parse_ident(line)
+        if parts is None:
+            continue
+        variants.append(parts.variant)
+        if parts.month_word is not None:
+            found["month"] = month_number(parts.month_word)
+        for key in ("year", "volume", "issue", "catalog"):
+            value = getattr(parts, key)
+            if value is not None:
+                found[key] = value
+    month, year, volume, issue, catalog = (found[k] for k in ("month", "year", "volume", "issue", "catalog"))
+    year_from = year if year is not None else (1990 + volume if volume is not None else None)
+    return {
+        "ident_present": "yes" if ident_lines else "no",
+        "ident_lines": " | ".join(line.strip(" \t") for line in ident_lines),
+        "ident_variant": "+".join(variants),
+        "ident_month": "" if month is None else str(month + 1),
+        "ident_year": "" if year is None else str(year),
+        "ident_volume": "" if volume is None else str(volume),
+        "ident_issue": "" if issue is None else str(issue),
+        "ident_catalog": "" if catalog is None else str(catalog),
+        "expected_year": str(exp.year),
+        "expected_month": str(exp.month + 1),
+        "expected_volume": str(exp.volume),
+        "expected_issue": str(exp.issue),
+        "expected_catalog": str(exp.catalog),
+        "item_catalog": "" if item_catalog is None else str(item_catalog),
+        "month_ok": _yes_no(None if month is None else month == exp.month),
+        "year_ok": _yes_no(None if year_from is None else year_from == exp.year),
+        "issue_ok": _yes_no(None if issue is None else issue == exp.issue),
+        "catalog_ident_ok": _yes_no(None if catalog is None else catalog == exp.catalog),
+        "catalog_item_ok": _yes_no(None if item_catalog is None else item_catalog - 2 == exp.catalog),
+    }

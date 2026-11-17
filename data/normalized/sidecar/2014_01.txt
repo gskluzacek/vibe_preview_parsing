@@ -1,0 +1,3 @@
+src_line	page	section	merchandise_flag	kind	text
+7	44	1	0	ANNOTATION	[GR: FREE COMIC BOOK DAY HORIZONTAL LOGO -- ALSO, A YELLOW BACKGROUND BEHIND FCBD ITEMS]
+8	44	1	0	NOTE	(NOTE: Check with your retailer for the availability of Free Comic Book Day titles offered in this month's PREVIEWS.)

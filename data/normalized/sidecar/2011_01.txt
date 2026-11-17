@@ -1,0 +1,2 @@
+src_line	page	section	merchandise_flag	kind	text
+7	25	1	0	NOTE	(NOTE: Please check with your retailer for the availability of the Free Comic Book Day titles offered in this month's catalog!)

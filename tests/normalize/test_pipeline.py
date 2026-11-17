@@ -65,6 +65,7 @@ def test_full_run_removes_stale_outputs_but_partial_run_does_not(tmp_path: Path)
 def test_output_is_deterministic(tmp_path: Path) -> None:
     settings = setup(tmp_path)
     run_pipeline(settings, None, lambda s: None)
-    first = {p.name: p.read_bytes() for p in settings.normalized_dir.iterdir()}
+    first = {p.name: p.read_bytes() for p in settings.normalized_dir.glob("*.*")}
     run_pipeline(settings, None, lambda s: None)
-    assert first == {p.name: p.read_bytes() for p in settings.normalized_dir.iterdir()}
+    assert first == {p.name: p.read_bytes() for p in settings.normalized_dir.glob("*.*")}
+    assert {"ledger.csv", "idents.csv", "issues.csv", "summary.csv", "2013_01.txt"} <= set(first)

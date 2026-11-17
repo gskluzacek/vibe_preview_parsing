@@ -27,7 +27,7 @@ from cof.normalize.items import (
     parse_date,
     unquote,
 )
-from cof.normalize.rules import detector
+from cof.normalize.rules import detector, rule_param
 
 _HEADER_ROW_RE = re.compile(r"[A-Za-z]+(?:\t[A-Za-z]+){3,}")
 _DAMAGED_PAGE_RE = re.compile(r"^(?:P|PA|PAG|AGE|GE|E) ?(?:M-)?\d+$")
@@ -153,11 +153,15 @@ def page_line_damaged(ctx: FileContext) -> Iterator[Issue]:
 
 
 @detector("L03")
-def page_number_implausible(ctx: FileContext) -> Iterator[Issue]:
-    """Report PAGE numbers of 1000 or more."""
+def page_number_jump(ctx: FileContext) -> Iterator[Issue]:
+    """Report a PAGE number far above the previous one (backwards moves are section restarts, not issues)."""
+    max_jump = int(rule_param("L03", "max_jump"))
+    previous = 0
     for number, text in ctx.typed_lines(LineType.PAGE):
-        if int(re.sub(r"\D", "", text.split()[-1].split("-")[-1])) >= 1000:
-            yield Issue("L03", number, text.strip(" \t"))
+        page = int(re.sub(r"\D", "", text.split()[-1].split("-")[-1]))
+        if page - previous > max_jump:
+            yield Issue("L03", number, f"{text.strip(' \t')} after page {previous}")
+        previous = page
 
 
 @detector("L04")
@@ -371,3 +375,34 @@ def csv_quoted_field(ctx: FileContext) -> Iterator[Issue]:
         for index, value in enumerate(canon):
             if is_quoted(value):
                 yield Issue("I20", number, f"field {index}: {value[:60]}")
+
+
+@detector("I21")
+def price_no_designation(ctx: FileContext) -> Iterator[Issue]:
+    """Report prices without an SRP or MSRP designation (bare ``$n.nn`` or bare ``PI``)."""
+    for number, canon in _canonical_items(ctx):
+        price = unquote(canon[4]).strip()
+        if PRICE_RE.match(price) and "SRP" not in price:
+            yield Issue("I21", number, price)
+
+
+_CATALOG_ITEM_RE = re.compile(r"^PREVIEWS #(\d+) [A-Z]+ \d{4}\b")
+
+
+def first_catalog_item_number(ctx: FileContext) -> int | None:
+    """Return the number in the first ``PREVIEWS #nnn <MONTH> <YEAR>`` item, or None if there is none."""
+    for _, fields in _items(ctx):
+        if len(fields) > 2 and (m := _CATALOG_ITEM_RE.match(fields[2].strip().strip('"'))):
+            return int(m[1])
+    return None
+
+
+@detector("F11")
+def catalog_number_mismatch(ctx: FileContext) -> Iterator[Issue]:
+    """Report a first PREVIEWS item whose catalog number (minus 2) differs from the derived number."""
+    found = first_catalog_item_number(ctx)
+    expected = expected_for(ctx.month).catalog
+    if found is not None and found - 2 != expected:
+        yield Issue(
+            "F11", None, f"first PREVIEWS item is #{found}; derived from the file name: #{expected + 2}"
+        )

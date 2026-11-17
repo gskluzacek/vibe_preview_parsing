@@ -1,5 +1,7 @@
 # Corpus measurement scripts
 
+> **Legacy.** These scripts produced the numbers in `documentation/cof_format_spec.md` and are kept as they are (standard library only, no type hints). New code lives in `src/cof/` and `adhoc/` and follows the standards in `CLAUDE.md`.
+
 The scripts that produced the numbers in `documentation/cof_format_spec.md`. They are exploratory (short, single-purpose, terse names), but they now run end to end from a config and reproduce their outputs.
 
 ## Run

@@ -1,5 +1,7 @@
 month,period,rule_id,line,class,status,before,after,how,evidence
 JAN09,2009_01,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
+JAN09,2009_01,I21,1845,info,info,,,The price designation column is left empty; the price is split as usual.,$5.95
+JAN09,2009_01,I21,2859,info,info,,,The price designation column is left empty; the price is split as usual.,$16.99
 JAN09,2009_01,L06,4439,info,info,,,Kept as published; downstream code filters on the text.,JAN09 4245	DO NOT ORDER FROM THIS LINE HC	02/18/09	SRP: $35.00	 = $
 JAN09,2009_01,L06,4443,info,info,,,Kept as published; downstream code filters on the text.,JAN09 4248	DO NOT ORDER FROM THIS LINE CHARLATAN VOL 01 PRELUDES (C: 0-0-2)	03/2
 JAN09,2009_01,L06,4460,info,info,,,Kept as published; downstream code filters on the text.,JAN09 4258	DO NOT ORDER FROM THIS LINE (C: 0-1-2)	03/25/09	SRP: $21.95	 = $
@@ -1771,6 +1773,7 @@ FEB09,2009_02,I02,1883,auto-derived,fixed,8 fields,7 fields,dropped the empty fi
 FEB09,2009_02,I02,1884,auto-derived,fixed,8 fields,7 fields,dropped the empty field after the sol code,"8 fields, empty field 2"
 FEB09,2009_02,I02,1885,auto-derived,fixed,8 fields,7 fields,dropped the empty field after the sol code,"8 fields, empty field 2"
 FEB09,2009_02,I02,1886,auto-derived,fixed,8 fields,7 fields,dropped the empty field after the sol code,"8 fields, empty field 2"
+FEB09,2009_02,I21,1886,info,info,,,The price designation column is left empty; the price is split as usual.,$5.95
 FEB09,2009_02,I02,1887,auto-derived,fixed,8 fields,7 fields,dropped the empty field after the sol code,"8 fields, empty field 2"
 FEB09,2009_02,I02,1888,auto-derived,fixed,8 fields,7 fields,dropped the empty field after the sol code,"8 fields, empty field 2"
 FEB09,2009_02,I02,1889,auto-derived,fixed,8 fields,7 fields,dropped the empty field after the sol code,"8 fields, empty field 2"
@@ -2687,6 +2690,7 @@ FEB09,2009_02,I02,2954,auto-derived,fixed,8 fields,7 fields,dropped the empty fi
 FEB09,2009_02,I02,2955,auto-derived,fixed,8 fields,7 fields,dropped the empty field after the sol code,"8 fields, empty field 2"
 FEB09,2009_02,I02,2956,auto-derived,fixed,8 fields,7 fields,dropped the empty field after the sol code,"8 fields, empty field 2"
 FEB09,2009_02,I02,2957,auto-derived,fixed,8 fields,7 fields,dropped the empty field after the sol code,"8 fields, empty field 2"
+FEB09,2009_02,I21,2957,info,info,,,The price designation column is left empty; the price is split as usual.,$16.99
 FEB09,2009_02,I02,2958,auto-derived,fixed,8 fields,7 fields,dropped the empty field after the sol code,"8 fields, empty field 2"
 FEB09,2009_02,I02,2959,auto-derived,fixed,8 fields,7 fields,dropped the empty field after the sol code,"8 fields, empty field 2"
 FEB09,2009_02,I02,2960,auto-derived,fixed,8 fields,7 fields,dropped the empty field after the sol code,"8 fields, empty field 2"
@@ -5129,6 +5133,7 @@ FEB09,2009_02,I02,5866,auto-derived,fixed,8 fields,7 fields,dropped the empty fi
 FEB09,2009_02,I02,5867,auto-derived,fixed,8 fields,7 fields,dropped the empty field after the sol code,"8 fields, empty field 2"
 FEB09,2009_02,I02,5868,auto-derived,fixed,8 fields,7 fields,dropped the empty field after the sol code,"8 fields, empty field 2"
 MAR09,2009_03,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
+MAR09,2009_03,I21,1851,info,info,,,The price designation column is left empty; the price is split as usual.,$5.95
 MAR09,2009_03,L04,2518,info,info,,,Kept as a NOTE line.,(NOTE: This contains a reprinting of Halo Uprising #1 and #2. Last minute additi
 MAR09,2009_03,I03,2793,auto-derived,fixed,6 fields,7 fields,inserted an empty release date,"6 fields, no date field"
 MAR09,2009_03,I03,2794,auto-derived,fixed,6 fields,7 fields,inserted an empty release date,"6 fields, no date field"
@@ -5295,6 +5300,7 @@ MAR09,2009_03,I03,2955,auto-derived,fixed,6 fields,7 fields,inserted an empty re
 MAR09,2009_03,I03,2956,auto-derived,fixed,6 fields,7 fields,inserted an empty release date,"6 fields, no date field"
 MAR09,2009_03,I03,2957,auto-derived,fixed,6 fields,7 fields,inserted an empty release date,"6 fields, no date field"
 MAR09,2009_03,I03,2958,auto-derived,fixed,6 fields,7 fields,inserted an empty release date,"6 fields, no date field"
+MAR09,2009_03,I21,2958,info,info,,,The price designation column is left empty; the price is split as usual.,$16.99
 MAR09,2009_03,I03,2959,auto-derived,fixed,6 fields,7 fields,inserted an empty release date,"6 fields, no date field"
 MAR09,2009_03,I03,2960,auto-derived,fixed,6 fields,7 fields,inserted an empty release date,"6 fields, no date field"
 MAR09,2009_03,I03,2961,auto-derived,fixed,6 fields,7 fields,inserted an empty release date,"6 fields, no date field"
@@ -6520,6 +6526,7 @@ MAR09,2009_03,I03,5288,auto-derived,fixed,6 fields,7 fields,inserted an empty re
 MAR09,2009_03,I03,5292,auto-derived,fixed,6 fields,7 fields,inserted an empty release date,"6 fields, no date field"
 MAR09,2009_03,I03,5298,auto-derived,fixed,6 fields,7 fields,inserted an empty release date,"6 fields, no date field"
 MAR09,2009_03,I03,5427,auto-derived,fixed,6 fields,7 fields,inserted an empty release date,"6 fields, no date field"
+MAR09,2009_03,I21,5455,info,info,,,The price designation column is left empty; the price is split as usual.,$20.00
 APR09,2009_04,F07,1,auto-derived,fixed,PREVIEWS MAR V19 #4,PREVIEWS APR V19 #4,"ident month MAR, file name APR","ident month MAR, file name APR"
 APR09,2009_04,I03,280,auto-derived,fixed,6 fields,7 fields,inserted an empty release date,"6 fields, no date field"
 APR09,2009_04,I03,401,auto-derived,fixed,6 fields,7 fields,inserted an empty release date,"6 fields, no date field"
@@ -6563,6 +6570,8 @@ AUG09,2009_08,F06,,info,info,,,Kept as published; no line is invented. The perio
 SEP09,2009_09,F07,1,auto-derived,fixed,PREVIEWS MAR V19 #9,PREVIEWS SEP V19 #9,"ident month MAR, file name SEP","ident month MAR, file name SEP"
 JAN10,2010_01,F07,1,auto-derived,fixed,PREVIEWS DEC V20 #1,PREVIEWS JAN V20 #1,"ident month DEC, file name JAN","ident month DEC, file name JAN"
 JUN10,2010_06,I17,489,info,info,,,Kept as published.,OMEN SELECTED DRAWINGS & ILLUSTRATIONS TP (NEW PT (O/A) (MR)
+OCT10,2010_10,I21,2202,info,info,,,The price designation column is left empty; the price is split as usual.,$14.95
+OCT10,2010_10,I21,2203,info,info,,,The price designation column is left empty; the price is split as usual.,$14.95
 JAN11,2011_01,L04,7,info,info,,,Kept as a NOTE line.,(NOTE: Please check with your retailer for the availability of the Free Comic Bo
 JAN11,2011_01,I14,10,auto-lossless,fixed,FCBD 2011 POLYPROPYLENE ECO SHOPPING BAG ,FCBD 2011 POLYPROPYLENE ECO SHOPPING BAG,trimmed the item text,'FCBD 2011 PO...ING BAG '
 JAN11,2011_01,I14,11,auto-lossless,fixed,FCBD 2011 CANVAS ECO SHOPPING BAG ,FCBD 2011 CANVAS ECO SHOPPING BAG,trimmed the item text,'FCBD 2011 CA...ING BAG '
@@ -6600,10 +6609,11 @@ APR11,2011_04,I14,1598,auto-lossless,fixed,COMIC SHOP NEWS #1252 ,COMIC SHOP NEW
 APR11,2011_04,I14,1599,auto-lossless,fixed,COMIC SHOP NEWS #1253 ,COMIC SHOP NEWS #1253,trimmed the item text,'COMIC SHOP N...S #1253 '
 APR11,2011_04,I14,1600,auto-lossless,fixed,COMIC SHOP NEWS #1254 ,COMIC SHOP NEWS #1254,trimmed the item text,'COMIC SHOP N...S #1254 '
 APR11,2011_04,I14,2513,auto-lossless,fixed,GAME TRADE MAGAZINE #136 ,GAME TRADE MAGAZINE #136,trimmed the item text,'GAME TRADE M...NE #136 '
+MAY11,2011_05,F11,,open,open,,,None; the derived number is used in the ident row and the difference is recorded in idents.csv.,first PREVIEWS item is #273; derived from the file name: #274
 JUL11,2011_07,I01,1134,auto-lossless,fixed,6 fields,7 fields,added the empty trailing field,"6 fields, no trailing empty field"
 JUL11,2011_07,I01,1239,auto-lossless,fixed,6 fields,7 fields,added the empty trailing field,"6 fields, no trailing empty field"
 SEP11,2011_09,I17,437,info,info,,,Kept as published.,ELECTED DRAWINGS & ILLUSTRATIONS TP (NEW PT (AUG061742) (MR)
-SEP11,2011_09,I18,1157,info,info,,,Kept as published.,DISNEYS HERO SQUAD SC VOL 03 ULTRAHEROES THE ULTIMATE  (C: 1
+SEP11,2011_09,I18,1157,info,info,,,Collapsed to one space in the final file (standard transform); reported only.,DISNEYS HERO SQUAD SC VOL 03 ULTRAHEROES THE ULTIMATE  (C: 1
 NOV11,2011_11,I17,461,info,info,,,Kept as published.,ELECTED DRAWINGS & ILLUSTRATIONS TP (NEW PT (AUG061742) (MR)
 NOV11,2011_11,L04,780,info,info,,,Kept as a NOTE line.,(NOTE: This was incorrectly listed on the checklist as Astonishing X-Men: Inside
 JUN12,2012_06,I14,2033,auto-lossless,fixed, AVENGERS CAPTAIN AMERICA THEATRICAL COSTUME XL (C: 0-1-3),AVENGERS CAPTAIN AMERICA THEATRICAL COSTUME XL (C: 0-1-3),trimmed the item text,' AVENGERS CA...: 0-1-3)'
@@ -6613,6 +6623,7 @@ JUL12,2012_07,I14,2057,auto-lossless,fixed, AMAZING SPIDER-MAN THEATRICAL COSTUM
 JUL12,2012_07,I14,2058,auto-lossless,fixed, AMAZING SPIDER-MAN THEATRICAL COSTUME XL (C: 0-1-3),AMAZING SPIDER-MAN THEATRICAL COSTUME XL (C: 0-1-3),trimmed the item text,' AMAZING SPI...: 0-1-3)'
 JUL12,2012_07,I14,2059,auto-lossless,fixed, AMAZING SPIDER-MAN THEATRICAL COSTUME XXL (C: 0-1-3),AMAZING SPIDER-MAN THEATRICAL COSTUME XXL (C: 0-1-3),trimmed the item text,' AMAZING SPI...: 0-1-3)'
 AUG12,2012_08,L04,853,info,info,,,Kept as a NOTE line.,(NOTE: This was incorrectly listed as Spider-Man Anniversary Series TP on the ch
+SEP12,2012_09,I21,2511,info,info,,,The price designation column is left empty; the price is split as usual.,$8.99
 JAN13,2013_01,L01,3,auto-lossless,fixed,'CATIONS\t\t\t\t\t','PUBLICATIONS',trimmed,HEADING line ends with whitespace: 'CATIONS\t\t\t\t\t'
 JAN13,2013_01,L01,4,auto-lossless,fixed,'OOK DAY\t\t\t\t\t','MIC BOOK DAY',trimmed,HEADING line ends with whitespace: 'OOK DAY\t\t\t\t\t'
 JAN13,2013_01,L01,5,auto-lossless,fixed,'PAGE 30\t\t\t\t\t','PAGE 30',trimmed,PAGE line ends with whitespace: 'PAGE 30\t\t\t\t\t'
@@ -10941,6 +10952,7 @@ JAN13,2013_01,I11,2522,auto-derived,fixed,5/29/2013,05/29/13,rewrote the date as
 MAR13,2013_03,I14,2601,auto-lossless,fixed, DISNEY TRADITIONS HAWAIIAN HOLIDAY (C: 1-1-1),DISNEY TRADITIONS HAWAIIAN HOLIDAY (C: 1-1-1),trimmed the item text,' DISNEY TRAD...: 1-1-1)'
 APR13,2013_04,L04,144,info,info,,,Kept as a NOTE line.,(NOTE: All DC Comics will be available digital day and date.)
 APR13,2013_04,L04,1167,info,info,,,Kept as a NOTE line.,(NOTE: Look for the exciting relaunch of Boundless in 2014!)
+APR13,2013_04,I21,2198,info,info,,,The price designation column is left empty; the price is split as usual.,$175.92
 JUN13,2013_06,L06,2000,info,info,,,Kept as published; downstream code filters on the text.,JUN13 1650	DO NOT ORDER FROM THIS LINE
 JUN13,2013_06,I14,2055,auto-lossless,fixed, WALKING DEAD MICHONNE BLOOD SLASH T/S SM (C: 1-1-0),WALKING DEAD MICHONNE BLOOD SLASH T/S SM (C: 1-1-0),trimmed the item text,' WALKING DEA...: 1-1-0)'
 JUL13,2013_07,L01,3,auto-lossless,fixed,'PAGE 24\t\t\t\t\t','PAGE 24',trimmed,PAGE line ends with whitespace: 'PAGE 24\t\t\t\t\t'
@@ -16076,6 +16088,10 @@ JAN14,2014_01,F07,1,auto-derived,fixed,PREVIEWS DECEMBER VOL. 24 #1,PREVIEWS JAN
 JAN14,2014_01,L05,7,info,info,,,Kept; classified as a non-data line.,"[GR: FREE COMIC BOOK DAY HORIZONTAL LOGO -- ALSO, A YELLOW BACKGROUND BEHIND FCB"
 JAN14,2014_01,L04,8,info,info,,,Kept as a NOTE line.,(NOTE: Check with your retailer for the availability of Free Comic Book Day titl
 MAR14,2014_03,I17,1468,info,info,,,Kept as published.,BEFORE THE INCAL CLASS COLL HC (SEP121132) MR)
+APR14,2014_04,I21,2795,info,info,,,The price designation column is left empty; the price is split as usual.,$10.72
+APR14,2014_04,I21,2796,info,info,,,The price designation column is left empty; the price is split as usual.,$10.72
+APR14,2014_04,I21,2797,info,info,,,The price designation column is left empty; the price is split as usual.,$10.72
+APR14,2014_04,I21,2798,info,info,,,The price designation column is left empty; the price is split as usual.,$10.72
 MAY14,2014_05,L08,2949,info,info,,,Kept; counted.,300
 JUL14,2014_07,F08,1,auto-derived,fixed,PREVIEWS JULY VOL. 24 #6,PREVIEWS JULY VOL. 24 #7,"ident vol/issue 24/6, expected 24/7","ident vol/issue 24/6, expected 24/7"
 JUL14,2014_07,I17,1448,info,info,,,Kept as published.,ISNEY UNCLE SCROOGE HC (NEW PTG) VOL 01 POOR OLD MAN ( (O/A)
@@ -16126,34 +16142,53 @@ FEB16,2016_02,I17,2878,info,info,,,Kept as published.,ERMAN ANIMATED SUPERGIRL P
 MAY16,2016_05,I17,3270,info,info,,,Kept as published.,LTRON IRON MAN MARK 43 ARTFX STATUE (C: 1-1 (O/A) (C: 1-1-2)
 SEP16,2016_09,L08,3254,info,info,,,Kept; counted.,300
 SEP16,2016_09,I08,3691,open,open,,,None; key on line number too.,SEP16 3113
+NOV16,2016_11,I21,2950,info,info,,,The price designation column is left empty; the price is split as usual.,$45.00
 NOV16,2016_11,I08,3579,open,open,,,None; key on line number too.,NOV16 2862
 DEC16,2016_12,L08,3438,info,info,,,Kept; counted.,300
+FEB17,2017_02,I21,3298,info,info,,,The price designation column is left empty; the price is split as usual.,$59.95
+FEB17,2017_02,I21,3712,info,info,,,The price designation column is left empty; the price is split as usual.,$34.99
+FEB17,2017_02,I21,3713,info,info,,,The price designation column is left empty; the price is split as usual.,$34.99
+FEB17,2017_02,I21,3714,info,info,,,The price designation column is left empty; the price is split as usual.,$34.99
+FEB17,2017_02,I21,3715,info,info,,,The price designation column is left empty; the price is split as usual.,$34.99
+FEB17,2017_02,I21,3716,info,info,,,The price designation column is left empty; the price is split as usual.,$34.99
+FEB17,2017_02,I21,3717,info,info,,,The price designation column is left empty; the price is split as usual.,$34.99
+FEB17,2017_02,I21,3718,info,info,,,The price designation column is left empty; the price is split as usual.,$34.99
+MAR17,2017_03,L03,3002,open,open,,,None; the page number is carried as published.,PAGE 501 after page 12
+MAY17,2017_05,I21,3076,info,info,,,The price designation column is left empty; the price is split as usual.,$45.00
 MAY17,2017_05,L08,3378,info,info,,,Kept; counted.,300
+JUN17,2017_06,I21,1257,info,info,,,The price designation column is left empty; the price is split as usual.,$17.99
 JUN17,2017_06,I07,3473,info,info,,,Kept as published.,FEB17 8885 in file JUN17
 SEP17,2017_09,L08,3239,info,info,,,Kept; counted.,300
-DEC17,2017_12,I18,1458,info,info,,,Kept as published.,WWE #14 SCHOONOVER RAW CONNECTING  VAR
+DEC17,2017_12,I21,1136,info,info,,,The price designation column is left empty; the price is split as usual.,$39.99
+DEC17,2017_12,I18,1458,info,info,,,Collapsed to one space in the final file (standard transform); reported only.,WWE #14 SCHOONOVER RAW CONNECTING  VAR
 MAR18,2018_03,I04,864,auto-lossless,fixed,' = $'+' ',' = $'+'',standard tail,tail ' = $'+' '
+MAR18,2018_03,I21,1120,info,info,,,The price designation column is left empty; the price is split as usual.,$34.99
+APR18,2018_04,I21,1879,info,info,,,The price designation column is left empty; the price is split as usual.,$27.99
+MAY18,2018_05,I21,1238,info,info,,,The price designation column is left empty; the price is split as usual.,$20.00
+JUN18,2018_06,I21,3614,info,info,,,The price designation column is left empty; the price is split as usual.,$4.99
 JUL18,2018_07,I17,3372,info,info,,,Kept as published.,FINITY WAR EAA-060 IRON SPIDER PX AF (NET) (C: 1- (C: 1-1-2)
 AUG18,2018_08,I17,543,info,info,,,Kept as published.,WONDER WOMAN #57 (WITHCING HOUR
 SEP18,2018_09,I17,3002,info,info,,,Kept as published.,PANDA-A-PANDA SMALL PLUSH C: 1-1-2)
 DEC18,2018_12,I08,348,open,open,,,None; key on line number too.,DEC18 0319
+DEC18,2018_12,I21,804,info,info,,,The price designation column is left empty; the price is split as usual.,$10.00
 JAN19,2019_01,I01,1430,auto-lossless,fixed,6 fields,7 fields,added the empty trailing field,"6 fields, no trailing empty field"
 JAN19,2019_01,I01,1446,auto-lossless,fixed,6 fields,7 fields,added the empty trailing field,"6 fields, no trailing empty field"
+JAN19,2019_01,I21,2011,info,info,,,The price designation column is left empty; the price is split as usual.,$12.99
 MAR19,2019_03,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
 APR19,2019_04,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
 MAY19,2019_05,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
-SEP19,2019_09,I18,1655,info,info,,,Kept as published.,JUNGLE COMICS #2 (OF 4) CVR B  MEUGNIOT VAR
+SEP19,2019_09,I18,1655,info,info,,,Collapsed to one space in the final file (standard transform); reported only.,JUNGLE COMICS #2 (OF 4) CVR B  MEUGNIOT VAR
 SEP19,2019_09,I13,2850,open,open,,,None; raw value kept.,'FO'
-JAN20,2020_01,I18,3017,info,info,,,Kept as published.,DRAGONBALL SUPER DRAGON STARS AF SER  KK (Net) (C: 1-1-2)
+JAN20,2020_01,I18,3017,info,info,,,Collapsed to one space in the final file (standard transform); reported only.,DRAGONBALL SUPER DRAGON STARS AF SER  KK (Net) (C: 1-1-2)
 JAN20,2020_01,L07,3668,open,open,,,None.,??
 JAN20,2020_01,L07,3670,open,open,,,None.,??
 JAN20,2020_01,L07,3672,open,open,,,None.,??
 JAN20,2020_01,L07,3674,open,open,,,None.,??
-FEB20,2020_02,L03,2075,open,open,,,None; page numbers are not trusted as keys.,PAGE 2999
-FEB20,2020_02,L03,2087,open,open,,,None; page numbers are not trusted as keys.,PAGE 3000
+FEB20,2020_02,L03,2075,open,open,,,None; the page number is carried as published.,PAGE 2999 after page 298
 JUN20,2020_06,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
 AUG20,2020_08,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
 SEP20,2020_09,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
+SEP20,2020_09,I21,1232,info,info,,,The price designation column is left empty; the price is split as usual.,$19.99
 OCT20,2020_10,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
 NOV20,2020_11,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
 DEC20,2020_12,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
@@ -16253,29 +16288,32 @@ JAN22,2022_01,I07,1042,info,info,,,Kept as published.,DEC21 1157 in file JAN22
 JAN22,2022_01,I07,1132,info,info,,,Kept as published.,SEP21 1069 in file JAN22
 JAN22,2022_01,I07,1139,info,info,,,Kept as published.,SEP21 1077 in file JAN22
 JAN22,2022_01,I07,1143,info,info,,,Kept as published.,JUN21 0803 in file JAN22
-JAN22,2022_01,I10,1298,open,open,,,None.,'PI'
-JAN22,2022_01,I10,1299,open,open,,,None.,'PI'
-JAN22,2022_01,I10,1300,open,open,,,None.,'PI'
-JAN22,2022_01,I10,1301,open,open,,,None.,'PI'
-JAN22,2022_01,I10,1302,open,open,,,None.,'PI'
-JAN22,2022_01,I10,1303,open,open,,,None.,'PI'
-JAN22,2022_01,I10,1304,open,open,,,None.,'PI'
-JAN22,2022_01,I10,1305,open,open,,,None.,'PI'
+JAN22,2022_01,I21,1298,info,info,,,The price designation column is left empty; the price is split as usual.,PI
+JAN22,2022_01,I21,1299,info,info,,,The price designation column is left empty; the price is split as usual.,PI
+JAN22,2022_01,I21,1300,info,info,,,The price designation column is left empty; the price is split as usual.,PI
+JAN22,2022_01,I21,1301,info,info,,,The price designation column is left empty; the price is split as usual.,PI
+JAN22,2022_01,I21,1302,info,info,,,The price designation column is left empty; the price is split as usual.,PI
+JAN22,2022_01,I21,1303,info,info,,,The price designation column is left empty; the price is split as usual.,PI
+JAN22,2022_01,I21,1304,info,info,,,The price designation column is left empty; the price is split as usual.,PI
+JAN22,2022_01,I21,1305,info,info,,,The price designation column is left empty; the price is split as usual.,PI
 FEB22,2022_02,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
+FEB22,2022_02,I21,631,info,info,,,The price designation column is left empty; the price is split as usual.,$0.50
+FEB22,2022_02,I21,1242,info,info,,,The price designation column is left empty; the price is split as usual.,$0.00
 MAR22,2022_03,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
 APR22,2022_04,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
 MAY22,2022_05,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
 JUN22,2022_06,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
 JUL22,2022_07,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
 JUL22,2022_07,I17,2085,info,info,,,Kept as published.,0 AD JULY 2022 PROG PACK SEPT 2022 SHIPPING) (MR) (C: 0-1-2)
-JUL22,2022_07,I18,3042,info,info,,,Kept as published.,ORIGINAL TAMAGOTCHI LOGO REPEAT  (Net) (C: 1-1-2)
-JUL22,2022_07,I18,3043,info,info,,,Kept as published.,ORIGINAL TAMAGOTCHI RETRO FLOWERS  (Net) (C: 1-1-2)
-JUL22,2022_07,I18,3044,info,info,,,Kept as published.,ORIGINAL TAMAGOTCHI SAKURA  (Net) (C: 1-1-2)
+JUL22,2022_07,I18,3042,info,info,,,Collapsed to one space in the final file (standard transform); reported only.,ORIGINAL TAMAGOTCHI LOGO REPEAT  (Net) (C: 1-1-2)
+JUL22,2022_07,I18,3043,info,info,,,Collapsed to one space in the final file (standard transform); reported only.,ORIGINAL TAMAGOTCHI RETRO FLOWERS  (Net) (C: 1-1-2)
+JUL22,2022_07,I18,3044,info,info,,,Collapsed to one space in the final file (standard transform); reported only.,ORIGINAL TAMAGOTCHI SAKURA  (Net) (C: 1-1-2)
 AUG22,2022_08,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
 AUG22,2022_08,I07,793,info,info,,,Kept as published.,MAY22 8319 in file AUG22
 AUG22,2022_08,I17,1495,info,info,,,Kept as published.,RK TOWER COLL TP 04 LIVIN LA VIDA DORKA CURR PTG) (C: 0-1-2)
 SEP22,2022_09,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
 OCT22,2022_10,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
+OCT22,2022_10,I21,7,info,info,,,The price designation column is left empty; the price is split as usual.,$1.25
 OCT22,2022_10,I17,548,info,info,,,Kept as published.,WITCHER III WILD HUNT GERALT IN BATH STATUETTE (NEW PTG) (C:
 NOV22,2022_11,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
 NOV22,2022_11,I17,589,info,info,,,Kept as published.,R III WILD HUNT GERALT IN BATH STATUETTE (NEW PTG) (C: (O/A)
@@ -22254,6 +22292,7 @@ DEC23,2023_12,I07,2760,info,info,,,Kept as published.,JAN22 8669 in file DEC23
 DEC23,2023_12,I19,2760,auto-lossless,fixed,SRP: $299.00 ,SRP: $299.00,trimmed the price,'SRP: $299.00 '
 DEC23,2023_12,I07,2761,info,info,,,Kept as published.,DEC21 9132 in file DEC23
 DEC23,2023_12,I19,2761,auto-lossless,fixed,SRP: $69.99 ,SRP: $69.99,trimmed the price,'SRP: $69.99 '
+DEC23,2023_12,L03,2870,open,open,,,None; the page number is carried as published.,PAGE 404 after page 84
 DEC23,2023_12,I01,2873,auto-lossless,fixed,6 fields,7 fields,added the empty trailing field,"6 fields, no trailing empty field"
 DEC23,2023_12,I07,2873,info,info,,,Kept as published.,OCT22 8176 in file DEC23
 DEC23,2023_12,I01,2874,auto-lossless,fixed,6 fields,7 fields,added the empty trailing field,"6 fields, no trailing empty field"

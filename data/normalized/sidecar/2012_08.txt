@@ -1,0 +1,2 @@
+src_line	page	section	merchandise_flag	kind	text
+853	86	2	0	NOTE	(NOTE: This was incorrectly listed as Spider-Man Anniversary Series TP on the checklist. The correct title, as solicited, is Spider-Man: World's Greatest Hero TP.)
