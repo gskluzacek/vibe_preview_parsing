@@ -23,13 +23,13 @@ Coverage by year (files per year): 1998 12 · 1999 **4** · 2000 12 · 2001 11 �
 
 Missing months (51): 1999-04 to 1999-11, 2001-06, 2004-11, 2007-04 to 2007-12, 2008-04 to 2008-12, 2009-04 to 2009-09, 2010-05 to 2010-12, 2011-04 to 2011-12. Since our text corpus starts at JAN09, the useful new months are **JAN98–MAR08 minus the gaps: 104 months**, of which the long unbroken run is JAN00–MAR07 (except JUN01 and NOV04). The 2009–2012 files are duplicates of what we have in better (text) form.
 
-The naming follows our convention: the month in the name is the order-form month (the JUL02 form has `JLO2`-style codes, order deadline July 13 2002, shipping in September 2002).
+The month in the name appears to be the order-form month (the 2002_07 sample shows an order deadline of July 13, 2002 and shipping in September 2002).
 
 ## What the files look like
 
 - Page images were printed from the publisher's layout software (the 2002 samples carry a header such as `6/13/2002 1:09 PM Page 6`), so a page holds a block of item lines in the same shape as the text files: flag, sol code, description, price (`MSRP: $3.25 = $`). Page markers (`PAGE 21`) are printed in the page.
-- The OCR layer in the PDF and in `_djvu.txt` is from `tesseract` with the languages `lat+rus+kir+kaz+kat+que+Cyrillic+Latin` and detected language `kk` (Kazakh). In the 2005 sample about 16,000 of ~137,000 letters are Cyrillic look-alikes (`PREVIEWS` → `РКЕМЕУУ5`, `SPOT` → `5РОТ`, `MAR08` → `МАВ08`-like), and digits are often wrong (`0` for `O`, `5` for `S`). Sol codes and prices are partly readable; descriptions are not reliable.
-- 1998 forms are larger (about 225 KB of OCR for the first sample) and use a different layout from 2002; the 2002 and 2008 layouts already resemble the 2009 text files.
+- The OCR layer in the PDF and in `_djvu.txt` is from `tesseract` with the languages `lat+rus+kir+kaz+kat+que+Cyrillic+Latin` and detected language `kk` (Kazakh). In the 2005 sample about 16,000 of ~137,000 letters are Cyrillic look-alikes (`PREVIEWS` → `РКЕМЕУУ5`, `SPOT` → `5РОТ`), and digits are often wrong (`0` for `O`, `5` for `S`). Sol codes and prices are partly readable; descriptions are not reliable.
+- Only the 2002, 2005 and 2008 samples were looked at (briefly); their item lines have the same shape as the 2009 text files. The 1998 form was not inspected, and layouts may differ in the earlier years.
 
 ## Options
 
