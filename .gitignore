@@ -220,3 +220,5 @@ __marimo__/
 .streamlit/secrets.toml
 # PDFs are large (~1 GB in total); they are re-fetchable from data/acquire/manifest.csv and logged in data/originals/downloads.csv
 data/originals/pdf/
+# Symbolic links to the selected PDF of each month (made by adhoc/link_pdfs.py); they would dangle in a fresh clone
+data/pdf/

@@ -40,7 +40,7 @@ def test_clean_file_has_no_issues() -> None:
         ("SS\tJAN13 0001\tBATMAN #1\t01/16/13\tFREE!\t = $\t", "I10"),
         ("SS\tJAN13 0001\tBATMAN #1\t1/16/2013\tSRP: $2.99\t = $\t", "I11"),
         ("SS\tJAN13 0001\tBATMAN #1\t13/45/13\tSRP: $2.99\t = $\t", "I12"),
-        ("BL\tJAN13 0001\tBATMAN #1\t01/16/13\tSRP: $2.99\t = $\t", "I13"),
+        ("ZZ\tJAN13 0001\tBATMAN #1\t01/16/13\tSRP: $2.99\t = $\t", "I13"),
         ("SS\tJAN13 0001\t BATMAN #1 \t01/16/13\tSRP: $2.99\t = $\t", "I14"),
         ("SS\tJAN13 0001\tBATMAN #1\t01/16/13\tSRP: $2.99 \t = $\t", "I19"),
         ('SS\tJAN13 0001\tBATMAN #1\t01/16/13\t"SRP: $1,100.00 "\t = $\t', "I20"),

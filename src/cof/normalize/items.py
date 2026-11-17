@@ -20,6 +20,9 @@ KNOWN_FLAGS = frozenset(
         "OA SPOT",
         "OA KIDS",
         "SS SPOT",
+        "SS FI",
+        "BL",
+        "FO",
     }
 )
 SOL_STRICT_RE = re.compile(r"^[A-Z]{3}\d\d \d{4}$")
