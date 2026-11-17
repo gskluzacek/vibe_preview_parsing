@@ -18,9 +18,9 @@ Rules:
 ## Code layout and standards
 
 ```
-src/cof/common/      shared library (settings, month helpers, CSV helpers)
+src/cof/common/      shared library (settings, month helpers, CSV helpers)            README.md in each package
 src/cof/acquire/     PIPELINE stage 1: find, download and verify COF files from the Internet Archive
-src/cof/normalize/   PIPELINE stage 2: decode, detect issues, fix, write clean files (`cof-normalize run`)
+src/cof/normalize/   PIPELINE stage 2: decode, detect issues, fix, write clean tables (`cof-normalize run`)
 adhoc/               ad-hoc programs (version comparison, analysis, selection); not part of the pipeline
 tests/               pytest tests mirroring the above
 config/              YAML configuration; scalars come from `.env` (see `.env.example`)
@@ -45,6 +45,6 @@ uv run pytest                  # tests
 uv run ruff check . && uv run ruff format --check .
 uv run mypy
 uv run cof-acquire --help      # index | listing | manifest | report | all | fetch
-uv run cof-normalize --help    # run | detect
-uv run python adhoc/<name>.py  # compare_versions, analyze_originals, compare_with_corpus, select_versions
+uv run cof-normalize --help    # run [--full-checks] | rules | detect
+uv run python adhoc/<name>.py  # compare_versions, analyze_originals, compare_with_corpus, select_versions, link_pdfs, flag_inventory
 ```

@@ -17,8 +17,12 @@ def test_one_relative_link_per_month_for_the_selected_version(tmp_path: Path) ->
                               ("FEB13", "c.pdf", b"cut off")):  # fmt: skip
         (orig / "pdf" / month).mkdir(parents=True, exist_ok=True)
         (orig / "pdf" / month / name).write_bytes(body)
-    rows = [row("JAN13", "pdf", "a.pdf", "not_used"), row("JAN13", "pdf", "b.pdf", "selected"),
-            row("FEB13", "pdf", "c.pdf", "only_version"), row("JAN13", "txt", "t.txt", "selected")]  # fmt: skip
+    rows = [
+        row("JAN13", "pdf", "a.pdf", "not_used"),
+        row("JAN13", "pdf", "b.pdf", "selected"),
+        row("FEB13", "pdf", "c.pdf", "only_version"),
+        row("JAN13", "txt", "t.txt", "selected"),
+    ]
     write_rows_atomic(orig / "selection.csv", COLUMNS, rows)
     links = tmp_path / "pdf"
     (links / "2001_01.pdf").parent.mkdir()
