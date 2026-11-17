@@ -222,3 +222,6 @@ __marimo__/
 data/originals/pdf/
 # Symbolic links to the selected PDF of each month (made by adhoc/link_pdfs.py); they would dangle in a fresh clone
 data/pdf/
+# Sample files from the Internet Archive item diamond-customer-order-form-2002-07 (see documentation/pre_2009_cof_findings.md).
+# The PDF is kept out of git; the OCR texts are the item's own text layer, not cleaned.
+data/originals_pre2009/sample/*.pdf
