@@ -12,6 +12,7 @@ from cof.normalize.ident import corrected_line, expected_for, month_mismatch, nu
 from cof.normalize.items import (
     DATE_LONG_RE,
     PRICE_NOSPACE_RE,
+    SOL_LEGACY_SPLIT_RE,
     SOL_NOSPACE_RE,
     TAIL,
     canonical_fields,
@@ -66,6 +67,12 @@ def fix_item(number: int, line: str, changes: list[Change]) -> str:
     if SOL_NOSPACE_RE.match(canon[1].strip()):
         fixed = canon[1].strip()[:5] + " " + canon[1].strip()[5:]
         changes.append(Change("I05", number, canon[1], fixed, "inserted the space in the sol code"))
+        canon[1] = fixed
+    if SOL_LEGACY_SPLIT_RE.match(canon[1].strip()):
+        fixed = canon[1].strip().replace(" ", "")  # only the space goes; every digit is kept
+        changes.append(
+            Change("I22", number, canon[1], fixed, "removed the space in the legacy STAR sol code")
+        )
         canon[1] = fixed
     if canon[2] != canon[2].strip():
         changes.append(Change("I14", number, canon[2], canon[2].strip(), "trimmed the item text"))

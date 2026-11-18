@@ -6609,7 +6609,7 @@ APR11,2011_04,I14,1598,auto-lossless,fixed,COMIC SHOP NEWS #1252 ,COMIC SHOP NEW
 APR11,2011_04,I14,1599,auto-lossless,fixed,COMIC SHOP NEWS #1253 ,COMIC SHOP NEWS #1253,trimmed the item text,'COMIC SHOP N...S #1253 '
 APR11,2011_04,I14,1600,auto-lossless,fixed,COMIC SHOP NEWS #1254 ,COMIC SHOP NEWS #1254,trimmed the item text,'COMIC SHOP N...S #1254 '
 APR11,2011_04,I14,2513,auto-lossless,fixed,GAME TRADE MAGAZINE #136 ,GAME TRADE MAGAZINE #136,trimmed the item text,'GAME TRADE M...NE #136 '
-MAY11,2011_05,F11,,open,open,,,None; the derived number is used in the ident row and the difference is recorded in idents.csv.,first PREVIEWS item is #273; derived from the file name: #274
+MAY11,2011_05,F11,,open,patched,,,,first PREVIEWS item is #273; derived from the file name: #274
 JUL11,2011_07,I01,1134,auto-lossless,fixed,6 fields,7 fields,added the empty trailing field,"6 fields, no trailing empty field"
 JUL11,2011_07,I01,1239,auto-lossless,fixed,6 fields,7 fields,added the empty trailing field,"6 fields, no trailing empty field"
 SEP11,2011_09,I17,437,info,info,,,Kept as published.,ELECTED DRAWINGS & ILLUSTRATIONS TP (NEW PT (AUG061742) (MR)
@@ -16094,7 +16094,7 @@ APR14,2014_04,I21,2798,info,info,,,The price designation column is left empty; t
 MAY14,2014_05,L08,2949,info,info,,,Kept; counted.,300
 JUL14,2014_07,F08,1,auto-derived,fixed,PREVIEWS JULY VOL. 24 #6,PREVIEWS JULY VOL. 24 #7,"ident vol/issue 24/6, expected 24/7","ident vol/issue 24/6, expected 24/7"
 JUL14,2014_07,I17,1448,info,info,,,Kept as published.,ISNEY UNCLE SCROOGE HC (NEW PTG) VOL 01 POOR OLD MAN ( (O/A)
-NOV14,2014_11,L02,4,open,open,,,None yet; likely a patch.,GE 24
+NOV14,2014_11,L02,4,open,patched,GE 24,PAGE 24,damaged page line; the next page line is PAGE 25,GE 24
 DEC14,2014_12,I14,6,auto-lossless,fixed,PREVIEWS #317 FEBRUARY 2015 ,PREVIEWS #317 FEBRUARY 2015,trimmed the item text,'PREVIEWS #31...RY 2015 '
 DEC14,2014_12,I14,7,auto-lossless,fixed,MARVEL PREVIEWS FEBRUARY 2015 EXTRAS ,MARVEL PREVIEWS FEBRUARY 2015 EXTRAS,trimmed the item text,'MARVEL PREVI... EXTRAS '
 DEC14,2014_12,I14,8,auto-lossless,fixed,PREVIEWS #317 FEB 2015 CUSTOMER ORDER FORM ,PREVIEWS #317 FEB 2015 CUSTOMER ORDER FORM,trimmed the item text,'PREVIEWS #31...ER FORM '
@@ -16140,9 +16140,9 @@ FEB16,2016_02,I17,2875,info,info,,,Kept as published.,MAN ANIMATED POISON IVY PV
 FEB16,2016_02,I17,2878,info,info,,,Kept as published.,ERMAN ANIMATED SUPERGIRL PVC FIGURE (C: 1-1 (O/A) (C: 1-1-0)
 MAY16,2016_05,I17,3270,info,info,,,Kept as published.,LTRON IRON MAN MARK 43 ARTFX STATUE (C: 1-1 (O/A) (C: 1-1-2)
 SEP16,2016_09,L08,3254,info,info,,,Kept; counted.,300
-SEP16,2016_09,I08,3691,open,open,,,None; key on line number too.,SEP16 3113
+SEP16,2016_09,I08,3691,info,info,,,"Kept as published; the second and later occurrences get the suffix -1, -2 ... in the sol_code column.",SEP16 3113
 NOV16,2016_11,I21,2950,info,info,,,The price designation column is left empty; the price is split as usual.,$45.00
-NOV16,2016_11,I08,3579,open,open,,,None; key on line number too.,NOV16 2862
+NOV16,2016_11,I08,3579,info,info,,,"Kept as published; the second and later occurrences get the suffix -1, -2 ... in the sol_code column.",NOV16 2862
 DEC16,2016_12,L08,3438,info,info,,,Kept; counted.,300
 FEB17,2017_02,I21,3298,info,info,,,The price designation column is left empty; the price is split as usual.,$59.95
 FEB17,2017_02,I21,3712,info,info,,,The price designation column is left empty; the price is split as usual.,$34.99
@@ -16152,7 +16152,7 @@ FEB17,2017_02,I21,3715,info,info,,,The price designation column is left empty; t
 FEB17,2017_02,I21,3716,info,info,,,The price designation column is left empty; the price is split as usual.,$34.99
 FEB17,2017_02,I21,3717,info,info,,,The price designation column is left empty; the price is split as usual.,$34.99
 FEB17,2017_02,I21,3718,info,info,,,The price designation column is left empty; the price is split as usual.,$34.99
-MAR17,2017_03,L03,3002,open,open,,,None; the page number is carried as published.,PAGE 501 after page 12
+MAR17,2017_03,L03,3002,open,patched,,,,PAGE 501 after page 12
 MAY17,2017_05,I21,3076,info,info,,,The price designation column is left empty; the price is split as usual.,$45.00
 MAY17,2017_05,L08,3378,info,info,,,Kept; counted.,300
 JUN17,2017_06,I21,1257,info,info,,,The price designation column is left empty; the price is split as usual.,$17.99
@@ -16168,7 +16168,7 @@ JUN18,2018_06,I21,3614,info,info,,,The price designation column is left empty; t
 JUL18,2018_07,I17,3372,info,info,,,Kept as published.,FINITY WAR EAA-060 IRON SPIDER PX AF (NET) (C: 1- (C: 1-1-2)
 AUG18,2018_08,I17,543,info,info,,,Kept as published.,WONDER WOMAN #57 (WITHCING HOUR
 SEP18,2018_09,I17,3002,info,info,,,Kept as published.,PANDA-A-PANDA SMALL PLUSH C: 1-1-2)
-DEC18,2018_12,I08,348,open,open,,,None; key on line number too.,DEC18 0319
+DEC18,2018_12,I08,348,info,info,,,"Kept as published; the second and later occurrences get the suffix -1, -2 ... in the sol_code column.",DEC18 0319
 DEC18,2018_12,I21,804,info,info,,,The price designation column is left empty; the price is split as usual.,$10.00
 JAN19,2019_01,I01,1430,auto-lossless,fixed,6 fields,7 fields,added the empty trailing field,"6 fields, no trailing empty field"
 JAN19,2019_01,I01,1446,auto-lossless,fixed,6 fields,7 fields,added the empty trailing field,"6 fields, no trailing empty field"
@@ -16178,11 +16178,11 @@ APR19,2019_04,F06,,info,info,,,Kept as published; no line is invented. The perio
 MAY19,2019_05,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
 SEP19,2019_09,I18,1655,info,info,,,Collapsed to one space in the final file (standard transform); reported only.,JUNGLE COMICS #2 (OF 4) CVR B  MEUGNIOT VAR
 JAN20,2020_01,I18,3017,info,info,,,Collapsed to one space in the final file (standard transform); reported only.,DRAGONBALL SUPER DRAGON STARS AF SER  KK (Net) (C: 1-1-2)
-JAN20,2020_01,L07,3668,open,open,,,None.,??
-JAN20,2020_01,L07,3670,open,open,,,None.,??
-JAN20,2020_01,L07,3672,open,open,,,None.,??
-JAN20,2020_01,L07,3674,open,open,,,None.,??
-FEB20,2020_02,L03,2075,open,open,,,None; the page number is carried as published.,PAGE 2999 after page 298
+JAN20,2020_01,L09,3668,info,info,,,Kept in the side-car as UNKNOWN.,??
+JAN20,2020_01,L09,3670,info,info,,,Kept in the side-car as UNKNOWN.,??
+JAN20,2020_01,L09,3672,info,info,,,Kept in the side-car as UNKNOWN.,??
+JAN20,2020_01,L09,3674,info,info,,,Kept in the side-car as UNKNOWN.,??
+FEB20,2020_02,L03,2075,open,patched,PAGE 2999,PAGE 299,garbled page number; checked against the printed catalog (items match page 299),PAGE 2999 after page 298
 JUN20,2020_06,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
 AUG20,2020_08,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
 SEP20,2020_09,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
@@ -16208,10 +16208,10 @@ OCT21,2021_10,I17,3266,info,info,,,Kept as published.,STAR WARS LOGOS 18PC FLAT 
 NOV21,2021_11,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
 NOV21,2021_11,I07,776,info,info,,,Kept as published.,AUG21 8324 in file NOV21
 DEC21,2021_12,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
-DEC21,2021_12,L07,3411,open,open,,,None.,??
-DEC21,2021_12,L07,3413,open,open,,,None.,??
-DEC21,2021_12,L07,3415,open,open,,,None.,??
-DEC21,2021_12,L07,3417,open,open,,,None.,??
+DEC21,2021_12,L09,3411,info,info,,,Kept in the side-car as UNKNOWN.,??
+DEC21,2021_12,L09,3413,info,info,,,Kept in the side-car as UNKNOWN.,??
+DEC21,2021_12,L09,3415,info,info,,,Kept in the side-car as UNKNOWN.,??
+DEC21,2021_12,L09,3417,info,info,,,Kept in the side-car as UNKNOWN.,??
 JAN22,2022_01,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
 JAN22,2022_01,I07,769,info,info,,,Kept as published.,DEC21 1165 in file JAN22
 JAN22,2022_01,I07,770,info,info,,,Kept as published.,DEC21 1166 in file JAN22
@@ -18890,8 +18890,8 @@ SEP23,2023_09,I07,2961,info,info,,,Kept as published.,MAY08 3509 in file SEP23
 SEP23,2023_09,I19,2961,auto-lossless,fixed,SRP: $29.99 ,SRP: $29.99,trimmed the price,'SRP: $29.99 '
 SEP23,2023_09,I07,2963,info,info,,,Kept as published.,MAY09 1371 in file SEP23
 SEP23,2023_09,I19,2963,auto-lossless,fixed,SRP: $29.99 ,SRP: $29.99,trimmed the price,'SRP: $29.99 '
-SEP23,2023_09,I06,2964,open,open,,,None.,STAR1 7580
 SEP23,2023_09,I19,2964,auto-lossless,fixed,SRP: $29.99 ,SRP: $29.99,trimmed the price,'SRP: $29.99 '
+SEP23,2023_09,I22,2964,auto-lossless,fixed,STAR1 7580,STAR17580,removed the space in the legacy STAR sol code,STAR1 7580
 SEP23,2023_09,I07,2965,info,info,,,Kept as published.,JAN23 2425 in file SEP23
 SEP23,2023_09,I19,2965,auto-lossless,fixed,SRP: $29.99 ,SRP: $29.99,trimmed the price,'SRP: $29.99 '
 SEP23,2023_09,I07,2966,info,info,,,Kept as published.,OCT22 2362 in file SEP23
@@ -22006,8 +22006,8 @@ DEC23,2023_12,I07,2594,info,info,,,Kept as published.,JAN19 2554 in file DEC23
 DEC23,2023_12,I19,2594,auto-lossless,fixed,SRP: $29.99 ,SRP: $29.99,trimmed the price,'SRP: $29.99 '
 DEC23,2023_12,I07,2595,info,info,,,Kept as published.,MAY09 1371 in file DEC23
 DEC23,2023_12,I19,2595,auto-lossless,fixed,SRP: $29.99 ,SRP: $29.99,trimmed the price,'SRP: $29.99 '
-DEC23,2023_12,I06,2596,open,open,,,None.,STAR1 7580
 DEC23,2023_12,I19,2596,auto-lossless,fixed,SRP: $29.99 ,SRP: $29.99,trimmed the price,'SRP: $29.99 '
+DEC23,2023_12,I22,2596,auto-lossless,fixed,STAR1 7580,STAR17580,removed the space in the legacy STAR sol code,STAR1 7580
 DEC23,2023_12,I07,2597,info,info,,,Kept as published.,JAN23 2425 in file DEC23
 DEC23,2023_12,I19,2597,auto-lossless,fixed,SRP: $29.99 ,SRP: $29.99,trimmed the price,'SRP: $29.99 '
 DEC23,2023_12,I07,2598,info,info,,,Kept as published.,OCT22 2362 in file DEC23
@@ -22290,7 +22290,6 @@ DEC23,2023_12,I07,2760,info,info,,,Kept as published.,JAN22 8669 in file DEC23
 DEC23,2023_12,I19,2760,auto-lossless,fixed,SRP: $299.00 ,SRP: $299.00,trimmed the price,'SRP: $299.00 '
 DEC23,2023_12,I07,2761,info,info,,,Kept as published.,DEC21 9132 in file DEC23
 DEC23,2023_12,I19,2761,auto-lossless,fixed,SRP: $69.99 ,SRP: $69.99,trimmed the price,'SRP: $69.99 '
-DEC23,2023_12,L03,2870,open,open,,,None; the page number is carried as published.,PAGE 404 after page 84
 DEC23,2023_12,I01,2873,auto-lossless,fixed,6 fields,7 fields,added the empty trailing field,"6 fields, no trailing empty field"
 DEC23,2023_12,I07,2873,info,info,,,Kept as published.,OCT22 8176 in file DEC23
 DEC23,2023_12,I01,2874,auto-lossless,fixed,6 fields,7 fields,added the empty trailing field,"6 fields, no trailing empty field"
@@ -23123,10 +23122,10 @@ FEB24,2024_02,I19,2612,auto-lossless,fixed,SRP: $34.95 ,SRP: $34.95,trimmed the 
 FEB24,2024_02,I07,2613,info,info,,,Kept as published.,JAN22 8478 in file FEB24
 FEB24,2024_02,I19,2613,auto-lossless,fixed,SRP: $34.95 ,SRP: $34.95,trimmed the price,'SRP: $34.95 '
 FEB24,2024_02,I07,2614,info,info,,,Kept as published.,NOV23 7540 in file FEB24
-FEB24,2024_02,I08,2614,open,open,,,None; key on line number too.,NOV23 7540
+FEB24,2024_02,I08,2614,info,info,,,"Kept as published; the second and later occurrences get the suffix -1, -2 ... in the sol_code column.",NOV23 7540
 FEB24,2024_02,I19,2614,auto-lossless,fixed,SRP: $29.99 ,SRP: $29.99,trimmed the price,'SRP: $29.99 '
 FEB24,2024_02,I07,2615,info,info,,,Kept as published.,NOV23 7545 in file FEB24
-FEB24,2024_02,I08,2615,open,open,,,None; key on line number too.,NOV23 7545
+FEB24,2024_02,I08,2615,info,info,,,"Kept as published; the second and later occurrences get the suffix -1, -2 ... in the sol_code column.",NOV23 7545
 FEB24,2024_02,I19,2615,auto-lossless,fixed,SRP: $29.99 ,SRP: $29.99,trimmed the price,'SRP: $29.99 '
 FEB24,2024_02,I07,2618,info,info,,,Kept as published.,MAY23 8205 in file FEB24
 FEB24,2024_02,I19,2618,auto-lossless,fixed,SRP: $8.99 ,SRP: $8.99,trimmed the price,'SRP: $8.99 '
@@ -23584,7 +23583,7 @@ FEB24,2024_02,I19,2882,auto-lossless,fixed,SRP: $69.99 ,SRP: $69.99,trimmed the 
 FEB24,2024_02,I07,2883,info,info,,,Kept as published.,DEC21 8015 in file FEB24
 FEB24,2024_02,I19,2883,auto-lossless,fixed,SRP: $7.99 ,SRP: $7.99,trimmed the price,'SRP: $7.99 '
 FEB24,2024_02,I07,2886,info,info,,,Kept as published.,AUG22 8425 in file FEB24
-FEB24,2024_02,I08,2886,open,open,,,None; key on line number too.,AUG22 8425
+FEB24,2024_02,I08,2886,info,info,,,"Kept as published; the second and later occurrences get the suffix -1, -2 ... in the sol_code column.",AUG22 8425
 FEB24,2024_02,I19,2886,auto-lossless,fixed,SRP: $145.00 ,SRP: $145.00,trimmed the price,'SRP: $145.00 '
 FEB24,2024_02,I07,2887,info,info,,,Kept as published.,AUG22 9526 in file FEB24
 FEB24,2024_02,I19,2887,auto-lossless,fixed,SRP: $289.99 ,SRP: $289.99,trimmed the price,'SRP: $289.99 '
@@ -24831,5 +24830,5 @@ AUG25,2025_08,L06,81,info,info,,,Kept as published; downstream code filters on t
 AUG25,2025_08,L06,82,info,info,,,Kept as published; downstream code filters on the text.,AUG25 0068	DO NOT ORDER FROM THIS LINE
 AUG25,2025_08,L06,83,info,info,,,Kept as published; downstream code filters on the text.,AUG25 0069	DO NOT ORDER FROM THIS LINE
 SEP25,2025_09,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line
-SEP25,2025_09,I13,53,open,open,,,None; raw value kept.,'S'
+SEP25,2025_09,I13,53,open,patched,S	SEP25 0043	FRIDAY FOSTER COLLECTED HC (FEB201364)	11/05/25	SRP: $39.99	 = $	,SS	SEP25 0043	FRIDAY FOSTER COLLECTED HC (FEB201364)	11/05/25	SRP: $39.99	 = $	,flag S is not defined; the item carries a prior-solicit code and the neighbours are SS,'S'
 OCT25,2025_10,F06,,info,info,,,Kept as published; no line is invented. The period comes from the file name.,no identification line before the first PAGE line

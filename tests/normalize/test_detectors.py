@@ -120,3 +120,24 @@ def test_thousands_separator_price_is_a_known_form() -> None:
     assert run(file_with(line)) == {}
     quoted = run(file_with('SS\tJAN13 0001\tBATMAN #1\t01/16/13\t"SRP: $1,100.00 "\t = $\t'))
     assert set(quoted) == {"I19", "I20"}  # quoted, with a trailing space inside; the price itself is fine
+
+
+def test_legacy_star_sol_code_is_reported_but_is_not_malformed() -> None:
+    found = run(file_with("\tSTAR1 7580\tMARVEL SELECT ELEKTRA ACTION FIGURE (O/A)\t\tSRP: $29.99\t = $\t"))
+    assert "I22" in found and "I06" not in found
+    assert "I06" not in run(
+        file_with("\tSTAR17580\tMARVEL SELECT ELEKTRA ACTION FIGURE\t\tSRP: $29.99\t = $\t")
+    )
+
+
+def test_unclassified_lines_split_by_position_relative_to_the_last_item() -> None:
+    before = run("\n".join([IDENT, "", "PAGE 1", "??", A, "", "9"]))
+    after = run("\n".join([IDENT, "", "PAGE 1", A, "??", "9"]))
+    assert "L07" in before and "L09" not in before
+    assert "L09" in after and "L07" not in after
+
+
+def test_page_jump_is_not_reported_where_the_merchandise_pages_end() -> None:
+    merch_end = run("\n".join([IDENT, "", "PAGE M-84", A, "PAGE 404", A, "", "9"]))
+    assert "L03" not in merch_end
+    assert "L03" in run("\n".join([IDENT, "", "PAGE 84", A, "PAGE 404", A, "", "9"]))

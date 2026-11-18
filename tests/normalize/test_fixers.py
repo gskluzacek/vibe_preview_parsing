@@ -73,3 +73,8 @@ def test_apply_fixes_preserves_line_count_and_trims_non_item_lines() -> None:
         and out[5] == ""
     )
     assert {c.rule_id for c in changes} == {"F07", "L01", "I01"}
+
+
+def test_legacy_star_sol_code_loses_only_its_space() -> None:
+    line = "\tSTAR1 7580\tMARVEL SELECT ELEKTRA ACTION FIGURE\t\tSRP: $29.99\t = $\t"
+    assert fixed(line) == (line.replace("STAR1 7580", "STAR17580"), ["I22"])

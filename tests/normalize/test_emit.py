@@ -80,3 +80,20 @@ def test_a_file_without_ident_gets_one_at_line_zero() -> None:
     ctx = build_context("MAR15", b"PAGE 1\nHEAD\n")
     out = emit(ctx, apply_fixes(ctx)[0])
     assert out.rows[0].kind == "D" and out.rows[0].src_line == 0
+
+
+def test_section_starts_where_the_merchandise_pages_end_even_if_the_number_is_higher() -> None:
+    item = "\tMAR15 0001\tBATMAN #1\t05/06/15\tSRP: $3.99\t = $\t"
+    source = [
+        "PREVIEWS MAR V19 #3",
+        "",
+        "PAGE M-84",
+        item,
+        "PAGE 404",
+        "\tMAR15 0002\tSUPPLY\t\tSRP: $3.99\t = $\t",
+        "9",
+    ]
+    ctx = build_context("MAR15", "\n".join(source).encode())
+    lines, _ = apply_fixes(ctx)
+    items = [r for r in emit(ctx, lines).rows if r.kind == "I"]
+    assert [(r.page, r.section, r.merchandise_flag) for r in items] == [(84, 1, 1), (404, 2, 0)]

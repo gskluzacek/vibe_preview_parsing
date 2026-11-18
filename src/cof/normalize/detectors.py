@@ -18,6 +18,8 @@ from cof.normalize.items import (
     KNOWN_FLAGS,
     PRICE_NOSPACE_RE,
     PRICE_RE,
+    SOL_LEGACY_RE,
+    SOL_LEGACY_SPLIT_RE,
     SOL_NOSPACE_RE,
     SOL_STRICT_RE,
     TAIL,
@@ -156,12 +158,15 @@ def page_line_damaged(ctx: FileContext) -> Iterator[Issue]:
 def page_number_jump(ctx: FileContext) -> Iterator[Issue]:
     """Report a PAGE number far above the previous one (backwards moves are section restarts, not issues)."""
     max_jump = int(rule_param("L03", "max_jump"))
-    previous = 0
+    previous, previous_merch = 0, False
     for number, text in ctx.typed_lines(LineType.PAGE):
         page = int(re.sub(r"\D", "", text.split()[-1].split("-")[-1]))
+        merch = "M-" in text
+        if previous_merch and not merch:
+            previous = page  # the merchandise pages ended; the ordinary numbering starts a new section
         if page - previous > max_jump:
             yield Issue("L03", number, f"{text.strip(' \t')} after page {previous}")
-        previous = page
+        previous, previous_merch = page, merch
 
 
 @detector("L04")
@@ -188,10 +193,20 @@ def hand_added_line(ctx: FileContext) -> Iterator[Issue]:
 
 @detector("L07")
 def unclassified_line(ctx: FileContext) -> Iterator[Issue]:
-    """Report lines of no known type (other than stray numbers)."""
+    """Report lines of no known type before the last item (other than stray numbers)."""
+    last_item = max((n for n, _ in ctx.typed_lines(LineType.ITEM)), default=0)
     for number, text in ctx.typed_lines(LineType.UNKNOWN):
-        if not text.strip(" \t").isdigit():
+        if number < last_item and not text.strip(" \t").isdigit():
             yield Issue("L07", number, text[:80])
+
+
+@detector("L09")
+def trailing_unclassified_line(ctx: FileContext) -> Iterator[Issue]:
+    """Report lines of no known type after the last item (trailing junk; other than stray numbers)."""
+    last_item = max((n for n, _ in ctx.typed_lines(LineType.ITEM)), default=0)
+    for number, text in ctx.typed_lines(LineType.UNKNOWN):
+        if number > last_item and not text.strip(" \t").isdigit():
+            yield Issue("L09", number, text[:80])
 
 
 @detector("L08")
@@ -250,8 +265,17 @@ def sol_code_malformed(ctx: FileContext) -> Iterator[Issue]:
     """Report sol codes that match neither the standard nor the no-space form."""
     for number, canon in _canonical_items(ctx):
         sol = canon[1].strip()
-        if not SOL_STRICT_RE.match(sol) and not SOL_NOSPACE_RE.match(sol):
+        known = (SOL_STRICT_RE, SOL_NOSPACE_RE, SOL_LEGACY_RE, SOL_LEGACY_SPLIT_RE)
+        if not any(p.match(sol) for p in known):
             yield Issue("I06", number, sol)
+
+
+@detector("I22")
+def sol_code_legacy_star(ctx: FileContext) -> Iterator[Issue]:
+    """Report legacy STAR sol codes split by a space after the fifth character."""
+    for number, canon in _canonical_items(ctx):
+        if SOL_LEGACY_SPLIT_RE.match(canon[1].strip()):
+            yield Issue("I22", number, canon[1])
 
 
 @detector("I07")

@@ -1,6 +1,12 @@
 # Reviewed edits for issues that cannot be fixed by a rule (see documentation/normalized_cof_spec.md section 4).
 # Each patch replaces the whole text of one line in the normalized file of one month. The patch is applied
 # only if the line still equals `old`; otherwise the run fails, so a stale patch cannot go unnoticed.
-patches: []
-# Example:
-#  - {month: JAN09, line: 5489, old: "POK?MON", new: "POKÉMON", reason: "restore damaged character"}
+patches:
+  - {month: NOV14, line: 4, old: "GE 24", new: "PAGE 24", reason: "damaged page line; the next page line is PAGE 25"}
+  - {month: NOV16, line: 3579, old: "\tNOV16 2862\tFALLOUT SURFACE NEVER VAULT FOREVER TIN SIGN REPLICA (C: 1-1-2)\t12/28/16\tSRP: $14.99\t = $\t", new: "\tNOV16 2962\tFALLOUT SURFACE NEVER VAULT FOREVER TIN SIGN REPLICA (C: 1-1-2)\t12/28/16\tSRP: $14.99\t = $\t", reason: "typo in the sol code; the neighbours are 2961 and 2963"}
+  - {month: SEP25, line: 53, old: "S\tSEP25 0043\tFRIDAY FOSTER COLLECTED HC (FEB201364)\t11/05/25\tSRP: $39.99\t = $\t", new: "SS\tSEP25 0043\tFRIDAY FOSTER COLLECTED HC (FEB201364)\t11/05/25\tSRP: $39.99\t = $\t", reason: "flag S is not defined; the item carries a prior-solicit code and the neighbours are SS"}
+  - {month: MAY11, line: 5, old: "SPOT\tMAY11 0001\tPREVIEWS #273 JULY 2011\t06/29/11\tMSRP: $4.50\t = $\t", new: "SPOT\tMAY11 0001\tPREVIEWS #274 JULY 2011\t06/29/11\tMSRP: $4.50\t = $\t", reason: "publisher repeated the number of APR11 (#273); the sequence (JUN11 is #275) and the formula give #274"}
+  - {month: MAY11, line: 7, old: "SPOT\tMAY11 0003\tPREVIEWS #273 JULY 2011 CUSTOMER ORDER FORM\t06/29/11\tSRP: PI\t = $\t", new: "SPOT\tMAY11 0003\tPREVIEWS #274 JULY 2011 CUSTOMER ORDER FORM\t06/29/11\tSRP: PI\t = $\t", reason: "same as line 5"}
+  - {month: MAR17, line: 3000, old: "PAGE 12", new: "", reason: "errant page number between two items of the same T-shirt series on PAGE 501; removed"}
+  - {month: FEB20, line: 2075, old: "PAGE 2999", new: "PAGE 299", reason: "garbled page number; checked against the printed catalog (items match page 299)"}
+  - {month: FEB20, line: 2087, old: "PAGE 3000", new: "PAGE 300", reason: "garbled page number; checked against the printed catalog (items match page 300)"}

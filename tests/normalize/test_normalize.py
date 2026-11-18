@@ -69,7 +69,9 @@ def test_foreign_layout_is_rejected() -> None:
 def test_patch_fixes_an_open_issue_and_is_reported_as_patched() -> None:
     patch = Patch(month="JAN13", line=6, old="GE 24", new="PAGE 24", reason="restore truncated PAGE line")
     done = normalize_file("JAN13", SOURCE.encode("cp1252"), RULES, [patch])
-    assert done.text is not None and "PAGE 24" in done.text
+    # The patched line is classified as a PAGE line: it sets the page number and is not a heading row.
+    assert done.text is not None and "PAGE 24" not in done.text
+    assert done.output_rows == 3  # ident row, heading, item
     assert ("L02", "patched") in {(r.rule_id, r.status) for r in done.records}
 
 

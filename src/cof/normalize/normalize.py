@@ -155,7 +155,9 @@ def normalize_file(
             )  # fmt: skip
         else:
             out_records.append(_record(issue, rules, "open", "", "", rule.fix))
-    emitted = emit(ctx, lines)
+    # Emit from the context of the repaired text, so a patch that changes a line's type (for example a
+    # damaged PAGE line) is classified as the patched line, not as the original.
+    emitted = emit(after, lines)
     table = _checked_table(month, ctx, emitted)
     ident_lines = [text for _, text in ctx.typed_lines(LineType.IDENT)]
     return replace(

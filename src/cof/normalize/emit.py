@@ -160,9 +160,9 @@ def emit(ctx: FileContext, lines: list[str]) -> Emitted:
         if kind == LineType.PAGE:
             m = _PAGE.match(line.strip())
             assert m is not None  # PAGE lines match by construction
-            merch, new_page = int(m[1] is not None), int(m[2])
-            if new_page < page:
-                section += 1  # the numbering restarted
+            was_merch, merch, new_page = merch, int(m[1] is not None), int(m[2])
+            if new_page < page or (was_merch and not merch):
+                section += 1  # the numbering restarted, or the M- pages ended and ordinary numbering resumed
             page = new_page
         if kind == LineType.IDENT:
             out.ledger[kind.value, REPLACED] += 1

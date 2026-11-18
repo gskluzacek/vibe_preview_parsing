@@ -50,7 +50,7 @@ rules:
      description: "A line looks like a PAGE line with its first characters cut off (for example 'GE 24').",
      fix: "None yet; likely a patch."}
   - {id: L03, name: page_number_jump, class: open, severity: info, anomaly: A19, params: {max_jump: 300},
-     description: "A PAGE number is more than max_jump above the previous PAGE number. Going backwards is normal: the numbering restarts in every section.",
+     description: "A PAGE number is more than max_jump above the previous PAGE number. Going backwards is normal: the numbering restarts in every section; so is a jump where the merchandise (M-) pages end and the ordinary numbering resumes.",
      fix: "None; the page number is carried as published."}
   - {id: L04, name: note_line, class: info, severity: info, anomaly: A21,
      description: "A '(NOTE: ...)' line.", fix: "Kept as a NOTE line."}
@@ -60,8 +60,11 @@ rules:
      description: "An item whose text is 'DO NOT ORDER FROM THIS LINE' (a publisher placeholder, sometimes with only 3 fields).",
      fix: "Kept as published; downstream code filters on the text."}
   - {id: L07, name: unclassified_line, class: open, severity: warning,
-     description: "A line that is not blank, PAGE, NOTE, IDENT, ITEM, FOOTER, annotation or heading.",
+     description: "A line before the last item that is not blank, PAGE, NOTE, IDENT, ITEM, FOOTER, annotation or heading.",
      fix: "None."}
+  - {id: L09, name: trailing_unclassified_line, class: info, severity: info,
+     description: "A line after the last item that is not blank, PAGE, NOTE, IDENT, ITEM, FOOTER, annotation or heading (trailing junk such as '??').",
+     fix: "Kept in the side-car as UNKNOWN."}
   - {id: L08, name: numeric_only_line, class: info, severity: info, anomaly: A23,
      description: "A line holding only a number that is not the footer.", fix: "Kept; counted."}
   # ---- item level -------------------------------------------------------------------------------
@@ -85,8 +88,9 @@ rules:
   - {id: I07, name: sol_month_differs_from_file, class: info, severity: info, anomaly: A8,
      description: "The month in the sol code differs from the file name. Normal from 2021 on (carried-over items keep their original code); a typo candidate in earlier files.",
      fix: "Kept as published."}
-  - {id: I08, name: sol_duplicate, class: open, severity: info, anomaly: A9,
-     description: "The same sol code appears more than once in the file.", fix: "None; key on line number too."}
+  - {id: I08, name: sol_duplicate, class: info, severity: info, anomaly: A9,
+     description: "The same sol code appears more than once in the file.",
+     fix: "Kept as published; the second and later occurrences get the suffix -1, -2 ... in the sol_code column."}
   - {id: I09, name: price_no_space, class: auto-lossless, severity: info, anomaly: A11,
      description: "A price has no space after 'SRP:' or 'MSRP:'.", fix: "A space is inserted."}
   - {id: I10, name: price_unrecognized, class: open, severity: warning,
@@ -119,6 +123,9 @@ rules:
   - {id: I21, name: price_no_designation, class: info, severity: info,
      description: "The price has no SRP or MSRP designation (a bare '$n.nn' or a bare 'PI').",
      fix: "The price designation column is left empty; the price is split as usual."}
+  - {id: I22, name: sol_code_legacy_star, class: auto-lossless, severity: info,
+     description: "A legacy STAR sol code (STAR plus 5 digits) is split after its fifth character, as in 'STAR1 7580'.",
+     fix: "The space is removed ('STAR17580'); the digits are unchanged."}
   - {id: F11, name: catalog_number_mismatch, class: open, severity: warning,
      description: "The number in the first 'PREVIEWS #nnn' item, minus 2 (it names the issue shipping two months later), differs from the catalog number derived from the file name.",
      fix: "None; the derived number is used in the ident row and the difference is recorded in idents.csv."}

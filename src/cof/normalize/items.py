@@ -27,6 +27,8 @@ KNOWN_FLAGS = frozenset(
 )
 SOL_STRICT_RE = re.compile(r"^[A-Z]{3}\d\d \d{4}$")
 SOL_NOSPACE_RE = re.compile(r"^[A-Z]{3}\d{6}$")
+SOL_LEGACY_RE = re.compile(r"^STAR\d{5}$")  # legacy Diamond SKU, for example STAR17580
+SOL_LEGACY_SPLIT_RE = re.compile(r"^STAR\d \d{4}$")  # the same SKU split by the form: STAR1 7580
 _MONEY = r"\$(?:\d{1,3}(?:,\d{3})+|\d+)\.\d\d"  # $12.99 or $1,094.99
 _STATUS = "PI|AR|FREE"  # previews inquiry (no price yet), advance reorder, free
 PRICE_RE = re.compile(rf"^(?:M?SRP: (?:{_MONEY}|{_STATUS})|{_MONEY}|{_STATUS})$")
