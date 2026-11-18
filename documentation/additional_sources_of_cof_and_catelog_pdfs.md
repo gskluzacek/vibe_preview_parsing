@@ -28,3 +28,8 @@ Several comic shops and document platforms still host copies of older order form
 * https://www.yumpu.com/en/document/view/24506636/2-2013-pdf-previewsworld
 * https://www.milehighcomics.com/html/10_20_cof.pdf
 
+# updates: 2026-11-17
+* this link looks to have PDFs of the order form from 1998 to 2010...
+* https://archive.org/details/diamond-customer-order-form-2002-07/Diamond%20Customer%20Order%20Form%201998%2001/page/16/mode/2up
+* https://archive.org/download/diamond-customer-order-form-2002-07
+
